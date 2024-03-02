@@ -1,0 +1,184 @@
+@import './_vars'
+@import './_fonts'
+	
+*
+	box-sizing: border-box
+	margin: 0
+	padding: 0
+
+body, html
+	margin: 0
+	padding: 0
+	width: auto
+	color: $text
+	font-family: $font
+	font-weight: 400
+	font-size: $fsz
+	background-color: $bg
+	line-height: 1.2
+	overflow-x: hidden
+	-ms-overflow-style: scrollbar
+	&::-webkit-scrollbar //скроллбар
+		width: 10px 
+		background-color: $bg
+	&::-webkit-scrollbar-thumb //ползунок
+		background-color: $main
+		border-radius: 6px
+	&::-webkit-scrollbar-button:vertical:start:decrement
+		background: linear-gradient(120deg, $bg 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(240deg, $bg 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(0deg, $bg 30%, rgba(0, 0, 0, 0) 31%)
+		background-color: $bg
+	&::-webkit-scrollbar-button:vertical:end:increment
+		background: linear-gradient(300deg, $bg 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(60deg, $bg 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(180deg, $bg 30%, rgba(0, 0, 0, 0) 31%)
+		background-color: $bg
+
+a, a:hover, a:active, a:link, a:focus
+	text-decoration: none
+	outline: none
+	color: $link
+	transition: .2s
+	font-size: $fsz
+	&:hover
+		transition: .2s
+		color: $link_hover
+p
+	line-height: 1.5
+	display: block
+
+b
+	display: block
+	line-height: 1.2
+
+img
+	max-width: 100%
+	display: block
+
+ul
+	list-style: none
+
+ol
+	list-style: decimal
+	padding-left: 20px
+
+div, span, article, nav, section, main, header
+	padding: 0
+	margin: 0
+
+input, button, select, textarea
+	box-shadow: none
+	color: $input_text
+	background-color: $input_bg
+	border: 1px solid rgba(0, 0, 0, 0.1)
+	appearance: none
+	-webkit-appearance: none
+	-moz-appearance: none
+	font-family: $font
+	font-size: $fsz
+	option
+		background-color: $input_bg
+		color: $input_text
+	&:placeholder
+		font-family: $font
+		font-size: $fsz
+		color: $text_gray
+
+textarea
+	resize: none
+	max-width: 440px
+	width: 100%
+	border: 1px solid rgba(0, 0, 0, 0.1)
+	max-height: 160px
+	padding: 10px 15px
+	-moz-appearance: none
+	-webkit-appearance: none
+	appearance: none
+	font-size: $fsz
+	background: $input_bg
+	color: $input_text
+
+input[type="text"],input[type="tel"],input[type="submit"], button, input[type="password"], input[type="email"]
+	-webkit-appearance: none
+	appearance: none
+	padding: 10px 15px
+	width: 100%
+	max-width: 100%
+
+input[type="submit"], button
+	cursor: pointer
+
+input[type="number"]
+	padding: 10px 15px
+	width: 100%
+	max-width: 440px
+	-moz-appearance: textfield
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button
+		-webkit-appearance: none
+		appearance: none
+		-moz-appearance: textfield
+		visibility: hidden
+		position: absolute 
+		margin: 0
+	
+input:focus, textarea:focus, select:focus, button:focus, select:focus
+	outline: none
+
+h1, h2, h3, h4, h5
+	font-weight: 600
+	display: block
+	font-family: $font_title
+
+.container 
+	width: 100%
+	max-width: 1245px
+	padding-right: 15px
+	padding-left: 15px
+	margin-right: auto
+	margin-left: auto
+
+@media (max-width: 992px) 
+	.container 
+		max-width: 740px
+@media (max-width: 767px) 
+	.container 
+		max-width: 540px
+@media (max-width: 576px) 
+	.container 
+		max-width: 100%
+
+section
+	margin-bottom: 90px
+	display: block
+
+
+
+.disabled
+	pointer-events: none
+	opacity: 0.5
+
+.hidden
+	display: none
+
+@media (min-width: 1940px)
+	html
+		zoom: 1.1
+		
+@media (min-width: 2400px)
+	html
+		zoom: 1.2
+    
+@media (min-width: 1110px) and (max-width: 1345px)
+	html
+		zoom: 0.8
+    
+@media (min-width: 992px) and (max-width: 1110px)
+	html
+		zoom: 0.7
+
+svg 
+	transition: .2s
+	path
+		transition: .2s
+	&:hover
+		transition: .2s
+		path
+			transition: .2s

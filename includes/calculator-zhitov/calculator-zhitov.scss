@@ -1,0 +1,110 @@
+@import "../../hiweb-core-3/assets/css/mixins";
+
+.calculator-zhitov {
+	@include display-flex;
+	justify-content: center;
+
+	form {
+		margin-bottom: 2em;
+
+		button, input[type="submit"] {
+			display: inline-block;
+			text-decoration: none;
+			background-color: #85170f;
+			-webkit-transition: background-color .3s;
+			-o-transition: background-color .3s;
+			transition: background-color .3s;
+			padding: 10px 15px;
+			font-family: PFDinDisplayPro, sans-serif;
+			color: #fff;
+			line-height: .9;
+			text-align: center;
+			font-size: 21px;
+			border: none;
+
+			&:hover {
+				background-color: #52100b;
+			}
+		}
+
+		input, select {
+			min-width: 6em;
+		}
+	}
+
+	.block_raschet_l, .block_raschet_r {
+		width: 50%;
+	}
+
+	.block_img {
+		margin-bottom: 1em;
+		text-align: center;
+		border: 1px solid #ccc;
+		padding: .4em;
+
+		img, picture {
+			cursor: pointer;
+		}
+
+		.fon {
+			font-size: .8em;
+			font-weight: 300;
+		}
+	}
+
+
+	@media all and (max-width: 768px) {
+		flex-direction: column;
+		.block_raschet_l, .block_raschet_r {
+			width: 100%;
+
+		}
+	}
+
+	.block_raschet_r {
+		padding: 12px;
+		border: 1px solid #e4e4e4;
+		margin-bottom: 40px;
+
+		&.loading {
+			&:before {
+				content: '';
+				background: url(../../inc/img/rounded-dots.svg) 50% 50% no-repeat;
+				display: block;
+				padding: 100px 0;
+				height: 20px;
+			}
+		}
+
+		.sp_calc {
+			padding: 10px 12px;
+			background-color: #e4e4e4;
+			@include box-shadow();
+			margin-bottom: 16px;
+			font-size: 85%;
+
+			i {
+				font-size: 23px;
+				color: #434343;
+				margin: 0;
+				font-weight: 700;
+			}
+		}
+
+		#drawing {
+			font-size: 85%;
+			img {
+				@include box-shadow();
+			}
+		}
+
+		.inline {
+			i {
+				color: #434343;
+				font-weight: 700;
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,181 @@
+@import "./reset/_vars"
+
+.news-cats, .single-tags
+  display: block
+  margin: 30px 0 15px 0
+  li.current-cat
+    a
+      border-color: $hover
+      color: $hover
+  li
+    white-space: nowrap
+    a
+      white-space: nowrap
+  a
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 40px
+    padding: 0 15px
+    color: $text
+    font-size: $fsz
+    font-weight: 500
+    border: 1px solid rgba(47, 43, 67, 0.15)
+    margin-right: 15px
+    margin-bottom: 15px
+    &:hover
+      border-color: $hover
+      color: $hover
+  ul
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    flex-wrap: wrap
+
+.news-cats-lis
+  display: block
+  margin: 30px 0 15px 0
+  li
+    display: flex
+    justify-content: center
+    align-items: center
+    cursor: pointer
+    height: 40px
+    padding: 0 15px
+    color: $text
+    font-size: $fsz
+    font-weight: 500
+    border: 1px solid rgba(47, 43, 67, 0.15)
+    margin-right: 15px
+    margin-bottom: 15px
+    &:hover
+      border-color: $hover
+      color: $hover
+  ul
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    flex-wrap: wrap
+
+.blog-page
+  .news-block-wrap 
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-items: stretch
+    margin-bottom: 20px
+    .item
+      margin-bottom: 30px
+      width: calc(25% - (60px / 4))
+      margin-right: 20px
+      &:nth-child(4n + 4)
+        margin-right: 0
+
+
+@media (max-width: 992px)
+  .blog-page 
+    .news-block-wrap 
+      justify-content: space-between
+      .item
+        width: calc(50% - 10px)
+        margin-bottom: 20px
+        margin-right: 0
+
+@media (max-width: 578px)
+  .news-cats, .single-tags
+    margin: 15px 0 10px 0
+    ul
+      flex-wrap: nowrap
+      overflow-x: auto
+      padding-left: 15px
+      padding-right: 15px
+      position: relative
+      left: -15px
+      padding-bottom: 5px
+      min-width: calc(100% + 30px)
+    a
+      margin-bottom: 0
+      margin-right: 10px
+      padding: 0 12px
+      font-size: 16px
+  .news-cats-lis
+    margin: 15px 0 10px 0
+    ul
+      flex-wrap: nowrap
+      overflow-x: auto
+      padding-left: 15px
+      padding-right: 15px
+      position: relative
+      left: -15px
+      padding-bottom: 5px
+      min-width: calc(100% + 30px)
+    li
+      margin-bottom: 0
+      margin-right: 10px
+      padding: 0 12px
+      font-size: 16px
+  .blog-page 
+    .page-title
+      margin-bottom: 15px
+      font-size: 32px
+    .news-block-wrap 
+      .item
+        width: 100%
+        margin-bottom: 10px
+        p
+          position: static
+          font-size: 14px
+          color: $main
+          padding: 0 10px
+        b
+          font-size: 18px
+          padding: 0 10px
+          margin-bottom: 16px
+
+
+
+@media (max-width: 578px)
+  .news-cats-lis
+    margin-bottom: 15px
+    ul
+      padding-bottom: 5px
+    li
+      font-size: 16px
+      font-weight: 500
+      margin-bottom: 0px
+  
+
+.cards.gall-page
+  .show-more
+    margin-left: auto
+    margin-right: auto
+    margin-top: 40px
+    max-width: 380px
+  .item
+    &.unselect
+      display: none
+
+.news-cats-lis
+  li.active
+    color: $hover
+    border-color: $hover
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  

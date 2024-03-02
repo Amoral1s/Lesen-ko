@@ -1,0 +1,122 @@
+@import "./reset/_vars"
+
+.search
+  
+  #ajaxsearchlite1 
+    box-shadow: none
+    border: none
+    border-radius: 0
+    
+    .probox
+      background-color: rgba(47, 43, 67, 0.04)!important
+      width: 100%
+    .probox, form
+      height: 60px
+      position: relative
+      .proinput
+        z-index: 8
+        margin-left: 0
+        padding-left: 0
+        padding-right: 0
+        margin-right: 0
+        width: 100%
+        max-width: 100%
+      .proclose
+        display: none!important
+      .proloading
+        position: absolute
+        right: 15px
+        top: 50%
+        transform: translateY(-50%)
+      .promagnifier
+        position: absolute
+        right: 15px
+        top: 50%
+        transform: translateY(-50%)
+        z-index: 10
+        height: 24px
+        width: 24px
+        background-repeat: no-repeat
+        background-size: contain
+        background-image: url(../img/icons/search.svg)
+        cursor: pointer
+        .innericon
+          display: none!important
+      input
+        height: 60px
+        font-size: $fsz
+        color: $text
+        padding-left: 15px!important
+        background-color: rgba(47, 43, 67, 0.04)!important
+        &::placeholder
+          font-size: $fsz
+          color: $text_gray
+  div.asl_m .probox .proinput input.autocomplete
+    margin-top: 0!important
+
+div.asl_r .results .item .asl_content h3, div.asl_r .results .item .asl_content h3 a
+  color: $text!important
+  &:hover
+    color: $hover!important
+.wpdreams_asl_results
+  margin-top: 0!important
+
+div.asl_m, div.asl_r
+  z-index: 50!important
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

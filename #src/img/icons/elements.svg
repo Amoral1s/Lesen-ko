@@ -1,0 +1,7 @@
+<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="elements">
+<path id="Ellipse 438" d="M1 11C1 16.5228 5.47715 21 11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 0.999999 11 0.999999" stroke="#C01025" stroke-width="1.5" stroke-linejoin="round"/>
+<path id="Ellipse 439" d="M11 1C5.47715 1 1 5.47715 1 11" stroke="#C01025" stroke-width="1.5" stroke-linejoin="round" stroke-dasharray="3 2"/>
+<path id="Vector" d="M15 7L11 11M11 11L7 15M11 11L15 15M11 11L7 7" stroke="#C01025" stroke-width="1.5" stroke-linejoin="round"/>
+</g>
+</svg>

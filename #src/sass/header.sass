@@ -1,0 +1,847 @@
+@import "./reset/_vars"
+@import "./reset/_reset"
+
+
+
+
+//header
+@keyframes headerPC
+  0%
+    transform: translateY(-100%)
+  100%
+    transform: translateY(0)
+
+@media (max-width: 992px)
+  section
+    margin-bottom: 40px
+  .offer
+    margin-top: 60px
+    padding-top: 0
+    padding-bottom: 30px
+    &-form
+      margin-top: 0
+      margin-bottom: 40px
+      small
+        font-size: 12px
+        a
+          font-size: 12px
+      .form .row
+        display: block
+        .submit
+          width: 100%
+          margin-bottom: 20px
+          max-width: 100%
+        .input
+          width: 100%
+          margin-bottom: 15px
+          margin-right: 0
+          max-width: 100%
+          padding-right: 0
+      .title
+        font-size: 24px
+        margin-bottom: 10px
+      .subtitle
+        font-size: 16px
+        margin-bottom: 20px
+    .container
+      display: flex
+      flex-direction: column-reverse
+      align-items: center
+      justify-content: flex-end
+      padding-top: 300px
+    .left
+      padding-top: 25px
+      width: 100%
+      h1
+        font-size: 44px
+        margin-bottom: 15px
+        max-width: 540px
+      .subtitle
+        font-size: 16px
+        margin-bottom: 24px
+        max-width: 540px
+    .right
+      position: absolute
+      width: 100vw
+      bottom: auto
+      right: auto
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+      height: 300px
+      overflow: hidden
+      img
+        display: block
+        object-fit: cover
+        width: 100%
+        max-width: 100%
+        object-position: left top
+  .header
+    border-bottom: 1px solid rgba(47, 43, 67, 0.15)
+    position: fixed
+    top: 0
+    right: 0
+    left: 0
+    width: 100%
+    background-color: $bg
+    z-index: 100
+    .burger
+      display: flex
+      align-items: center
+      position: relative
+      z-index: 10
+      justify-content: flex-end
+      &.active
+        .close
+          display: none!important
+        .open
+          display: flex!important
+    &-top
+      display: flex
+      align-items: center
+      justify-content: space-between
+      padding-top: 15px
+      padding-bottom: 15px  
+      .logo
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        img
+          display: block
+          height: 30px
+          object-fit: contain
+        p
+          font-size: 11px
+          width: 130px
+          line-height: 1.2
+          font-weight: 400
+          color: $text
+          padding-left: 8px
+  .mob-menu
+    position: fixed
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    height: 100dvh
+    width: 100%
+    background-color: $bg
+    padding-top: 60px
+    z-index: 98
+    padding-bottom: 40px
+    overflow-y: auto
+    overflow-x: hidden
+    display: none
+    .container
+      position: relative
+    .back-btn
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      margin-top: 15px
+      margin-bottom: 10px
+      font-size: 18px
+      font-weight: 500
+      color: $main
+      .icon
+        display: flex
+        align-items: center
+        margin-right: 10px
+    &-catalog
+      position: absolute
+      background-color: $bg
+      width: calc(100% - 30px)
+      top: 0
+      z-index: 10
+      padding-top: 0px
+      padding-bottom: 50px
+      overflow-x: hidden
+      height: 100%
+      display: none
+      .item
+        border-bottom: 1px solid $border
+        ul
+          display: none
+          a, span
+            display: block
+            font-size: 18px
+            margin-bottom: 12px
+        &-header
+          display: flex
+          align-items: center
+          justify-content: flex-start
+          position: relative
+          width: 100%
+          padding-top: 15px
+          padding-bottom: 15px
+          &.active
+            &::after
+              transition: .2s
+              transform: translateY(-50%) rotate(-90deg)
+          &::after
+            position: absolute
+            content: ''
+            height: 24px
+            width: 24px
+            right: 0
+            top: 50%
+            transition: .2s
+            transform: translateY(-50%) rotate(90deg)
+            background-repeat: no-repeat
+            background-size: contain
+            background-image: url(../img/icons/mob-menu-arr.svg)
+          b
+            font-size: 18px
+            line-height: 1.2
+            font-weight: 500
+          .icon
+            display: flex
+            align-items: center
+            margin-right: 12px
+            img
+              height: 24px
+              width: 24px
+    .btns
+      display: flex
+      align-items: center
+      justify-content: space-between
+      .button
+        width: calc(50% - 5px)
+        font-weight: 400
+        font-size: 18px
+        max-width: 100%
+        height: 50px
+        &.callback
+          font-size: 16px
+      
+    &-contacts
+      display: flex
+      justify-content: flex-start
+      align-items: center
+      margin-bottom: 16px
+      .left
+        width: max-content
+        display: block
+        margin-right: 33px
+        time
+          font-size: 14px
+          position: relative
+          padding-left: 11px
+          white-space: nowrap
+          &::after
+            position: absolute
+            content: ''
+            height: 5px
+            width: 5px
+            background-color: #04CC00
+            border-radius: 100%
+            left: 0
+            top: 50%
+            transform: translateY(-50%)
+        a
+          display: block
+          font-size: 18px
+          font-weight: 700
+          margin-bottom: 4px
+      .right
+        width: max-content
+        a
+          font-size: 16px
+          font-weight: 600
+    .menu
+      margin-bottom: 25px
+      ul
+        li
+          border-bottom: 1px solid $border
+          &.menu-item-has-children
+            &>a, &>span
+              position: relative
+              display: block
+              &.active
+                &:after
+                  transform: translateY(-50%) rotate(0deg)
+                  transition: .2s
+              &::after
+                position: absolute
+                content: ''
+                height: 24px
+                width: 24px
+                right: 0
+                top: 50%
+                transition: .2s
+                transform: translateY(-50%) rotate(90deg)
+                background-repeat: no-repeat
+                background-size: contain
+                background-image: url(../img/icons/mob-menu-arr.svg)
+          ul
+            position: static
+            display: none
+            margin-bottom: 15px
+            li
+              border: none
+              a
+                padding: 0
+                border: none
+                margin-bottom: 12px
+                font-size: 18px
+                font-weight: 400
+          &>a, &>span
+            font-size: 18px
+            font-weight: 400
+            color: $text
+            display: block
+            padding: 15px 0 
+    .toggle
+      display: flex
+      justify-content: space-between
+      align-items: center
+      padding: 15px 0
+      border-bottom: 1px solid rgba(47, 43, 67, 0.15)
+      position: relative
+      &::after
+        position: absolute
+        content: ''
+        height: 24px
+        width: 24px
+        right: 0
+        top: 50%
+        transition: .2s
+        transform: translateY(-50%) rotate(0deg)
+        background-repeat: no-repeat
+        background-size: contain
+        background-image: url(../img/icons/mob-menu-arr.svg)
+      span
+        font-size: 18px
+        color: $text
+
+    
+
+@media (min-width: 992px)
+  @keyframes cat-menu
+    0%
+      transform: translateX(-200%)
+    100%
+      transform: translateX(0)
+  .header
+    background-color: $bg
+    position: absolute
+    top: 0
+    right: 0
+    width: 100%
+    z-index: 100
+    padding-bottom: 15px
+    .burger
+      display: none
+    &.open-cat
+      background-color: $bg
+    &.active
+      position: fixed
+      top: 0
+      right: 0
+      width: 100%
+      z-index: 90
+      background-color: $bg
+      backdrop-filter: blur(150px)
+      box-shadow: 0 0 5px rgba(#000, .1)
+      transform: translateY(-100%)
+      animation-name: headerPC
+      animation-delay: 1s
+      animation-duration: 1s
+      animation-fill-mode: forwards
+    &-top
+      display: flex!important
+      justify-content: space-between
+      align-items: center
+      padding: 30px 0
+      .right
+        display: flex!important
+        align-items: center
+        justify-content: flex-end
+      .button
+        min-width: 155px
+        width: 155px
+        margin-left: 15px
+        font-size: 16px
+        font-weight: 500
+        height: 50px
+      a.button
+        margin-left: 35px
+        font-size: 18px
+        font-weight: 400
+        .icon
+          display: flex
+          align-items: center
+          margin-right: 10px
+      .email
+        font-size: 18px
+        font-weight: 600
+        white-space: nowrap
+      &-contacts
+        display: flex
+        flex-direction: column
+        align-items: flex-end
+        justify-content: center
+        width: max-content
+        margin-left: 35px
+        a
+          font-size: 20px
+          font-weight: 700
+          display: block
+          margin-bottom: 4px
+          white-space: nowrap
+        time
+          font-size: 16px
+          position: relative
+          padding-left: 11px
+          white-space: nowrap
+          &::after
+            position: absolute
+            content: ''
+            height: 5px
+            width: 5px
+            background-color: #04CC00
+            border-radius: 100%
+            left: 0
+            top: 50%
+            transform: translateY(-50%)
+      .logo
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        img
+          width: 193px
+          object-fit: contain
+          display: block
+        p
+          font-size: 16px
+          line-height: 1.2
+          margin-left: 10px
+          width: 190px
+    &-bottom
+      display: flex!important
+      align-items: center
+      justify-content: flex-start
+      .cat-btn-wrap
+        position: relative
+        &::after
+          position: absolute
+          content: ''
+          height: 25px
+          width: 100%
+          top: 99%
+          z-index: 4
+          left: -40px 
+      .menu
+        display: block!important
+        ul
+          display: flex
+          align-items: center
+          justify-content: flex-start
+        a
+          display: block
+          font-size: 18px
+          font-weight: 400
+          margin-right: 0px
+        li
+          margin-right: 30px
+        li.menu-item-has-children
+          position: relative
+          &.active
+            &>a, &>span
+              color: $main
+              &::after
+                background-image: url(../img/icons/menu-open-arr.svg)
+                transition: .2s
+          &>a, &>span
+            position: relative
+            padding-right: 30px
+            &::after
+              position: absolute
+              content: ''
+              height: 24px
+              width: 24px
+              background-repeat: no-repeat
+              background-size: contain
+              background-image: url(../img/icons/menu-close-arr.svg)
+              right: 0
+              top: 50%
+              transform: translateY(-50%)
+              transition: .2s
+          &::after
+            position: absolute
+            content: ''
+            top: 100%
+            height: 25px
+            width: 100% 
+            left: 0px 
+          ul
+            position: absolute
+            background-color: #fff
+            box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.10)
+            top: calc(100% + 25px)
+            display: none
+            padding: 30px
+            left: -30px
+            li
+              margin-right: 0
+            li:last-child
+              a
+                margin-bottom: 0
+            a
+              font-size: 18px
+              font-weight: 500
+              margin-bottom: 12px
+              white-space: nowrap
+              margin-right: 0
+      .cat-btn
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        cursor: pointer
+        position: relative
+        margin-right: 30px
+        height: 24px
+        &.active
+          .icon.closed
+            display: none
+          .icon.open
+            display: flex!important
+        &:hover
+          opacity: 1
+          p
+            color: $hover
+        .icon
+          display: flex
+          align-items: center
+          margin-right: 6px
+          width: 24px
+        p
+          font-size: 18px
+          font-weight: 500
+          color: $main
+          line-height: 1.2
+          transition: .2s
+  .catalog-menu
+    position: fixed
+    padding-top: 40px
+    top: 149px
+    left: 0
+    right: 0
+    z-index: 10
+    background-color: #fff
+    width: 100%
+    height: auto
+    max-height: calc(100dvh)
+    overflow-y: auto
+    overflow-x: hidden
+    -ms-overflow-style: scrollbar
+    padding-bottom: 60px
+    display: none
+    opacity: 0
+    transition: 0
+    transform: translateX(-200%)
+    &.active
+      display: block!important
+      opacity: 1
+      animation-name: cat-menu
+      animation-duration: 0.7s
+      animation-fill-mode: forwards
+    &-wrap
+      display: flex
+      justify-content: space-between
+      align-items: flex-start
+      .right
+        width: 260px
+        height: auto
+        display: block
+        span
+          display: block
+      .left
+        width: calc(100% - 260px)
+        display: flex
+        justify-content: flex-start
+        align-items: flex-start
+        .item
+          width: 25%
+          padding-right: 60px
+          height: auto
+          a, span
+            display: block
+            font-size: 18px
+            margin-bottom: 12px
+          .icon
+            display: flex
+            align-items: center
+            margin-bottom: 20px
+            height: 20px
+          b
+            font-size: 20px
+            margin-bottom: 20px
+            white-space: nowrap
+            line-height: 1.2
+            display: block
+        
+    &::-webkit-scrollbar //скроллбар
+      width: 10px 
+      background-color: $bg
+    &::-webkit-scrollbar-thumb //ползунок
+      background-color: $main
+      border-radius: 6px
+    &::-webkit-scrollbar-button:vertical:start:decrement
+      background: linear-gradient(120deg, $bg 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(240deg, $bg 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(0deg, $bg 30%, rgba(0, 0, 0, 0) 31%)
+      background-color: $bg
+    &::-webkit-scrollbar-button:vertical:end:increment
+      background: linear-gradient(300deg, $bg 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(60deg, $bg 40%, rgba(0, 0, 0, 0) 41%), linear-gradient(180deg, $bg 30%, rgba(0, 0, 0, 0) 31%)
+      background-color: $bg
+
+@media (max-width: 767px)
+  .offer 
+    .left 
+      h1
+        font-size: 32px
+        margin-bottom: 14px
+      .subtitle
+        font-size: 16px
+        margin-bottom: 24px
+
+
+.offer
+  padding-top: 182px
+  padding-bottom: 200px
+  position: relative
+  margin-bottom: 0
+  .pc
+    display: block!important
+  .mob
+    display: none
+  &-feat
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    .item
+      width: max-content
+      margin-right: 25px
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      p
+        font-weight: 500
+        line-height: 1.2
+      .icon
+        display: flex
+        align-items: center
+        margin-right: 10px
+        img
+          object-fit: contain
+          display: block
+  .row
+    margin-bottom: 40px
+    .button
+      width: 205px
+      margin-right: 15px
+  .left
+    width: 540px
+    position: relative
+    z-index: 5
+    .subtitle
+      font-weight: 400
+      margin-bottom: 25px
+      display: block
+      line-height: 1.2
+  .right
+    position: absolute
+    z-index: 2
+    bottom: 0
+    right: 0
+    height: 654px
+    display: block
+    aspect-ratio: 1054 / 654
+  &-form
+    position: relative
+    z-index: 6
+    border-radius: 5px
+    border: 1px solid rgba(0, 0, 0, 0.06)
+    background: rgba(255, 255, 255, 0.85)
+    backdrop-filter: blur(53.5px)
+    margin-top: -112px
+    padding: 30px 35px
+    margin-bottom: 70px
+    form .row
+      margin-bottom: 25px
+      flex-wrap: nowrap
+    small
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      position: relative
+      font-size: 14px
+      color: rgba(47, 43, 67, 0.50)
+      padding-left: 34px
+      cursor: pointer
+      &::after
+        position: absolute
+        content: ''
+        height: 24px
+        width: 24px
+        background-repeat: no-repeat
+        background-size: contain
+        background-image: url(../img/icons/checked.svg)
+        transition: .2s
+        left: 0
+        top: 50%
+        transform: translateY(-50%)
+      &.unselect
+        &::after
+          background-image: url(../img/icons/unchecked.svg)
+          transition: .2s
+      a
+        color: rgba(47, 43, 67, 0.50)
+        font-size: 14px
+        text-decoration: underline
+        display: block
+        margin-left: 5px
+        &:hover
+          color: $main
+    .input
+      width: 260px
+      &.file
+        width: 170px
+        display: flex
+        align-items: center
+        justify-content: center
+        height: 60px
+        padding: 0 20px
+        border: 1px dashed rgba(47, 43, 67, 0.40)
+        border-radius: 0
+        cursor: pointer
+        margin-right: 15px
+        transition: .2s
+        &:hover
+          transition: .2s
+          border-color: $main
+          p
+            color: $main
+          svg path
+            fill: $main
+        .icon
+          display: flex
+          align-items: center
+          margin-right: 10px
+          width: max-content
+        p
+          font-size: 16px
+          font-weight: 400
+          margin: 0
+          display: block!important
+          position: static
+          line-height: 1.2
+          color: $text
+        .wpcf7-form-control-wrap
+          display: none!important
+        input
+          display: none
+    .submit
+      width: 183px
+      position: relative
+      .button
+        width: 100%
+        max-width: 100%
+        height: 60px
+      .wpcf7-spinner
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+
+@media (max-width: 578px)
+  .mob-menu .container
+    height: 100%
+  .input
+    p
+      top: 5px
+    input
+      max-height: 50px
+  .submit
+    .button
+      max-height: 50px
+  .offer-form 
+    .submit
+      margin-bottom: 20px
+    small
+      display: inline-block
+      font-size: 12px
+      a
+        display: inline
+        font-size: 12px
+    .input.file
+      max-height: 50px
+  .offer 
+    &-form
+      padding: 20px
+      .row
+        margin-bottom: 20px!important
+      .input
+        p
+          top: 5px
+        input
+          max-height: 50px
+    &-feat
+      .item
+        width: 33.3%
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: flex-start
+        margin: 0
+        .icon
+          margin: 0
+          margin-bottom: 6px
+        p
+          font-size: 14px
+          font-weight: 500
+          text-align: center
+          display: block
+          line-height: 1.2
+          white-space: nowrap
+    .row
+      display: block
+      margin-bottom: 20px
+      .button
+        width: 100%
+        max-width: 100%
+        margin-bottom: 10px
+    .pc
+      display: none!important
+    .mob
+      display: block!important
+    .container
+      padding-top: 291px
+    .left
+      h1
+        max-width: 400px
+    .right
+      height: 291px
+      img
+        height: 291px
+        max-width: 100%
+        object-fit: cover
+        object-position: top left
+
+
+@media (max-width: 992px)
+  .mob-menu
+    padding-bottom: 0
+    &-catalog
+      padding-bottom: 20px
+    .container
+      height: auto
+      display: block
+      .btns
+        margin-bottom: 40px
+
+
+
+
+
+

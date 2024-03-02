@@ -1,0 +1,226 @@
+#thx, #thx-feed
+  display: none
+  z-index: 5000
+  background-color: #fff
+  border-radius: 5px
+  padding: 30px
+  flex-direction: column
+  align-items: center
+  width: 515px
+  max-width: calc(100vw - 30px)
+  box-shadow: 0px 4px 45px rgba(0, 0, 0, 0.1)
+  .wrapper
+    display: flex
+    flex-direction: column
+    align-items: center
+  .icon
+    margin: auto
+    margin-bottom: 20px
+    display: block 
+    background-color: #12B76A
+    border-radius: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 80px
+    width: 80px
+    margin-bottom: 24px
+  b
+    display: block
+    font-size: 32px
+    margin-bottom: 10px
+    text-align: center
+  p
+    color: $text
+    display: block
+    margin-bottom: 25px
+    text-align: center
+  .button
+    width: 100%
+    max-width: 100%
+    box-shadow: none
+
+@media (max-width: 578px)
+  #thx, #thx-feed
+    padding: 20px
+    b
+      font-size: 24px
+
+#thx-feed
+  .icon
+    background-color: #C01025
+
+.wpcf7-response-output
+  display: none!important
+
+.overlay
+  position: fixed
+  z-index: 100
+  top: 0
+  width: 100%
+  left: 0
+  right: 0
+  bottom: 0
+  height: 100%
+  background: rgba(#000, 0.2)
+  backdrop-filter: blur(20px)
+  display: none
+.popup
+  width: 515px
+  max-width: 95vw
+  max-height: 95vh
+  background-color: $bg
+  padding: 30px
+  border-radius: 5px
+  z-index: 150
+  display: none
+  position: fixed
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  color: $text
+  &>b
+    font-size: 32px
+    display: block
+    line-height: 1
+    margin-bottom: 10px
+    color: $text
+  &>p
+    line-height: 1.2
+    margin-bottom: 25px
+    color: $text
+  &-thx
+    opacity: .3
+  .input
+    margin-bottom: 15px
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"]
+    appearance: none
+    border-radius: 0px
+    background-color: $input_bg
+    border: $border
+    height: 60px
+    width: 100%
+    max-width: 100%
+    display: block
+    font-size: 16px
+    padding-left: 20px
+    color: $input_text
+    &::placeholder
+      color: $small_text
+  .submit
+    position: relative
+    margin-bottom: 25px
+    .wpcf7-spinner
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      margin: 0
+  textarea
+    resize: none
+    appearance: none
+    border-radius: 10px
+    background-color: $bg
+    border: $border
+    height: 210px
+    width: 100%
+    max-width: 100%
+    display: block
+    font-size: 18px
+    padding-left: 20px
+    padding-top: 25px
+  input.button
+    box-shadow: none
+    width: 100%
+    max-width: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-bottom: 20px
+    margin-top: 20px
+    height: 60px
+    font-size: 18px
+    font-weight: 600
+  small
+    color: $small_text
+    font-size: 14px
+    line-height: 1.5
+    padding-left: 34px
+    cursor: pointer
+    position: relative
+    display: inline-block
+    width: 100%
+    &::after
+      position: absolute
+      content: ''
+      height: 24px
+      width: 24px
+      background-repeat: no-repeat
+      background-size: contain
+      background-image: url(../img/icons/checked.svg)
+      transition: .2s
+      left: 0
+      top: 50%
+      transform: translateY(-50%)
+    &.unselect
+      &::after
+        background-image: url(../img/icons/unchecked.svg)
+        transition: .2s
+    a
+      color: $small_text
+      font-size: 14px
+      text-decoration: underline
+      margin-left: 5px
+      &:hover
+        color: $main
+  .close
+    position: absolute
+    cursor: pointer
+    transition: .2s
+    top: 20px
+    right: 20px
+    z-index: 10
+  &.popup-video
+    width: 920px
+    max-width: 95vw
+    border-radius: 5px
+    .close
+      top: 10px
+      right: 10px
+    iframe
+      border-radius: 5px
+      max-width: 100%
+      aspect-ratio: 4 / 3
+      height: auto!important
+      display: block
+  
+@media (max-width: 578px)
+  .popup
+    padding: 20px
+    &>b
+      font-size: 24px
+      padding-right: 30px
+      margin-bottom: 10px
+    &>p
+      font-size: 16px
+      margin-bottom: 15px
+    .form
+      small
+        font-size: 12px
+        line-height: 1.2
+        a
+          font-size: 12px
+      .button
+        font-size: 16px
+      .submit
+        margin-bottom: 10px
+      .input
+        margin-bottom: 10px
+        height: 50px
+        margin-right: 0
+        padding-right: 0
+        input
+          height: 50px
+

@@ -1,0 +1,814 @@
+@import "./reset/_vars"
+
+
+.content, .seo
+  &-production
+    margin-bottom: 60px
+  &-table
+    width: max-content
+    margin-bottom: 70px
+    .item
+      display: flex
+      align-items: center
+      justify-content: space-between
+      border-bottom: 1px solid rgba(47, 43, 67, 0.15)
+      padding: 20px 0
+      &:last-child
+        border-bottom: none
+        padding-bottom: 0
+      .key, .value
+        display: block
+        margin: 0
+        font-size: $fsz
+        color: $text
+      .value
+        font-weight: 800
+      .key
+        font-weight: 500
+        min-width: 600px
+        padding-right: 50px
+  .gallery
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    flex-wrap: wrap
+    margin: 50px 0 30px 0
+    a
+      display: block
+      width: calc(25% - (60px / 4))
+      margin-right: 20px
+      margin-bottom: 20px
+      &:hover
+        img
+          opacity: .7
+          transition: .2s
+      img
+        display: block
+        transition: .2s
+        object-fit: cover
+        aspect-ratio: 1 / 1
+        width: 100%
+        height: auto
+      &:nth-child(4n + 4)
+        margin-right: 0
+    .gallery-item
+      display: block
+      width: calc(25% - (60px / 4))
+      margin-right: 20px
+      margin-bottom: 20px
+      a
+        width: 100%
+        margin: 0
+      &:hover
+        img
+          opacity: .7
+          transition: .2s
+      img
+        display: block
+        transition: .2s
+        object-fit: cover
+        aspect-ratio: 1 / 1
+        width: 100%
+        height: auto
+      &:nth-child(4n + 4)
+        margin-right: 0
+  .cards-wrap .item .meta-row
+    p,b
+      margin-bottom: 0!important
+  .cards
+    margin-bottom: 40px
+  .wp-block-quote
+    p
+      display: block
+      border-radius: 20px
+      margin-bottom: 40px
+      margin-top: 40px
+      color: $text
+      font-size: 22px
+      font-weight: 600
+      padding: 30px
+      position: relative
+      padding-left: 80px
+      background-color: #fff
+      &::after
+        position: absolute
+        content: ''
+        height: 32px
+        width: 32px
+        left: 30px
+        transform: translateY(-50%)
+        top: 50%
+        background-repeat: no-repeat
+        background-size: contain
+        background-image: url(../img/icons/q.svg)
+  .wp-block-group
+    padding-top: 30px
+    .wp-block-group
+      padding-top: 0
+  .wp-block-group__inner-container
+    display: flex
+    justify-content: space-between
+    align-items: stretch
+    flex-wrap: wrap
+    .wp-block-image
+      width: calc(40% - 10px)
+      margin-bottom: 0px
+    .wp-block-group
+      width: calc(60% - 10px)
+    h1,h2,h3,h4,h5,h6
+      margin-top: 0
+      width: 100%
+    p
+      width: 100%
+  .wp-block-image
+    display: block
+    margin-bottom: 30px
+    .wp-element-caption
+      width: 100%
+      text-align: end
+      font-size: $fsz
+      color: $text
+    img
+      width: 100%
+      object-fit: contain
+      border-radius: 15px
+      display: block
+  iframe
+    width: 100%
+    height: auto
+    object-fit: contain
+    aspect-ratio: 16 / 9
+    border-radius: 10px
+  .wp-block-table
+    margin-bottom: 30px
+    margin-top: 30px
+    table
+      tbody
+        tr
+          border-bottom: 1px solid $border
+          &:first-child
+            td
+              font-weight: 700
+          &:last-child
+            border-bottom: none
+          &:nth-child(odd)
+            background-color: trasparent
+            border-radius: 0
+          td
+            color: $text
+            font-weight: 400
+            text-align: left
+            border: none
+            padding: 15px
+            &:first-child
+              border-radius: 0
+            &:last-child
+              border-radius: 0
+      thead
+        border: none
+        tr
+          th
+            color: $text
+            font-weight: 700
+            text-align: left
+            border: none
+            padding: 15px
+  table
+    margin-bottom: 10px
+    tbody
+      tr
+        border-bottom: 1px solid $border!important
+        border-radius: 0!important
+        &:first-child
+          td
+            font-weight: 700
+            font-size: 18px!important
+            h3
+              font-size: 18px!important
+        &:last-child
+          border-bottom: none
+        &:nth-child(odd)
+          background-color: trasparent
+          border-radius: 0
+        td
+          color: $text
+          font-weight: 400
+          text-align: left!important
+          border: none
+          padding: 15px 0
+          border-bottom: 1px solid $border
+          &:first-child
+            border-radius: 0
+          &:last-child
+            border-radius: 0
+    thead
+      border: none
+      tr
+        th
+          color: $text
+          font-weight: 700
+          text-align: left!important
+          border: none
+          font-size: 18px!important
+          padding: 15px
+  h2,h3,h4,h5,h6, h1
+    display: block
+    margin-bottom: 15px
+    margin-top: 30px
+  h1
+    font-size: 44px
+  h2
+    font-size: 40px
+  h3
+    font-size: 36px
+  h4
+    font-size: 28px
+  h5
+    font-size: 24px
+  h6
+    font-size: 20px
+  a
+    font-size: $fsz
+    color: $link
+    &:hover
+      color: $link_hover
+  p
+    color: $text
+    font-weight: 400
+    line-height: 1.5
+    display: block
+    margin-bottom: 20px 
+    font-size: $fsz
+    a
+      font-size: $fsz
+      color: $link
+      &:hover
+        color: $link_hover
+    strong
+      color: $text
+  ul
+    display: block
+    margin-bottom: 20px
+    li
+      margin-bottom: 10px
+      position: relative
+      padding-left: 20px
+      font-size: $fsz
+      color: $text
+      line-height: 1.5
+      strong
+        color: $text
+      &::after
+        position: absolute
+        content: ''
+        width: 8px
+        height: 8px
+        border-radius: 100%
+        background-color: $main
+        left: 0
+        top: 50%
+        transform: translateY(-50%)
+        
+  ol
+    display: block
+    margin-bottom: 20px
+    li
+      margin-bottom: 15px
+      position: relative
+      font-size: $fsz
+      color: $text
+      strong
+        color: $text
+
+.only-single-page
+  .page-title
+    margin-bottom: 24px
+  .subtitle
+    margin-bottom: 30px
+  .author
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    margin-bottom: 30px
+    .share
+      position: relative
+      margin-left: auto
+      margin-right: 0
+      &-block
+        background-color: #fff
+        border-radius: 5px
+        padding: 10px
+        position: absolute
+        bottom: 99%
+        left: auto
+        right: 0
+        padding-right: 0
+        display: none
+        .ya-share2__container
+          display: flex
+          justify-content: flex-end
+          align-items: center
+          width: max-content
+        li
+          margin-right: 10px!important
+      &-toggle
+        display: flex
+        align-items: center
+        cursor: pointer
+        transition: .2s
+        .icon
+          display: flex
+          align-content: center
+          margin-right: 6px
+        &:hover
+          opacity: .7
+          transition: .2s
+        p
+          font-size: 18px
+          font-weight: 400
+          color: $main
+    .top-rat
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      margin-left: 40px
+      .new-rating
+        .wpd-rating-stars
+          display: flex
+          justify-content: flex-start
+          align-items: center
+          svg
+            width: 24px
+            height: 24px
+            display: block
+            margin-right: 3px
+            path
+              fill-opacity: 0.15
+              &.wpd-active
+                fill: #FFA621
+                fill-opacity: 1
+      .votes
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        margin-left: 7px
+        font-size: $fsz
+        color: $text
+        font-weight: 500
+    .views, .read-time
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      margin-left: 40px
+      .icon
+        display: flex
+        align-items: center
+        margin-right: 10px
+      .value
+        font-size: $fsz
+        font-weight: 500
+        display: block
+        line-height: 1.2
+        color: $text
+    .row
+      display: flex
+      align-items: center
+      justify-content: flex-start
+      width: max-content
+      margin-right: 0px
+      .name
+        b
+          font-size: 20px
+          line-height: 1
+          font-weight: 700
+          margin-bottom: 5px
+          white-space: nowrap
+        span
+          color: rgba(47, 43, 67, 0.50)
+          font-size: 18px
+          display: block
+          white-space: nowrap
+      .avatar
+        display: block
+        margin-right: 15px
+        img
+          width: 60px
+          height: 60px
+          border-radius: 100%
+          display: block
+          object-fit: cover
+          aspect-ratio: 1 / 1
+
+  .thumb
+    display: block
+    margin-bottom: 40px
+    img
+      width: 100%
+      display: block
+      object-fit: cover
+      height: 566px
+
+  .single-nav
+    padding-bottom: 40px
+    width: 100%
+    border-bottom: 1px solid rgba(47, 43, 67, 0.15)
+    margin-bottom: 50px
+    b
+      font-size: 28px
+      display: block
+      margin-bottom: 15px
+      line-height: 1.2
+      font-weight: 700
+    &-wrap
+      display: block
+      a
+        display: block
+        font-size: 20px
+        font-weight: 400
+        margin-bottom: 6px
+        line-height: 1.5
+
+@media (max-width: 992px)
+  .share.act-share
+    justify-content: flex-start
+    width: 100%
+  .only-single-page 
+    .thumb
+      img
+        aspect-ratio: 320 / 200
+        height: auto
+    .author 
+      flex-wrap: wrap
+      .row
+        width: 100%
+        margin-bottom: 15px
+      .top-rat
+        margin-left: 0
+  .single .comments #wpdcom .wpd-form-wrap .wpd-form-foot .wpd-form-row
+    display: block
+  .single .comments #wpdcom .wpd-form-wrap .wpd-form-foot .wpd-form-row 
+    .wpd-form-col-right
+      width: 100%
+      display: flex
+      justify-content: flex-start
+    .wpd-form-col-left
+      width: 100%
+      display: block
+      .wpdiscuz-item
+        margin-bottom: 15px
+        width: 100%
+        max-width: 100%
+
+@media (max-width: 767px)
+  
+  .only-single-page 
+    .cards
+      margin-bottom: 30px
+      margin-top: 0
+      .item
+        margin-bottom: 0
+    .content, .seo
+      .gallery
+        justify-content: space-between
+        a
+          width: calc(50% - 5px)
+          margin-bottom: 10px
+          margin-right: 0
+        .gallery-item
+          width: calc(50% - 5px)
+          margin-bottom: 10px
+          width: 100%
+          a
+            width: 100%
+      .production
+        margin-bottom: 30px
+        &-wrap
+          aspect-ratio: 350 / 224
+          height: auto
+          img
+            aspect-ratio: 350 / 224
+            height: auto
+      &-table
+        width: 100%
+        max-width: 100%
+        margin-bottom: 40px
+        .item
+          justify-content: space-between
+          padding: 12px 0
+          &:last-child
+            padding-bottom: 0
+          &.first
+            .key, .value
+              font-size: 18px
+          .key, .value
+            width: max-content
+            width: 50%
+            font-size: 16px
+            min-width: 0
+          .key
+            width: 70%
+            font-size: 14px
+          .value
+            width: 30%
+            text-align: end
+            font-size: 16px
+      
+
+      .wp-block-quote 
+        margin-bottom: 30px
+        margin-top: 10px
+        display: block
+        p
+          font-size: 18px
+          padding: 20px
+          padding-top: 60px
+          position: relative
+          &::after
+            left: 20px
+            top: 30px
+            
+      h2,h3,h4,h5,h6
+        margin-bottom: 13px
+        margin-top: 20px
+        line-height: 1
+      h2
+        font-size: 30px
+      h3
+        font-size: 28px
+      h4
+        font-size: 26px
+      h5
+        font-size: 24px
+      h6
+        font-size: 22px
+      p
+        margin-bottom: 20px
+    .thumb
+      margin-bottom: 20px
+    .single-nav
+      padding-bottom: 16px
+      margin-bottom: 20px
+      b
+        font-size: 22px
+        margin-bottom: 15px
+      &-wrap
+        a
+          margin-bottom: 4px
+          font-size: 16px
+          line-height: 1.5
+    .page-title
+      font-size: 32px
+      margin-bottom: 15px
+    .subtitle
+      font-size: 16px
+      line-height: 1.5
+      margin-bottom: 20px
+    .author
+      .share
+        margin-left: 0
+        margin-right: auto
+        order: 6
+        margin-left: 30px
+      .top-rat
+        order: 4
+      .read-time
+        order: 3
+        width: max-content
+        margin: 0
+        margin-bottom: 15px
+        margin-right: 220px
+      .views
+        order: 2
+        width: max-content
+        margin: 0
+        margin-right: 30px
+        margin-bottom: 15px
+      .row
+        margin-right: 0
+        width: 100%
+        order: 1
+        .avatar
+          border-radius: 100%
+          background-color: #fff
+        .name
+          b
+            font-size: 18px
+            margin-bottom: 5px
+          span
+            font-size: 16px
+
+@media (max-width: 578px)
+  .only-single-page .content .production
+    min-width: calc(100% + 30px)
+    position: relative
+    left: -15px
+
+
+@media (max-width: 767px)
+  .content table tbody tr:first-child td h3, .seo table tbody tr:first-child td h3
+    font-size: 12px!important
+    margin: 0
+  .content, .seo
+    .wp-block-image figure
+      float: none
+      width: 100%
+      margin: 0
+      padding: 0
+      img
+        margin: 0
+        padding: 0
+    .wp-block-image
+      width: 100%
+      display: block
+      margin-bottom: 30px
+      .wp-element-caption
+        width: 100%
+        text-align: end
+        font-size: $fsz
+        color: $text
+      img
+        width: 100%
+        object-fit: contain
+        border-radius: 15px
+        display: block
+    iframe
+      width: 100%
+      height: auto
+      object-fit: contain
+      aspect-ratio: 16 / 9
+      border-radius: 10px
+    .wp-block-table
+      margin-bottom: 20px
+      margin-top: 20px
+      table
+        tbody
+          tr
+            td
+              font-weight: 400
+              text-align: left
+              border: none
+              padding: 10px 
+              font-size: 12px
+        thead
+          tr
+            th
+              font-weight: 400
+              text-align: left
+              border: none
+              padding: 10px 
+              font-size: 14px
+    table
+      tbody
+        tr
+          td
+            font-weight: 400
+            text-align: left
+            padding: 10px 
+            font-size: 12px!important
+            h3
+              font-size: 12px!important
+      thead
+        tr
+          th
+            font-weight: 400
+            text-align: left
+            padding: 10px 
+            font-size: 12px!important
+            h3
+              font-size: 12px!important
+    h2,h3,h4,h5,h6, h1
+      display: block
+      margin-bottom: 20px
+      margin-top: 20px
+    h1 
+      font-size: 36px
+    h2
+      font-size: 30px
+    a
+      font-size: 14px
+    h3
+      font-size: 28px
+    h4
+      font-size: 24px
+    h5
+      font-size: 20px
+    h6
+      font-size: 20px
+    p
+      font-weight: 400
+      line-height: 1.5
+      display: block
+      margin-bottom: 15px 
+      font-size: 16px
+      strong
+        color: $text
+    ul
+      display: block
+      margin-bottom: 20px
+      li
+        margin-bottom: 10px
+        position: relative
+        font-size: 16px
+        
+    ol
+      display: block
+      margin-bottom: 20px
+      li
+        margin-bottom: 15px
+        position: relative
+        font-size: 14px
+  .page-search-wrap
+    margin-top: 30px
+    &-item
+      padding: 20px
+      padding-right: 50px
+      margin-bottom: 10px
+      .icon
+        right: 20px
+        svg
+          height: 24px
+          width: 24px
+      b
+        font-size: 18px
+      p, .text
+        font-size: 12px
+        margin-top: 10px
+  .share.act-share
+    justify-content: flex-start
+    width: 100%
+    margin-left: 0!important
+    padding-left: 0!important
+@media (max-width: 578px)
+  .wp-pagenavi
+    margin-top: 0
+    margin-bottom: 50px
+    span.current
+      height: 40px
+      width: 40px
+      min-width: 40px
+      font-size: 14px
+    a
+      width: 40px
+      min-width: 40px
+      max-width: 40px
+      height: 40px
+      font-size: 14px
+  .content, .seo
+    h1,h2,h3,h4,h5,h6
+      margin-top: 20px
+      margin-bottom: 15px
+    h2
+      font-size: 30px
+    h3
+      font-size: 26px
+    h4
+      font-size: 24px
+    h5
+      font-size: 18px
+    h1
+      font-size: 34px
+    p, li
+      font-size: 16px
+    tr,td
+      font-size: 16px
+  .content .wp-block-quote p
+    padding: 20px
+    display: block
+    padding-top: 60px
+    font-size: 16px
+    &::after
+      left: 20px
+      top: 30px
+  .content .wp-block-group
+    padding-top: 0
+  .content .wp-block-table
+    min-width: calc(100% + 15px)
+    table
+      min-width: 600px
+      max-width: 100%
+      overflow-x: scroll
+      padding-bottom: 20px
+  .content .wp-block-table table tbody tr td,
+  .seo .wp-block-table table tbody tr td
+    padding: 10px
+    font-size: 14px
+  .seo .wp-block-table table thead tr th,
+  .content .wp-block-table table thead tr th
+    padding: 10px
+    font-size: 16px
+  .share.act-share
+    justify-content: flex-start!important
+    width: 100%
+    margin-left: 0!important
+    padding-left: 0!important
+
+@media (max-width: 767px)
+  .content, .seo
+    .gallery
+      justify-content: space-between
+      .gallery-item
+        width: calc(50% - 5px)
+        margin-bottom: 10px
+        margin-right: 0
+        a
+          width: 100%

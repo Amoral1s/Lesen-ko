@@ -1,0 +1,398 @@
+@import "./reset/_vars"
+
+
+.calc
+  margin-bottom: 100px
+  .page-title
+    margin-bottom: 25px
+  .subtitle
+    margin-bottom: 50px
+  .title
+    font-size: 32px
+    font-weight: 700
+    line-height: 1
+    margin-bottom: 30px
+  
+  label
+    cursor: pointer
+    transition: .2s
+    &:hover
+      transition: .2s
+      opacity: .8
+  .textes
+    display: block
+    margin-bottom: 60px
+    &-row
+      display: flex
+      justify-content: space-between
+      align-items: center
+      padding: 10px
+      background: rgba(47, 43, 67, 0.04)
+      .item
+        width: 100%
+        height: 55px
+        display: flex
+        justify-content: center
+        align-items: center
+        max-width: 33.3%
+        
+        b
+          font-size: 18px
+          font-weight: 600
+          padding: 10px
+          color: rgba(47, 43, 67, 0.50)
+      input:checked + label
+        background-color: $main
+        b
+          color: #fff
+  .images
+    display: block
+    margin-bottom: 60px
+    &.big
+      .images-row
+        .item
+          width: 320px
+          img
+            height: 240px
+    &-row
+      display: flex
+      justify-content: flex-start
+      align-items: stretch
+      min-width: calc(100% + 20px)
+      .item
+        width: 100%
+        margin-right: 20px
+        max-width: calc(33.3% - 20px)
+        background: #fff
+        padding: 7px
+        border: 3px solid #fff
+        b
+          font-size: 18px
+          font-weight: 500
+          padding: 10px
+        img
+          display: block
+          height: 172px
+          width: 100%
+          object-fit: cover
+          margin: 0
+          margin-bottom: 15px
+      input:checked + label
+        border: 3px solid $main
+  .ranges
+    &-block
+      display: block
+      .item
+        position: relative
+        background-color: rgba(47, 43, 67, 0.04)
+        margin-bottom: 20px
+        display: block
+        width: 700px
+        max-width: 100%
+        .irs--round 
+          height: 40px
+          margin-top: -25px
+          .irs-bar
+            background-color: $main
+        .irs-min, .irs-max, .irs-single, .irs-from, .irs-to
+          display: none
+        .irs-handle
+          border: none
+          background-color: $main
+          box-shadow: none
+          cursor: pointer
+        p
+          font-size: 14px
+          color: rgba(47, 43, 67, 0.50)
+          display: block
+          line-height: 1.2
+          margin-bottom: 0
+          padding-left: 15px
+          padding-top: 10px
+        span
+          font-size: 18px
+          font-weight: 400
+          color: $text
+          display: block
+          padding-left: 15px
+  &-form
+    background-color: #fff
+    padding: 30px
+    margin-top: 80px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .left
+      width: calc(100% - 400px - 40px)
+      b
+        font-size: 32px
+        display: block
+        line-height: 1
+        font-weight: 700
+        margin-bottom: 10px
+      p
+        line-height: 1.2
+        font-size: 16px
+        color: rgba(47, 43, 67, 0.70)
+    .right
+      width: 400px
+      display: flex
+      justify-content: flex-end
+      align-items: center
+      .meta
+        display: block
+        small
+          font-size: 16px
+          font-weight: 400
+          display: block
+          color: rgba(47, 43, 67, 0.70)
+        strong
+          font-size: 28px
+          font-weight: 800
+          display: block
+          line-height: 1
+          margin-bottom: 4px
+          text-align: end
+          white-space: nowrap
+          
+      .button
+        max-width: 200px
+        width: 200px
+        margin-left: 30px
+
+@media (max-width: 992px)
+  .calc 
+    &-form
+      display: block
+      .left
+        width: 100%
+        margin-bottom: 20px
+        b
+          font-size: 30px
+          margin-bottom: 10px
+        p
+          font-size: 16px
+      .right
+        width: 100%
+        display: block
+        .button
+          margin-left: 0
+        .meta
+          margin-bottom: 20px
+          strong
+            text-align: start
+    .images
+      &-row
+        flex-wrap: wrap
+        .item
+          width: calc(33.3%)
+          margin-right: 20px
+          margin-bottom: 20px
+      &.big
+        .images-row
+          justify-content: space-between
+          .item
+            width: calc(50% - 10px)
+            max-width: 100%
+            margin-right: 0
+            margin-bottom: 20px
+  
+@media (max-width: 767px)
+  .calc
+    .title
+      font-size: 22px
+      margin-bottom: 20px
+    .page-title
+      font-size: 32px
+      margin-bottom: 15px
+    .subtitle
+      font-size: 16px
+      margin-bottom: 20px
+    .textes
+      margin-bottom: 30px
+      &-row
+        display: block
+        .item
+          width: 100%
+          max-width: 100%
+    .images
+      margin-bottom: 30px
+      &.big
+        .images-row
+          .item
+            width: calc(50% - 5px)
+            margin-bottom: 10px
+            img
+              height: auto
+      &-row
+        flex-wrap: wrap
+        justify-content: space-between
+        min-width: 0
+        .item
+          margin-right: 0px
+          width: calc(50% - 5px)
+          margin-bottom: 10px
+          max-width: 100%
+          img
+            height: auto
+            aspect-ratio: 135 / 90
+            margin-bottom: 10px
+          b
+            padding: 0
+            font-size: 16px
+
+.calc.quiz
+  .calc-form
+    margin-top: 50px
+    &.active
+      display: flex!important
+  .ranges-block
+    .item
+      background-color: #fff
+  .textes
+    &-row
+      background-color: #fff
+      input:checked + label
+        b
+          color: #fff
+      .item
+        b
+          color: $text
+        
+  .images
+    &-row
+      .item
+        background: transparent
+        padding: 0
+        border: none
+        margin-right: 14px
+        img
+          border: 3px solid transparent
+        b
+          color: #fff
+          padding: 0
+      input:checked + label
+        b
+          color: $hover
+        img
+            border: 3px solid $hover
+  .btns
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    margin-top: 50px
+    .button
+      width: 190px
+      max-width: 190px
+      margin-right: 10px
+      &.button-dark
+        background-color: rgba(255, 255, 255, 0.14)
+        &:hover
+          opacity: .8
+  .quiz-count-step
+    position: relative
+    margin: 0
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    color: #fff
+    font-size: 20px
+    font-weight: 700
+    margin-bottom: -26px
+    span
+      display: block
+      margin: 0 4px
+  .quiz-line
+    display: flex
+    align-items: center
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 30px
+    span
+      width: 100%
+      height: 5px
+      margin: 0
+      background-color: rgba(255, 255, 255, 0.10)
+      &.active
+        background-color: $main
+  .container
+    .calc-form
+      color: $text
+    .quiz-step
+      display: none
+      .title
+        margin-bottom: 25px
+        font-size: 26px
+      &.active
+        display: block
+
+@media (max-width: 992px)
+  .calc.quiz 
+    .calc-form
+      &.active
+        display: block!important
+    .textes-row
+      display: block
+      .item
+        width: 100%
+        max-width: 100%
+  
+@media (max-width: 767px)
+  .calc.quiz 
+    .btns
+      margin-top: 30px
+      .button
+        width: calc(50% - 5px)
+        max-width: 100%
+    .images-row 
+      .item
+        margin-right: 0
+        margin-bottom: 30px
+  
+@media (max-width: 578px)
+  .calc.quiz .container .quiz-step .title
+    font-size: 20px
+    margin-bottom: 24px
+  .calc.quiz .quiz-count-step
+    font-size: 14px
+    margin-bottom: -22px
+  .calc.quiz 
+    .images-row
+      margin-bottom: 20px
+    .calc-form
+      margin-bottom: 40px
+    .ranges
+      margin-bottom: 40px
+    .btns
+      margin-top: 0px
+      .button
+        width: calc(50% - 5px)
+        max-width: 100%
+    .images
+      margin-bottom: 0
+      &-row 
+        input:checked + label
+          img
+            opacity: 1!important
+        .item
+          margin-right: 0
+          width: calc(50% - 2px)
+          margin-bottom: 20px
+          &:hover
+            img
+              opacity: 1!important
+
+
+.irs--round .irs-bar--single
+  border-radius: 0
+  
+
+
+
+
+  
+
+
+
+
+  

@@ -1,0 +1,320 @@
+@import "./reset/_vars"
+.alignleft
+  float: left
+.alignright
+  float: right
+.grecaptcha-badge
+  display: none
+  visibility: hidden
+  opacity: 0
+.content
+  p
+    img
+      margin: 15px
+
+@media (max-width: 767px)
+  .content
+    p
+      img
+        width: 100%
+        float: none
+        margin: 0
+        margin-bottom: 20px
+
+.button, a.button
+  display: flex
+  align-items: center
+  justify-content: center
+  transition: .2s
+  background-color: $button
+  color: #fff
+  font-size: 18px
+  font-weight: 600
+  cursor: pointer
+  width: 100%
+  line-height: 1
+  max-width: 205px
+  height: 55px
+  .icon
+    display: flex
+    align-items: center
+    margin-right: 10px
+  &:hover
+    transition: .2s
+    background-color: $button_hover
+    color: #fff
+  &.button-white
+    background-color: #fff
+    color: $text
+    font-weight: 600
+    &:hover
+      background-color: $button_hover
+      color: #fff
+      svg path
+        stroke: #fff
+  &.button-transparent
+    background-color: transparent
+    border: 1px solid $border
+    color: $text
+    &:hover
+      border-color: $button
+  &.button-transparent-red
+    background-color: transparent
+    border: 1px solid $button
+    color: $button
+    &:hover
+      border-color: $button
+      background-color: $button
+      color: #fff
+      
+.title
+  font-weight: 700
+  color: $title_color
+  display: block
+  font-size: 40px
+  text-align: left
+  line-height: 1
+  font-family: $font
+  margin-bottom: 40px
+  &.title-sub
+    margin-bottom: 20px
+  span
+    color: $main
+
+.row
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  width: 100%
+
+.page-title
+  font-size: 46px
+  display: block
+  margin-bottom: 50px
+  line-height: 1
+  font-weight: 700
+  span
+    color: $main
+
+.subtitle
+  font-size: 18px
+  line-height: 1.2
+  display: block
+  font-weight: 400
+  color: $text_gray
+  margin-bottom: 30px
+
+.hidden
+  display: none!important
+
+.wp-pagenavi
+  display: flex
+  margin-top: 30px
+  width: 100%
+  justify-content: center
+  align-items: center
+  .nextpostslink,
+  .previouspostslink
+    font-size: 18px
+    width: 36px
+    height: 36px
+    margin: 0 5px
+    border-radius: 100%
+    color: rgba(#2F2B43, .4)
+    &:hover
+      color: $main
+  .extend
+    display: none
+  .last
+    display: none
+  span.current
+    color: #fff
+    border-radius: 100%
+    border: none
+    min-width: 36px
+    font-size: 18px
+    line-height: 1
+    height: 36px
+    background-color: $main
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 0 5px 
+    font-weight: 500
+  a
+    color: $text
+    border: none
+    min-width: 36px
+    font-size: 18px
+    height: 36px
+    font-weight: 500
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: 0 5px
+    transition: .2s
+    border-radius: 100%
+    &:hover
+      transition: .2s
+      color: $main
+  .pages
+    display: none
+  
+.breadcrumbs
+  display: flex
+  align-items: center
+  justify-content: flex-start
+  margin-bottom: 30px
+  line-height: 1
+  font-size: 16px 
+  color: rgba(47, 43, 67, 0.50)
+  line-height: 1
+  a, span
+    font-size: 16px
+    font-weight: 400
+    color: rgba(47, 43, 67, 0.50)
+    line-height: 1
+    display: flex
+    align-items: center
+  .breadcrumb_last
+    padding-bottom: 2px
+    margin-left: 6px
+  .pb
+    padding-bottom: 3px
+  a
+    margin: 0 6px
+    margin-left: 0
+    padding-bottom: 2px
+    &.cent
+      margin-left: 6px
+    &.main
+      margin-right: 6px
+      margin-left: 0
+  a
+    &:hover
+      color: $link_hover
+  &.blog-bread
+    a
+      margin-bottom: 0
+      padding-bottom: 0
+    span:nth-child(2)
+      a
+        margin-left: 5px
+
+.input
+  border-radius: 16px
+  position: relative
+  p
+    position: absolute
+    display: none
+    left: 15px
+    color: rgba(47, 43, 67, 0.50)
+    font-size: 14px
+    left: 15px
+    top: 10px
+  textarea
+    border-radius: 0
+    height: 155px
+    resize: none
+    border: none
+    font-size: 16px
+    color: $input_text
+    background-color: $input_bg
+    width: 100%
+    max-width: 100%
+    display: block
+    padding-top: 20px
+    &:placeholder
+      color: $text_gray
+      font-size: 18px
+  input
+    border-radius: 0
+    height: 60px
+    border: none
+    font-size: 16px
+    color: $input_text
+    display: block
+    background-color: $input_bg
+    width: 100%
+    max-width: 100%
+    &:placeholder
+      color: $text_gray
+      font-size: 18px
+  &.listen
+    input
+      padding-top: 30px
+    textarea
+      padding-top: 30px
+    p
+      display: block
+  input.wpcf7-not-valid
+    border: 1px solid #C01025!important
+  .wpcf7-form-control-wrap
+    position: relative
+    span
+      position: absolute
+      color: #C01025
+      font-size: 12px
+      top: 5px
+      right: 5px
+
+.page-top
+  padding-top: 186px
+
+.form
+  .title
+    margin-bottom: 10px
+  .subtitle
+    margin-bottom: 25px
+  .row
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-items: center
+  .input
+    padding-right: 15px
+
+.not-found
+  padding-top: 20px
+  .container
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    flex-direction: column
+  .button
+    margin: auto
+    max-width: 143px
+  h1
+    color: $text
+    font-size: 46px
+    margin-bottom: 15px
+    display: block
+    padding-top: 20px
+  p
+    font-size: 18px
+    text-align: center
+    color: rgba(47, 43, 67, 0.70)
+    line-height: 1.2
+    max-width: 553px
+    margin-bottom: 30px
+
+@media (max-width: 767px)
+  .not-found
+    margin-bottom: 100px
+    padding-top: 60px
+    h1
+      padding-top: 0
+      font-size: 28px
+      margin-bottom: 10px
+    p
+      font-size: 16px
+      margin-bottom: 25px
+      max-width: 360px
+      width: 100%
+    img
+      object-fit: contain
+      display: block
+      margin-bottom: 40px
+      width: 212px
+
