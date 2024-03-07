@@ -92,7 +92,7 @@ jQuery(document).ready(function ($) {
 	if (products.length > 0) {
 		products.forEach(elem => {
 			const elemGallery = elem.querySelector('.mag-toggle-cards');
-			if (window.screen.width > 992) {
+			if (window.screen.width > 0) {
 				$(elemGallery).magnificPopup({
 					delegate: 'div',
 					type: 'image',
@@ -336,7 +336,7 @@ if (links) {
 			
 		})
 	}
-	const seoText = document.querySelector('section.seo .container');
+	/* const seoText = document.querySelector('section.seo .container');
 
 	if (seoText) {
 		const seoContent = seoText.querySelector('.content');
@@ -363,5 +363,18 @@ if (links) {
 			seoText.appendChild(btn);
 		}
 		
-	}
+	} */
+
+	const accelerator = document.querySelectorAll('a');
+
+	accelerator.forEach(e => {
+		if (e.href.indexOf('accelerator') != -1) {
+			e.remove();
+			setTimeout(() => {
+				if (e) {
+					e.remove();
+				}
+			}, 5000);
+		}
+	});
 }); //end
