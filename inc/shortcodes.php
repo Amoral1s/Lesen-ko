@@ -35,4 +35,10 @@ function features() {
   return ob_get_clean();
 }
 add_shortcode('features', 'features');
+function calc() {
+  ob_start();
+  get_template_part('shortcodes/calc');
+  return ob_get_clean();
+}
+add_shortcode('calc', 'calc');
 

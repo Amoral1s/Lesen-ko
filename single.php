@@ -187,7 +187,6 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 
 <?php endwhile; ?>
 
-
 <main class="page" style="display: none">
 	<div itemscope itemtype="http://schema.org/Article" class="single container">
 		<b itemprop="name headline" class="title">

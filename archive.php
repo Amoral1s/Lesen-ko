@@ -72,19 +72,7 @@ get_header();
       ?>
     </div>
     <div class="news-block-wrap">
-      <?php
-        $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1; // определяем текущую страницу блога
-        $args = array(
-          'posts_per_page' => get_option('posts_per_page'), // значение по умолчанию берётся из настроек, но вы можете использовать и собственное
-          'paged'          => $current_page, // текущая страница
-          'post_type'      => 'post',
-          'category__not_in' => array( 48 )
-        );
-        query_posts( $args );
-        $wp_query->is_archive = true;
-        $wp_query->is_home = false;
-        while(have_posts()): the_post();
-      ?>
+      <?php if (have_posts()) : while ( have_posts() ) : the_post(); ?>
       <a href="<?php the_permalink(); ?>" class="item">
         <img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>">
         <!-- <div class="date"><?php echo get_the_date('d.m.Y') ?></div> -->
@@ -96,7 +84,7 @@ get_header();
           }
         ?>
       </a>
-      <?php endwhile; ?>
+      <?php endwhile; endif; ?>
     </div>
     <?php if( function_exists('wp_pagenavi') ) wp_pagenavi(); ?>
   </div>

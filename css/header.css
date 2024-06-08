@@ -809,7 +809,8 @@ svg:hover path {
             justify-content: flex-start;
   }
 
-  .header-bottom .menu a {
+  .header-bottom .menu a,
+  .header-bottom .menu span {
     display: block;
     font-size: 18px;
     font-weight: 400;
@@ -890,7 +891,8 @@ svg:hover path {
     margin-bottom: 0;
   }
 
-  .header-bottom .menu li.menu-item-has-children ul a {
+  .header-bottom .menu li.menu-item-has-children ul a,
+  .header-bottom .menu li.menu-item-has-children ul span {
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 12px;
@@ -1557,7 +1559,8 @@ svg:hover path {
     border: none;
   }
 
-  .mob-menu .menu ul li ul li a {
+  .mob-menu .menu ul li ul li a,
+  .mob-menu .menu ul li ul li span {
     padding: 0;
     border: none;
     margin-bottom: 12px;

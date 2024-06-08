@@ -127,16 +127,55 @@ jQuery(document).ready(function ($) {
 		})
 	}
 	const gallery = document.querySelectorAll('.gallery');
+	const galleryWP = document.querySelectorAll('.wp-block-gallery');
+	
 	
 	if (gallery.length > 0) {
 		gallery.forEach(elem => {
-			$(elem).magnificPopup({
-				delegate: 'figure a',
-				type: 'image',
-				gallery: {
-					enabled: true
-				}
-			});
+			const setType = elem.querySelector('figure');
+
+			if (setType) {
+				$(elem).magnificPopup({
+					delegate: 'figure a',
+					type: 'image',
+					gallery: {
+						enabled: true
+					}
+				});
+			} else {
+				$(elem).magnificPopup({
+					delegate: 'a',
+					type: 'image',
+					gallery: {
+						enabled: true
+					}
+				});
+			}
+			
+		})
+	}
+	if (galleryWP.length > 0) {
+		galleryWP.forEach(elem => {
+			const setType = elem.querySelector('figure');
+
+			if (setType) {
+				$(elem).magnificPopup({
+					delegate: 'figure a',
+					type: 'image',
+					gallery: {
+						enabled: true
+					}
+				});
+			} else {
+				$(elem).magnificPopup({
+					delegate: 'a',
+					type: 'image',
+					gallery: {
+						enabled: true
+					}
+				});
+			}
+			
 		})
 	}
 	
