@@ -22,7 +22,7 @@
         <?php if (have_rows('of_feat', 'options')) : while(have_rows('of_feat', 'options')) : the_row(); ?>
         <div class="item">
           <div class="icon">
-            <img src="<?php the_sub_field('ikonka'); ?>" alt="<?php the_sub_field('zagolovok'); ?>">
+            <img  itemprop="image" src="<?php the_sub_field('ikonka'); ?>" alt="<?php the_sub_field('zagolovok'); ?>">
           </div>
           <p><?php the_sub_field('zagolovok'); ?></p>
         </div>
@@ -30,8 +30,8 @@
       </div>
     </div>
     <div class="right">
-      <img class="pc" style="display: none" src="<?php the_field('offer_bg', 'options'); ?>" title="<?php the_field('offer_title', 'options'); ?>" alt="<?php the_field('offer_title', 'options'); ?>" />
-      <img class="mob" src="<?php the_field('offer_bg_mob', 'options'); ?>" title="<?php the_field('offer_title', 'options'); ?>" alt="<?php the_field('offer_title', 'options'); ?>" />
+      <img  itemprop="image" class="pc" style="display: none" src="<?php the_field('offer_bg', 'options'); ?>" title="<?php the_field('offer_title', 'options'); ?>" alt="<?php the_field('offer_title', 'options'); ?>" />
+      <img  itemprop="image" class="mob" src="<?php the_field('offer_bg_mob', 'options'); ?>" title="<?php the_field('offer_title', 'options'); ?>" alt="<?php the_field('offer_title', 'options'); ?>" />
     </div>
     
   </div>
@@ -77,7 +77,7 @@
           ?>
           <div class="swiper-slide item">
             <div class="left">
-              <img src="<?php echo $stair_gallery[0]['url']; ?>" alt="<?php if ($stair_gallery[0]['alt']) { echo $stair_gallery[0]['alt']; } else { the_title(); } ?>">
+              <img  itemprop="image" src="<?php echo $stair_gallery[0]['url']; ?>" alt="<?php if ($stair_gallery[0]['alt']) { echo $stair_gallery[0]['alt']; } else { the_title(); } ?>">
             </div>
             <div class="right">
               <h3 class="right-title"><?php the_title(); ?></h3>
@@ -177,7 +177,7 @@
           $stair_gallery = get_field('gallery');
         ?>
         <div class="swiper-slide item">
-          <img src="<?php echo $stair_gallery[0]['url']; ?>" alt="<?php if ($stair_gallery[0]['alt']) { echo $stair_gallery[0]['alt']; } else { the_title(); } ?>">
+          <img  itemprop="image" src="<?php echo $stair_gallery[0]['url']; ?>" alt="<?php if ($stair_gallery[0]['alt']) { echo $stair_gallery[0]['alt']; } else { the_title(); } ?>">
           <b><?php the_title(); ?></b>
           <div class="price">
             <?php if (get_field('price')) : ?>
@@ -199,7 +199,7 @@
     <div class="left">
       <h2 class="left-title"><?php the_field('yt_title', 'options'); ?></h2>
       <p><?php the_field('yt_subtitle', 'options'); ?></p>
-      <div class="button button-white video-data" data-src="<?php the_field('yt_link', 'options'); ?>" target="blank" rel="nofollow">
+      <a class="button button-white" href="<?php the_field('yt_link', 'options'); ?>" target="blank" rel="nofollow">
         <div class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M22.3329 6.8158C22.0843 5.89257 21.3564 5.16464 20.4332 4.91608C18.7465 4.45447 11.9999 4.45447 11.9999 4.45447C11.9999 4.45447 5.25319 4.45447 3.56652 4.89833C2.66105 5.14689 1.91537 5.89257 1.66681 6.8158C1.22295 8.50247 1.22295 12.0001 1.22295 12.0001C1.22295 12.0001 1.22295 15.5154 1.66681 17.1844C1.91537 18.1076 2.6433 18.8355 3.56652 19.0841C5.27094 19.5457 11.9999 19.5457 11.9999 19.5457C11.9999 19.5457 18.7465 19.5457 20.4332 19.1018C21.3564 18.8533 22.0843 18.1253 22.3329 17.2021C22.7768 15.5154 22.7768 12.0178 22.7768 12.0178C22.7768 12.0178 22.7945 8.50247 22.3329 6.8158Z" fill="#FF0000"/>
@@ -207,11 +207,11 @@
           </svg>
         </div>
         <span>Смотреть</span>
-      </div>
+      </a>
     </div>
     <div class="right">
-      <img class="pc" src="<?php the_field('yt_img', 'options'); ?>" alt="<?php the_field('yt_title', 'options'); ?>">
-      <img class="mob" style="display: none" src="<?php the_field('yt_img_mob', 'options'); ?>" alt="<?php the_field('yt_title', 'options'); ?>">
+      <img  itemprop="image" class="pc" src="<?php the_field('yt_img', 'options'); ?>" alt="<?php the_field('yt_title', 'options'); ?>">
+      <img  itemprop="image" class="mob" style="display: none" src="<?php the_field('yt_img_mob', 'options'); ?>" alt="<?php the_field('yt_title', 'options'); ?>">
     </div>
   </div>
 </section>
@@ -222,9 +222,9 @@
   <div class="container">
     <h2 class="title title-sub"><?php the_field('popular_title', 'options'); ?></h2>
     <p class="subtitle"><?php the_field('popular_subtitle', 'options'); ?></p>
-    <div class="popular-wrap">
+    <div itemscope itemtype="https://schema.org/ItemList" class="popular-wrap">
       <?php if (have_rows('popular', 'options')) : while(have_rows('popular', 'options')) : the_row(); ?>
-      <a href="<?php the_sub_field('ssylka'); ?>" class="item" style="background-image: url(
+      <a itemprop="url" itemprop="itemListElement" href="<?php the_sub_field('ssylka'); ?>" class="item" style="background-image: url(
           <?php  
             $popular_image = get_sub_field('izobrazhenie');
             echo esc_url($popular_image['url'])
@@ -255,9 +255,9 @@
           $know_image = get_sub_field('izobrazhenie'); // Получаем массив данных из поля ACF
           if ($know_image) {
               if ($know_image['alt']) {
-                echo '<img src="' . esc_url($know_image['url']) . '" alt="' . esc_attr($know_image['alt']) . '">'; // Выводим изображение
+                echo '<img  itemprop="image" src="' . esc_url($know_image['url']) . '" alt="' . esc_attr($know_image['alt']) . '">'; // Выводим изображение
               } else {
-                echo '<img src="' . esc_url($know_image['url']) . '" alt="' . get_sub_field('naimenovanie') . '">'; // Выводим изображение
+                echo '<img  itemprop="image" src="' . esc_url($know_image['url']) . '" alt="' . get_sub_field('naimenovanie') . '">'; // Выводим изображение
               }
           }
         ?>
@@ -273,7 +273,7 @@
 
 <section class="calc quiz bg-dark">
   <div class="container">
-    <h1 class="page-title title-sub">Узнайте стоимость вашей лестницы прямо сейчас </h1>
+    <h2 class="page-title title-sub">Узнайте стоимость вашей лестницы прямо сейчас </h2>
     <p class="subtitle">Пройдите опрос и получите бесплатный расчёт стоимости</p>
     <div class="quiz-line"></div>
     <div class="quiz-count-step">
@@ -292,9 +292,9 @@
                 $image = get_sub_field('izobrazhenie'); // Получаем массив данных из поля ACF
                 if ($image) {
                   if (!empty($image['alt'])) {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
                   } else {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
                   }
                 }
               ?>
@@ -313,9 +313,9 @@
                 $image = get_sub_field('izobrazhenie'); // Получаем массив данных из поля ACF
                 if ($image) {
                   if (!empty($image['alt'])) {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
                   } else {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
                   }
                 }
               ?>
@@ -345,9 +345,9 @@
                 $image = get_sub_field('izobrazhenie'); // Получаем массив данных из поля ACF
                 if ($image) {
                   if (!empty($image['alt'])) {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
                   } else {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
                   }
                 }
               ?>
@@ -411,9 +411,9 @@
   <div class="container">
     <h2 class="title title-sub"><?php the_field('dop_title', 'options'); ?></h2>
     <p class="subtitle"><?php the_field('dop_subtitle', 'options'); ?></p>
-    <div class="popular-wrap">
+    <div itemscope itemtype="https://schema.org/ItemList" class="popular-wrap">
       <?php if (have_rows('dop_cards', 'options')) : while(have_rows('dop_cards', 'options')) : the_row(); ?>
-      <a href="<?php the_sub_field('ssylka'); ?>" class="item" style="background-image: url(
+      <a itemprop="url" itemprop="itemListElement" href="<?php the_sub_field('ssylka'); ?>" class="item" style="background-image: url(
           <?php  
             $popular_image = get_sub_field('izobrazhenie');
             echo esc_url($popular_image['url'])
@@ -442,7 +442,7 @@
         <?php if (have_rows('features', 'options')) : while(have_rows('features', 'options')) : the_row(); ?>
         <div class="item">
           <div class="icon">
-            <img src="<?php the_sub_field('ikonka'); ?>" alt="icon">
+            <img  itemprop="image" src="<?php the_sub_field('ikonka'); ?>" alt="icon">
           </div>
           <b><?php the_sub_field('zagolovok'); ?></b>
           <p><?php the_sub_field('opisanie'); ?></p>
@@ -466,14 +466,14 @@
             $feed_image_mob = get_sub_field('izobrazhenie_bannera_png_razmer_mob'); // Получаем массив данных из поля ACF
             if ($feed_image_pc && $feed_image_mob) {
                 if ($feed_image_pc['alt']) {
-                  echo '<img class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . esc_attr($feed_image_pc['alt']) . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . esc_attr($feed_image_pc['alt']) . '">'; // Выводим изображение
                 } else {
-                  echo '<img class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
                 }
                 if ($feed_image_mob['alt']) {
-                  echo '<img class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . esc_attr($feed_image_mob['alt']) . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . esc_attr($feed_image_mob['alt']) . '">'; // Выводим изображение
                 } else {
-                  echo '<img class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
                 }
             }
           ?>
@@ -535,9 +535,9 @@
               $feed_image = get_sub_field('prevyu_izobrazhenie'); // Получаем массив данных из поля ACF
               if ($feed_image) {
                   if ($feed_image['alt']) {
-                    echo '<img src="' . esc_url($feed_image['url']) . '" alt="' . esc_attr($feed_image['alt']) . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($feed_image['url']) . '" alt="' . esc_attr($feed_image['alt']) . '">'; // Выводим изображение
                   } else {
-                    echo '<img src="' . esc_url($feed_image['url']) . '" alt="' . get_sub_field('imya') . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($feed_image['url']) . '" alt="' . get_sub_field('imya') . '">'; // Выводим изображение
                   }
               }
             ?>
@@ -638,9 +638,9 @@
           $profi_img = get_field('profi_img', 'options'); // Получаем массив данных из поля ACF
           if ($profi_img) {
               if ($profi_img['alt']) {
-                echo '<img src="' . esc_url($profi_img['url']) . '" alt="' . esc_attr($profi_img['alt']) . '">'; // Выводим изображение
+                echo '<img  itemprop="image" src="' . esc_url($profi_img['url']) . '" alt="' . esc_attr($profi_img['alt']) . '">'; // Выводим изображение
               } else {
-                echo '<img src="' . esc_url($profi_img['url']) . '" alt="' . get_sub_field('imya') . '">'; // Выводим изображение
+                echo '<img  itemprop="image" src="' . esc_url($profi_img['url']) . '" alt="' . get_sub_field('imya') . '">'; // Выводим изображение
               }
           }
         ?>
@@ -670,9 +670,9 @@
               $team_img = get_sub_field('team_img'); // Получаем массив данных из поля ACF
               if ($team_img) {
                   if ($team_img['alt']) {
-                    echo '<img src="' . esc_url($team_img['url']) . '" alt="' . esc_attr($team_img['alt']) . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($team_img['url']) . '" alt="' . esc_attr($team_img['alt']) . '">'; // Выводим изображение
                   } else {
-                    echo '<img src="' . esc_url($team_img['url']) . '" alt="' . get_sub_field('name') . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($team_img['url']) . '" alt="' . get_sub_field('name') . '">'; // Выводим изображение
                   }
               }
             ?>
@@ -708,9 +708,9 @@
       $team_img = get_field('production_img','options'); // Получаем массив данных из поля ACF
       if ($team_img) {
           if ($team_img['alt']) {
-            echo '<img src="' . esc_url($team_img['url']) . '" alt="' . esc_attr($team_img['alt']) . '">'; // Выводим изображение
+            echo '<img  itemprop="image" src="' . esc_url($team_img['url']) . '" alt="' . esc_attr($team_img['alt']) . '">'; // Выводим изображение
           } else {
-            echo '<img src="' . esc_url($team_img['url']) . '" alt="' . get_field('production_title','options') . '">'; // Выводим изображение
+            echo '<img  itemprop="image" src="' . esc_url($team_img['url']) . '" alt="' . get_field('production_title','options') . '">'; // Выводим изображение
           }
       }
     ?>
@@ -734,5 +734,25 @@
 </section>
 <?php endif; ?>
 
+<div itemscope itemtype="http://schema.org/Organization" style="display: none;">
+  <span itemprop="name">ООО «Лесен-Ко»</span>
+  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <span itemprop="streetAddress">Проектируемый проезд 4294, д.1</span>,
+    <span itemprop="addressLocality">г. Москва</span>,
+    <span itemprop="postalCode">109651</span>
+  </div>
+  Телефон: <span itemprop="telephone"><?php the_field('phone','options'); ?></span>
+</div>
+<div itemscope itemtype="http://schema.org/LocalBusiness" style="display: none;">
+  <span itemprop="name">ООО "Лесен-Ко"</span>
+  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <span itemprop="streetAddress">Проектируемый проезд 4294, д.1</span>,
+    <span itemprop="addressLocality">г. Москва</span>,
+    <span itemprop="postalCode">109651</span>
+  </div>
+  Телефон: <span itemprop="telephone"><?php the_field('phone','options'); ?></span><br>
+  Часы работы: <span itemprop="openingHours">пн-сб 10:00 - 19:00</span><br>
+  <span itemprop="description">Изготовление и монтаж металлоконструкций любой сложности</span>
+</div>
 
 <?php get_footer(); ?>

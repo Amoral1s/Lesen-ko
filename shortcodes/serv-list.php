@@ -92,7 +92,7 @@
                 <strong class="empty">Стоимость по запросу</strong>
               <?php endif; ?>
             </div>
-            <time>
+            <div class="time">
               <div class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5.25C12.4142 5.25 12.75 5.58579 12.75 6L12.75 11.25L18 11.25C18.4142 11.25 18.75 11.5858 18.75 12C18.75 12.4142 18.4142 12.75 18 12.75L12 12.75C11.5858 12.75 11.25 12.4142 11.25 12L11.25 6C11.25 5.58579 11.5858 5.25 12 5.25Z" fill="#C01025"/>
@@ -104,7 +104,7 @@
               <?php else : ?>
                 <p>от 20 дней</p>
               <?php endif; ?>
-            </time>
+            </div>
           </div>
           <div class="button buy-stair" data-link="<?php the_permalink(); ?>" data-title="<?php the_title(); ?>">
             Заказать лестницу

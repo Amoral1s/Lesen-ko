@@ -14,6 +14,7 @@ jQuery(document).ready(function ($) {
 				$('.overlay').fadeIn(300);
 				$('html').removeClass('fixed');
 			}
+			$('.input').removeClass('listen');
   });
   $(".wpcf7").on('wpcf7invalid', function(event){
     alert('Заполните поля правильно и повторите попытку!');
@@ -117,6 +118,27 @@ jQuery(document).ready(function ($) {
 	});
 
 	
-	
+	const setUrl = () => {
+		const date = new Date;
+		const hours = date.getHours();
+		const min = date.getMinutes();
+		const href = window.location.href;
+
+		if (localStorage.getItem('url')) {
+			const localUrls = localStorage.getItem('url');
+			const newUrl = `${hours}:${min} - ${href}\n${localUrls}`;
+			localStorage.setItem('url', newUrl);
+		} else {
+			const newUrl = `${hours}:${min} - ${href}\n`;
+			localStorage.setItem('url', newUrl);
+		}
+
+		setTimeout(() => {
+			$('input[name="User_urls"]').val(localStorage.getItem('url'));
+			console.log($('input[name="User_urls"]').val());
+		}, 10000);
+		
+	}
+	setUrl();
 
 }); //end

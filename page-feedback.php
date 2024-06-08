@@ -21,7 +21,7 @@ get_header();
     <div class="feedback">
         <div class="feedback-wrap">
           <?php if (have_rows('otzyvy', 'options')) : while(have_rows('otzyvy', 'options')) : the_row(); ?>
-          <div class="item video-data" data-src="<?php the_sub_field('ssylka_na_youtube_format_embed'); ?>">
+          <div itemprop="review" itemscope itemtype="https://schema.org/Review" class="item video-data" data-src="<?php the_sub_field('ssylka_na_youtube_format_embed'); ?>">
             <div class="play icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="33" height="40" viewBox="0 0 33 40" fill="none">
                 <path d="M33 20L2.02023e-06 0.947439L3.68586e-06 39.0526L33 20Z" fill="white"/>
@@ -31,14 +31,15 @@ get_header();
               $feed_image = get_sub_field('prevyu_izobrazhenie'); // Получаем массив данных из поля ACF
               if ($feed_image) {
                   if ($feed_image['alt']) {
-                    echo '<img src="' . esc_url($feed_image['url']) . '" alt="' . esc_attr($feed_image['alt']) . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($feed_image['url']) . '" alt="' . esc_attr($feed_image['alt']) . '">'; // Выводим изображение
                   } else {
-                    echo '<img src="' . esc_url($feed_image['url']) . '" alt="' . get_sub_field('imya') . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($feed_image['url']) . '" alt="' . get_sub_field('imya') . '">'; // Выводим изображение
                   }
               }
             ?>
             <div class="meta">
-              <b><?php the_sub_field('imya'); ?></b>
+              <div itemprop="reviewRating" style="display: none">5</div>
+              <b itemprop="author"><?php the_sub_field('imya'); ?></b>
               <p><?php the_sub_field('gorod'); ?></p>
             </div>
           </div>
@@ -54,21 +55,22 @@ get_header();
     <h2 class="title"><?php the_field('textfeed_title', 'options'); ?></h2>
     <div class="wrap">
       <?php if (have_rows('textfeed', 'options')) : while(have_rows('textfeed', 'options')) : the_row(); ?>
-      <div class="item">
+      <div  itemprop="review" itemscope itemtype="https://schema.org/Review" class="item">
         <div class="meta">
           <div class="avatar">
             <?php if (get_sub_field('avatar')) : ?>
-            <img src="<?php the_sub_field('avatar'); ?>" alt="<?php the_sub_field('imya'); ?>">
+            <img  itemprop="image" src="<?php the_sub_field('avatar'); ?>" alt="<?php the_sub_field('imya'); ?>">
             <?php else : ?>
-            <img class="user" src="<?php echo get_template_directory_uri(); ?>/img/icons/user.svg" alt="<?php the_sub_field('imya'); ?>">
+            <img  itemprop="image" class="user" src="<?php echo get_template_directory_uri(); ?>/img/icons/user.svg" alt="<?php the_sub_field('imya'); ?>">
             <?php endif; ?>
           </div>
           <div class="name">
-            <b><?php the_sub_field('imya'); ?></b>
-            <span><?php the_sub_field('date'); ?></span>
+            <b itemprop="author"><?php the_sub_field('imya'); ?></b>
+            <span itemprop="datePublished"><?php the_sub_field('date'); ?></span>
             <div class="rating">
               <?php 
                 $stars = get_sub_field('oczenka');
+                echo '<div itemprop="reviewRating" style="display: none">'.$stars.'</div>';
                 for ($i = 0; $i < 5; $i++ ) { 
                   if ($i < $stars) {
               ?>
@@ -83,7 +85,7 @@ get_header();
             </div>
           </div>
         </div>
-        <p class="text">
+        <p itemprop="reviewBody" class="text">
           <?php the_sub_field('otzyv'); ?>
         </p>
       </div>

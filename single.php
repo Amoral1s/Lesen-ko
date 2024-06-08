@@ -55,7 +55,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 						$author_id = get_the_author_meta('user_email');
 						echo get_avatar( $author_id, $size = 60, $default = '', $alt = '', $args = null ) 
 					?>
-					<img src="<?php echo get_template_directory_uri(); ?>/img/favicon/icon-192.png" alt="Avatar">
+					<img  itemprop="image" src="<?php echo get_template_directory_uri(); ?>/img/favicon/icon-192.png" alt="Avatar">
 				</div>
 				<div itemprop="author" class="name">
 					<p><?php the_author_meta('display_name'); ?></p>
@@ -64,7 +64,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 			</a> -->
 			<div class="row">
 				<div class="avatar">
-					<img src="<?php echo get_template_directory_uri(); ?>/img/favicon/icon-192.png" alt="Avatar">
+					<img  itemprop="image" src="<?php echo get_template_directory_uri(); ?>/img/favicon/icon-192.png" alt="Avatar">
 				</div>
 				<div itemprop="author" class="name">
 					<p><?php the_author_meta('display_name'); ?></p>
@@ -74,8 +74,9 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 			<!-- <?php the_author_posts_link() ?> -->
 			<?php if ($actions == false) : ?>
 			<div itemprop="aggregateRating" itemscope="" itemtype="http://schema.org/AggregateRating" class="top-rat">
-				<meta itemprop="bestRating" content="5">
-				<meta itemprop="ratingValue" content="5">
+				
+				<meta class="val-rat" itemprop="ratingValue" content="5">
+				
 				<div class="new-rating">
 				</div>
 				<div itemprop="ratingCount" class="votes">
@@ -120,7 +121,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 			</div>
 		</div>
 		<div class="thumb">
-			<img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" >
+			<img  itemprop="image" src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" >
 		</div>
 	</div>
 
@@ -202,5 +203,13 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 		</div>
 	</div>
 </main>
-
+<script>
+	const stars = document.querySelector('.wpd-rating-stars');
+	if (stars) {
+		const starsCount = stars.querySelectorAll('path.wpd-active');
+		const starsRating = starsCount.length;
+		console.log(starsRating);
+		document.querySelector('.val-rat').content = starsRating;
+	}
+</script>
 <?php get_footer();

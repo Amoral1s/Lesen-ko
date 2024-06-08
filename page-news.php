@@ -21,7 +21,15 @@ get_header();
 	<meta itemprop="datePublished" content="<?php the_time('c'); ?>">
 	<meta itemprop="dateModified" content="<?php the_modified_date('c'); ?>">
   <div class="container">
-    <h1 class="page-title"><?php the_title(); ?></h1>
+    <?php 
+      $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1; // определяем текущую страницу блога
+    ?>
+    <h1 class="page-title sub"><?php the_title(); ?> <?php  
+				if ($current_page != 1 && !is_search()) {
+					echo ' - страница ' . $current_page; 
+				}
+			?>
+    </h1>
     <div class="search">
       <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
     </div>
@@ -88,10 +96,10 @@ get_header();
         $wp_query->is_home = false;
         while(have_posts()): the_post();
       ?>
-      <a href="<?php the_permalink(); ?>" class="item">
-        <img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>">
+      <a itemprop="url" href="<?php the_permalink(); ?>" class="item">
+        <img  itemprop="image" src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>">
         <!-- <div class="date"><?php echo get_the_date('d.m.Y') ?></div> -->
-        <b><?php the_title(); ?></b>
+        <b itemprop="name"><?php the_title(); ?></b>
         <?php 
           if ( has_category() ) {
               $categories = get_the_category();

@@ -40,7 +40,7 @@ get_header();
               <div class="num"><?php the_sub_field('tekst_czifra'); ?></div>
               <span><?php the_sub_field('tekst_oboznachenie'); ?></span>
             <?php else : ?>
-              <img src="<?php the_sub_field('ikonka'); ?>" alt="Icon">
+              <img  itemprop="image" src="<?php the_sub_field('ikonka'); ?>" alt="Icon">
             <?php endif; ?>
           </div>
           <b><?php the_sub_field('opisanie'); ?></b>

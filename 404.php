@@ -10,7 +10,7 @@
 
 <section class="vac-offer error-404 not-found">
 	<div class="container">
-		<img src="<?php echo get_template_directory_uri(); ?>/img/404.png" title="404" alt="404">
+		<img  itemprop="image" src="<?php echo get_template_directory_uri(); ?>/img/404.png" title="404" alt="404">
 		<h1 style="text-align: center;">
 			Страница не найдена
 		</h1>

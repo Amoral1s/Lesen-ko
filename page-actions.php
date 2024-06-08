@@ -85,14 +85,14 @@ get_header();
             $feed_image_mob = get_sub_field('izobrazhenie_bannera_png_razmer_mob'); // Получаем массив данных из поля ACF
             if ($feed_image_pc && $feed_image_mob) {
                 if ($feed_image_pc['alt']) {
-                  echo '<img class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . esc_attr($feed_image_pc['alt']) . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . esc_attr($feed_image_pc['alt']) . '">'; // Выводим изображение
                 } else {
-                  echo '<img class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
                 }
                 if ($feed_image_mob['alt']) {
-                  echo '<img class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . esc_attr($feed_image_mob['alt']) . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . esc_attr($feed_image_mob['alt']) . '">'; // Выводим изображение
                 } else {
-                  echo '<img class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
                 }
             }
           ?>
@@ -140,7 +140,7 @@ get_header();
 <?php endif; ?>
 
 <?php if (get_field('cat_title')) : ?>
-<section class="cards">
+<section itemscope itemtype="https://schema.org/ItemList" class="cards">
   <div class="container">
     <h2 class="title title-sub"><?php the_field('cat_title'); ?></h2>
     <p class="subtitle"><?php the_field('cat_subtitle'); ?></p>
@@ -159,13 +159,13 @@ get_header();
             // Выводите информацию о каждой записи здесь
         $stair_gallery = get_field('gallery');
       ?>
-      <a href="<?php the_permalink(); ?>" class="item">
+      <a itemscope itemtype="https://schema.org/Product" itemprop="url" itemprop="itemListElement" href="<?php the_permalink(); ?>" class="item">
         <div class="item-gall">
           <div class="swiper">
             <div class="swiper-wrapper mag-toggle-cards">
               <?php foreach( $stair_gallery as $image ): ?>
                 <div href="<?php echo $image['url']; ?>" class="swiper-slide">
-                  <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php if (isset($image['alt'])) { echo $image['alt']; } else { echo 'Лестница'; } ?>">
+                  <img  itemprop="image" src="<?php echo $image['sizes']['large']; ?>" alt="<?php the_title(); ?>">
                 </div>
               <?php endforeach; ?>
             </div>
@@ -173,7 +173,7 @@ get_header();
           </div>
           <div class="swiper-pagination dots"></div>
         </div>
-        <b><?php the_title(); ?></b>
+        <b itemprop="name"><?php the_title(); ?></b>
         <div class="meta">
           <?php if (get_field('type_house')) : ?>
           <div class="meta-row">
@@ -218,13 +218,13 @@ get_header();
               <?php if (get_field('price')) : 
                 $new_price = str_replace('руб', '₽', get_field('price'));
               ?>
-                <strong><?php echo $new_price; ?></strong>
-                <span><?php the_field('price_meta'); ?></span>
+                <strong itemprop="price"><?php echo $new_price; ?></strong>
+                <span itemprop="priceCurrency"><?php the_field('price_meta'); ?></span>
               <?php else : ?>
                 <strong class="empty">Стоимость по запросу</strong>
               <?php endif; ?>
             </div>
-            <time>
+            <div class="time">
               <div class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5.25C12.4142 5.25 12.75 5.58579 12.75 6L12.75 11.25L18 11.25C18.4142 11.25 18.75 11.5858 18.75 12C18.75 12.4142 18.4142 12.75 18 12.75L12 12.75C11.5858 12.75 11.25 12.4142 11.25 12L11.25 6C11.25 5.58579 11.5858 5.25 12 5.25Z" fill="#C01025"/>
@@ -236,7 +236,7 @@ get_header();
               <?php else : ?>
                 <p>от 20 дней</p>
               <?php endif; ?>
-            </time>
+            </div>
           </div>
           <div class="button buy-stair" data-link="<?php the_permalink(); ?>" data-title="<?php the_title(); ?>">
             Заказать лестницу

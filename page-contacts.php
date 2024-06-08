@@ -151,5 +151,34 @@ get_header();
   </div>
 </section>
 
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://lesen-ko.ru/",
+          "name": "Главная"
+        }
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "https://lesen-ko.ru/kontakty",
+          "name": "Контакты"
+        }
+      }]
+    },
+    "lastReviewed": "2023-03-20",
+    "mainContentOfPage": {
+      "@type": "WebPageElement",
+      "description": "Контактная информация и форма обратной связи."
+    }
+  }
+</script>
 <?php
 get_footer();

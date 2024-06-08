@@ -165,7 +165,7 @@ get_header();
     <div class="left">
       <h2 class="left-title"><?php the_field('yt_title', 'options'); ?></h2>
       <p><?php the_field('yt_subtitle', 'options'); ?></p>
-      <div class="button button-white video-data" data-src="<?php the_field('yt_link', 'options'); ?>" target="blank" rel="nofollow">
+      <a class="button button-white video-data" href="<?php the_field('yt_link', 'options'); ?>" target="blank" rel="nofollow">
         <div class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M22.3329 6.8158C22.0843 5.89257 21.3564 5.16464 20.4332 4.91608C18.7465 4.45447 11.9999 4.45447 11.9999 4.45447C11.9999 4.45447 5.25319 4.45447 3.56652 4.89833C2.66105 5.14689 1.91537 5.89257 1.66681 6.8158C1.22295 8.50247 1.22295 12.0001 1.22295 12.0001C1.22295 12.0001 1.22295 15.5154 1.66681 17.1844C1.91537 18.1076 2.6433 18.8355 3.56652 19.0841C5.27094 19.5457 11.9999 19.5457 11.9999 19.5457C11.9999 19.5457 18.7465 19.5457 20.4332 19.1018C21.3564 18.8533 22.0843 18.1253 22.3329 17.2021C22.7768 15.5154 22.7768 12.0178 22.7768 12.0178C22.7768 12.0178 22.7945 8.50247 22.3329 6.8158Z" fill="#FF0000"/>
@@ -173,7 +173,7 @@ get_header();
           </svg>
         </div>
         <span>Смотреть</span>
-      </div>
+      </a>
     </div>
     <div class="right">
       <img class="pc" src="<?php the_field('yt_img', 'options'); ?>" alt="<?php the_field('yt_title', 'options'); ?>">
@@ -258,6 +258,25 @@ get_header();
     </div>
   </div>
 </section>
-
+<div itemscope itemtype="http://schema.org/Organization" style="display: none;">
+  <span itemprop="name">ООО «Лесен-Ко»</span>
+  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <span itemprop="streetAddress">Проектируемый проезд 4294, д.1</span>,
+    <span itemprop="addressLocality">г. Москва</span>,
+    <span itemprop="postalCode">109651</span>
+  </div>
+  Телефон: <span itemprop="telephone"><?php the_field('phone','options'); ?></span>
+</div>
+<div itemscope itemtype="http://schema.org/LocalBusiness" style="display: none;">
+  <span itemprop="name">ООО "Лесен-Ко"</span>
+  <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <span itemprop="streetAddress">Проектируемый проезд 4294, д.1</span>,
+    <span itemprop="addressLocality">г. Москва</span>,
+    <span itemprop="postalCode">109651</span>
+  </div>
+  Телефон: <span itemprop="telephone"><?php the_field('phone','options'); ?></span><br>
+  Часы работы: <span itemprop="openingHours">пн-сб 10:00 - 19:00</span><br>
+  <span itemprop="description">Изготовление и монтаж металлоконструкций любой сложности</span>
+</div>
 <?php
 get_footer();

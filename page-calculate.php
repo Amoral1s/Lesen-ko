@@ -28,9 +28,9 @@ get_header();
                 $image = get_sub_field('izobrazhenie'); // Получаем массив данных из поля ACF
                 if ($image) {
                   if (!empty($image['alt'])) {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
                   } else {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
                   }
                 }
               ?>
@@ -50,9 +50,9 @@ get_header();
                 $image = get_sub_field('izobrazhenie'); // Получаем массив данных из поля ACF
                 if ($image) {
                   if (!empty($image['alt'])) {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
                   } else {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
                   }
                 }
               ?>
@@ -84,9 +84,9 @@ get_header();
                 $image = get_sub_field('izobrazhenie'); // Получаем массив данных из поля ACF
                 if ($image) {
                   if (!empty($image['alt'])) {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . esc_attr($image['alt']) . '">'; // Выводим изображение
                   } else {
-                    echo '<img src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($image['url']) . '" alt="' . get_sub_field('zagolovok') . '">'; // Выводим изображение
                   }
                 }
               ?>

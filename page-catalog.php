@@ -21,7 +21,7 @@ get_header();
           $type = get_sub_field('set_type');
           if ($type == 'square') : 
         ?>
-        <section class="popular square">
+        <section itemscope itemtype="https://schema.org/ItemList" class="popular square">
           <?php if (get_sub_field('title')) : ?>
             <h2 class="title title-sub"><?php the_sub_field('title'); ?></h2>
           <?php endif; ?>
@@ -30,7 +30,7 @@ get_header();
           <?php endif; ?>
           <div class="popular-wrap">
             <?php if (have_rows('square_cat')) : while(have_rows('square_cat')) : the_row(); ?>
-            <a href="<?php the_sub_field('ssylka'); ?>" class="item" style="background-image: url(
+            <a itemprop="url" itemprop="itemListElement" href="<?php the_sub_field('ssylka'); ?>" class="item" style="background-image: url(
                 <?php  
                   $popular_image = get_sub_field('bg_izobrazhenie');
                   echo esc_url($popular_image['url'])
@@ -42,7 +42,7 @@ get_header();
           </div>
         </section>
         <?php elseif ($type == 'round') : ?>
-        <section class="item round">
+        <section itemscope itemtype="https://schema.org/ItemList" class="item round">
           <?php if (get_sub_field('title')) : ?>
             <h2 class="title title-sub"><?php the_sub_field('title'); ?></h2>
           <?php endif; ?>
@@ -51,14 +51,14 @@ get_header();
           <?php endif; ?>
           <div class="round-wrap">
             <?php if (have_rows('round_cat')) : while(have_rows('round_cat')) : the_row(); ?>
-            <a href="<?php the_sub_field('ssylka'); ?>" class="round-wrap-item" >
+            <a itemprop="url" itemprop="itemListElement" href="<?php the_sub_field('ssylka'); ?>" class="round-wrap-item" >
               <?php
                 $know_image = get_sub_field('bg_izobrazhenie'); // Получаем массив данных из поля ACF
                 if ($know_image) {
                     if ($know_image['alt']) {
-                      echo '<img src="' . esc_url($know_image['url']) . '" alt="' . esc_attr($know_image['alt']) . '">'; // Выводим изображение
+                      echo '<img  itemprop="image" src="' . esc_url($know_image['url']) . '" alt="' . esc_attr($know_image['alt']) . '">'; // Выводим изображение
                     } else {
-                      echo '<img src="' . esc_url($know_image['url']) . '" alt="' . get_sub_field('naimenovanie_lestniczy') . '">'; // Выводим изображение
+                      echo '<img  itemprop="image" src="' . esc_url($know_image['url']) . '" alt="' . get_sub_field('naimenovanie_lestniczy') . '">'; // Выводим изображение
                     }
                 }
               ?>
@@ -68,7 +68,7 @@ get_header();
           </div>
         </section>
         <?php elseif ($type == 'text') : ?>
-        <section class="item text">
+        <section itemscope itemtype="https://schema.org/ItemList" class="item text">
           <?php if (get_sub_field('title')) : ?>
             <h2 class="title <?php if (get_sub_field('subtitle')) { echo 'title-sub'; } ?>"><?php the_sub_field('title'); ?></h2>
           <?php endif; ?>
@@ -77,7 +77,7 @@ get_header();
           <?php endif; ?>
           <div class="text-wrap">
             <?php if (have_rows('text_cat')) : while(have_rows('text_cat')) : the_row(); ?>
-            <a href="<?php the_sub_field('ssylka'); ?>" class="text-wrap-item" >
+            <a itemprop="url" itemprop="itemListElement" href="<?php the_sub_field('ssylka'); ?>" class="text-wrap-item" >
               <?php the_sub_field('naimenovanie_lestniczy'); ?>
             </a>
             <?php endwhile; endif; ?>
@@ -101,14 +101,14 @@ get_header();
             $feed_image_mob = get_sub_field('izobrazhenie_bannera_png_razmer_mob'); // Получаем массив данных из поля ACF
             if ($feed_image_pc && $feed_image_mob) {
                 if ($feed_image_pc['alt']) {
-                  echo '<img class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . esc_attr($feed_image_pc['alt']) . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . esc_attr($feed_image_pc['alt']) . '">'; // Выводим изображение
                 } else {
-                  echo '<img class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="pc" src="' . esc_url($feed_image_pc['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
                 }
                 if ($feed_image_mob['alt']) {
-                  echo '<img class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . esc_attr($feed_image_mob['alt']) . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . esc_attr($feed_image_mob['alt']) . '">'; // Выводим изображение
                 } else {
-                  echo '<img class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
+                  echo '<img  itemprop="image" class="mob" src="' . esc_url($feed_image_mob['url']) . '" alt="' . get_sub_field('akcziya') . '">'; // Выводим изображение
                 }
             }
           ?>
@@ -149,7 +149,7 @@ get_header();
         <?php if (have_rows('features', 'options')) : while(have_rows('features', 'options')) : the_row(); ?>
         <div class="item">
           <div class="icon">
-            <img src="<?php the_sub_field('ikonka'); ?>" alt="icon">
+            <img  itemprop="image" src="<?php the_sub_field('ikonka'); ?>" alt="icon">
           </div>
           <b><?php the_sub_field('zagolovok'); ?></b>
           <p><?php the_sub_field('opisanie'); ?></p>
@@ -187,9 +187,9 @@ get_header();
           $profi_img = get_field('profi_img', 'options'); // Получаем массив данных из поля ACF
           if ($profi_img) {
               if ($profi_img['alt']) {
-                echo '<img src="' . esc_url($profi_img['url']) . '" alt="' . esc_attr($profi_img['alt']) . '">'; // Выводим изображение
+                echo '<img  itemprop="image" src="' . esc_url($profi_img['url']) . '" alt="' . esc_attr($profi_img['alt']) . '">'; // Выводим изображение
               } else {
-                echo '<img src="' . esc_url($profi_img['url']) . '" alt="' . get_sub_field('imya') . '">'; // Выводим изображение
+                echo '<img  itemprop="image" src="' . esc_url($profi_img['url']) . '" alt="' . get_sub_field('imya') . '">'; // Выводим изображение
               }
           }
         ?>

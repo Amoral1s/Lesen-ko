@@ -28,15 +28,15 @@
     <div class="header-top">
       <?php if (is_home()) : ?>
         <div  class="logo">
-          <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" title="lesen-ko.ru" alt="lesen-ko.ru">
-          <p>Лестницы на заказ из дерева в Москве и МО</p>
+          <img  itemprop="image" src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" title="lesen-ko.ru" alt="lesen-ko.ru">
+          <p>Лестницы на заказ<br> из дерева в Москве и МО</p>
         </div>
         <?php else : ?>
         <div class="logo">
           <a href="/" class="">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" title="lesen-ko.ru" alt="lesen-ko.ru">
+            <img  itemprop="image" src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" title="lesen-ko.ru" alt="lesen-ko.ru">
           </a>
-          <p>Лестницы на заказ из дерева в Москве и МО</p>
+          <p>Лестницы на заказ<br> из дерева в Москве и МО</p>
         </div>
         
       <?php endif; ?> 
@@ -77,7 +77,10 @@
     </div>
     <div class="header-bottom" style="display: none"> 
       <div class="cat-btn-wrap">
-        <?php global $post; if ($post->ID == 1264) : ?>
+        <?php 
+          global $post; 
+          if ($post && $post->ID == 1264) : 
+        ?>
         <span class="cat-btn">
           <div class="icon closed">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -120,13 +123,31 @@
                 <?php if (have_rows('catalog_menu', 'options')) : while(have_rows('catalog_menu', 'options')) : the_row(); ?>
                   <div class="item">
                     <div class="icon">
-                      <img src="<?php the_sub_field('ikonka'); ?>" alt="Icon">
+                      <img  itemprop="image" src="<?php the_sub_field('ikonka'); ?>" alt="Icon">
                     </div>
                     <b><?php the_sub_field('nazvanie_punkta'); ?></b>
                     <ul itemprop="about" itemscope itemtype="http://schema.org/ItemList">
-                      <?php if (have_rows('punkty_menyu')) : while(have_rows('punkty_menyu')) : the_row(); ?>
-                      <li><a href="<?php the_sub_field('ssylka'); ?>"><?php the_sub_field('imya'); ?></a></li>
-                      <?php endwhile; endif; ?>
+                      <?php 
+                        global $wp; 
+                        $current_path = $wp->request; // Получаем путь текущей страницы, например 'stairs_type/lestnitsa-standart'
+
+                        if (have_rows('punkty_menyu')) : 
+                            while(have_rows('punkty_menyu')) : the_row(); 
+                                $menu_url = get_sub_field('ssylka'); // Получаем относительный URL из ACF, например '/stairs_type/lestnitsa-standart'
+                                $menu_path = trim(parse_url($menu_url, PHP_URL_PATH), '/'); // Убираем начальный и конечный слеши и получаем путь без домена
+                                
+                                if ($menu_path == $current_path) : 
+                                    ?>
+                                    <li><span><?php the_sub_field('imya'); ?></span></li>
+                                    <?php 
+                                else : 
+                                    ?>
+                                    <li><a href="<?php echo esc_url($menu_url); ?>"><?php the_sub_field('imya'); ?></a></li>
+                                    <?php 
+                                endif; 
+                            endwhile; 
+                        endif; 
+                      ?>
                     </ul>
                   </div>
                 <?php endwhile; endif; ?>
@@ -136,9 +157,9 @@
                 <a href="<?php echo get_field('banner_href', 'options'); ?>" class="right">
                   <?php 
                     if ($cat_menu_img['alt']) {
-                      echo '<img src="' . esc_url($cat_menu_img['url']) . '" alt="' . esc_attr($cat_menu_img['alt']) . '">'; // Выводим изображение
+                      echo '<img  itemprop="image" src="' . esc_url($cat_menu_img['url']) . '" alt="' . esc_attr($cat_menu_img['alt']) . '">'; // Выводим изображение
                     } else {
-                      echo '<img src="' . esc_url($cat_menu_img['url']) . '" alt="' . get_sub_field('name') . '">'; // Выводим изображение
+                      echo '<img  itemprop="image" src="' . esc_url($cat_menu_img['url']) . '" alt="' . get_sub_field('name') . '">'; // Выводим изображение
                     }
                   ?>
                 </a>
@@ -146,9 +167,9 @@
                 <span class="right">
                   <?php 
                     if ($cat_menu_img['alt']) {
-                      echo '<img src="' . esc_url($cat_menu_img['url']) . '" alt="' . esc_attr($cat_menu_img['alt']) . '">'; // Выводим изображение
+                      echo '<img  itemprop="image" src="' . esc_url($cat_menu_img['url']) . '" alt="' . esc_attr($cat_menu_img['alt']) . '">'; // Выводим изображение
                     } else {
-                      echo '<img src="' . esc_url($cat_menu_img['url']) . '" alt="' . get_sub_field('name') . '">'; // Выводим изображение
+                      echo '<img  itemprop="image" src="' . esc_url($cat_menu_img['url']) . '" alt="' . get_sub_field('name') . '">'; // Выводим изображение
                     }
                   ?>
                 </span>

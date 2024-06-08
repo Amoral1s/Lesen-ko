@@ -55,7 +55,7 @@
 			<?php if (have_posts()) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 			<a href="<?php the_permalink(); ?>" class="item">
-				<img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>">
+				<img  itemprop="image" src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>">
 				<!-- <div class="date"><?php echo get_the_date('d.m.Y') ?></div> -->
 				<b><?php the_title(); ?></b>
 				<?php 

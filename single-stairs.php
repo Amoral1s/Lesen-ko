@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<section class="stair-offer">
+<section itemscope itemtype="https://schema.org/Product" itemprop="url" itemprop="itemListElement" class="stair-offer">
 	<div class="container">
 		<div class="stair-offer-wrap">
 			<div class="left">
@@ -37,9 +37,9 @@
 								<?php foreach( $feed_image_pc as $image ): ?>
 								<div class="item swiper-slide">
 									<?php if (!empty($image['alt'])) : ?>
-										<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+										<img  itemprop="image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
 									<?php else : ?>
-										<img src="<?php echo esc_url($image['url']); ?>" alt="<?php the_title(); ?>" />
+										<img  itemprop="image" src="<?php echo esc_url($image['url']); ?>" alt="<?php the_title(); ?>" />
 									<?php endif; ?>
 								</div>
 								<?php endforeach; ?>
@@ -58,9 +58,9 @@
 								<?php foreach( $feed_image_pc as $image ): ?>
 								<div class="item swiper-slide">
 									<?php if (!empty($image['alt'])) : ?>
-										<img src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+										<img  itemprop="image" src="<?php echo esc_url($image['sizes']['large']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
 									<?php else : ?>
-										<img src="<?php echo esc_url($image['url']); ?>" alt="<?php the_title(); ?>" />
+										<img  itemprop="image" src="<?php echo esc_url($image['url']); ?>" alt="<?php the_title(); ?>" />
 									<?php endif; ?>
 								</div>
 								<?php endforeach; ?>
@@ -72,7 +72,7 @@
 			</div>
 			
 			<div class="right">
-				<h1 class="page-title"><?php the_title(); ?></h1>
+				<h1 itemprop="name" class="page-title"><?php the_title(); ?></h1>
 				<time>
 					<div class="icon">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -98,10 +98,10 @@
               <?php if (get_field('price')) : 
                 $new_price = str_replace('руб', '₽', get_field('price'));
               ?>
-                <strong><?php echo $new_price; ?></strong>
-                <span><?php the_field('price_meta'); ?></span>
+                <strong itemprop="price"><?php echo $new_price; ?></strong>
+                <span itemprop="priceCurrency"><?php the_field('price_meta'); ?></span>
               <?php else : ?>
-                <strong class="empty">Стоимость по запросу</strong>
+                <strong itemprop="price" class="empty">Стоимость по запросу</strong>
               <?php endif; ?>
             </div>
           </div>
@@ -169,7 +169,7 @@
 	</div>
 </section>
 
-<section class="stair-info">
+<section itemscope itemtype="https://schema.org/Product" itemprop="url" itemprop="itemListElement" class="stair-info">
 	<div class="container">
 		<div class="stair-info-wrapper">
 			<div class="left">
@@ -197,7 +197,7 @@
 					<?php if (get_field('opisanie_full')) : ?>	
 					<div class="item">
 						<div class="flex">
-							<div class="content">
+							<div itemprop="description" class="content">
 								<?php the_field('opisanie_full'); ?>
 							</div>
 							<?php if (get_field('instruction_title', 'options')) : ?>	
@@ -250,7 +250,7 @@
 							<div class="wrap">
 								<?php if(have_rows('pay_terms', 1274)) : while(have_rows('pay_terms', 1274)) : the_row(); ?>
 								<div class="wrap-item">
-									<img src="<?php the_sub_field('ikonka'); ?>" alt="<?php the_sub_field('nazvanie'); ?>">
+									<img  itemprop="image" src="<?php the_sub_field('ikonka'); ?>" alt="<?php the_sub_field('nazvanie'); ?>">
 									<p><?php the_sub_field('nazvanie'); ?></p>
 								</div>
 								<?php endwhile; endif; ?>
@@ -283,7 +283,7 @@
       <div class="swiper">
         <div class="swiper-wrapper">
         <?php if (have_rows('otzyvy', 'options')) : while(have_rows('otzyvy', 'options')) : the_row(); ?>
-          <div class="item video-data swiper-slide" data-src="<?php the_sub_field('ssylka_na_youtube_format_embed'); ?>">
+          <div itemscope itemtype="https://schema.org/Review"  itemprop="review" class="item video-data swiper-slide" data-src="<?php the_sub_field('ssylka_na_youtube_format_embed'); ?>">
             <div class="play icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="33" height="40" viewBox="0 0 33 40" fill="none">
                 <path d="M33 20L2.02023e-06 0.947439L3.68586e-06 39.0526L33 20Z" fill="white"/>
@@ -293,14 +293,15 @@
               $feed_image = get_sub_field('prevyu_izobrazhenie'); // Получаем массив данных из поля ACF
               if ($feed_image) {
                   if ($feed_image['alt']) {
-                    echo '<img src="' . esc_url($feed_image['url']) . '" alt="' . esc_attr($feed_image['alt']) . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($feed_image['url']) . '" alt="' . esc_attr($feed_image['alt']) . '">'; // Выводим изображение
                   } else {
-                    echo '<img src="' . esc_url($feed_image['url']) . '" alt="' . get_sub_field('imya') . '">'; // Выводим изображение
+                    echo '<img  itemprop="image" src="' . esc_url($feed_image['url']) . '" alt="' . get_sub_field('imya') . '">'; // Выводим изображение
                   }
               }
             ?>
             <div class="meta">
-              <b><?php the_sub_field('imya'); ?></b>
+							<div itemprop="reviewRating" style="display: none">5</div>
+              <b itemprop="author"><?php the_sub_field('imya'); ?></b>
               <p><?php the_sub_field('gorod'); ?></p>
             </div>
           </div>
@@ -318,7 +319,7 @@
 </section>
 <?php endif; ?>
 
-<section class="cards">
+<section itemscope itemtype="https://schema.org/ItemList" class="cards">
   <div class="container">
     <h2 class="title">Похожие товары</h2>
     <div class="cards-slider-wrapper">
@@ -351,13 +352,13 @@
 							// Выводите информацию о каждой записи здесь
 					$stair_gallery = get_field('gallery');
 				?>
-				<a href="<?php the_permalink(); ?>" class="item swiper-slide">
+				<a itemscope itemtype="https://schema.org/Product" itemprop="url" itemprop="itemListElement" href="<?php the_permalink(); ?>" class="item swiper-slide">
 					<div class="item-gall">
 						<div class="swiper">
 							<div class="swiper-wrapper mag-toggle-cards">
 								<?php foreach( $stair_gallery as $image ): ?>
 									<div href="<?php echo $image['url']; ?>" class="swiper-slide">
-										<img src="<?php echo $image['sizes']['large']; ?>" alt="<?php if (isset($image['alt'])) { echo $image['alt']; } else { echo 'Лестница'; } ?>">
+										<img  itemprop="image" src="<?php echo $image['sizes']['large']; ?>" alt="<?php the_title(); ?>">
 									</div>
 								<?php endforeach; ?>
 							</div>
@@ -365,7 +366,7 @@
 						</div>
 						<div class="swiper-pagination dots"></div>
 					</div>
-					<b><?php the_title(); ?></b>
+					<b itemprop="name"><?php the_title(); ?></b>
 					<div class="meta">
 						<?php if (get_field('type_house')) : ?>
 						<div class="meta-row">
@@ -410,13 +411,13 @@
 								<?php if (get_field('price')) : 
 									$new_price = str_replace('руб', '₽', get_field('price'));
 								?>
-									<strong><?php echo $new_price; ?></strong>
-									<span><?php the_field('price_meta'); ?></span>
+									<strong itemprop="price"><?php echo $new_price; ?></strong>
+									<span itemprop="priceCurrency"><?php the_field('price_meta'); ?></span>
 								<?php else : ?>
 									<strong class="empty">Стоимость по запросу</strong>
 								<?php endif; ?>
 							</div>
-							<time>
+							<div class="time">
 								<div class="icon">
 									<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 										<path fill-rule="evenodd" clip-rule="evenodd" d="M12 5.25C12.4142 5.25 12.75 5.58579 12.75 6L12.75 11.25L18 11.25C18.4142 11.25 18.75 11.5858 18.75 12C18.75 12.4142 18.4142 12.75 18 12.75L12 12.75C11.5858 12.75 11.25 12.4142 11.25 12L11.25 6C11.25 5.58579 11.5858 5.25 12 5.25Z" fill="#C01025"/>
@@ -428,7 +429,7 @@
 								<?php else : ?>
 									<p>от 20 дней</p>
 								<?php endif; ?>
-							</time>
+							</div>
 						</div>
 						<div class="button buy-stair" data-link="<?php the_permalink(); ?>" data-title="<?php the_title(); ?>">
 							Заказать лестницу

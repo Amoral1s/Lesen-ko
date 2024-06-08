@@ -18,7 +18,7 @@
 		<?php } ?>
 		<?php if (get_the_post_thumbnail_url()) : ?>
 		<div class="thumb" style="margin-bottom: 40px;">
-			<img style="object-fit: contain; margin-left: auto; margin-right: auto; aspect-ratio: auto; height: auto;" src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" >
+			<img  itemprop="image" style="object-fit: contain; margin-left: auto; margin-right: auto; aspect-ratio: auto; height: auto;" src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" >
 		</div>
 		<?php endif; ?>
 		<div class="content">

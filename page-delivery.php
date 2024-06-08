@@ -23,7 +23,7 @@ get_header();
     <div class="wrap">
       <?php if(have_rows('pay_terms')) : while(have_rows('pay_terms')) : the_row(); ?>
       <div class="wrap-item">
-        <img src="<?php the_sub_field('ikonka'); ?>" alt="<?php the_sub_field('nazvanie'); ?>">
+        <img  itemprop="image" src="<?php the_sub_field('ikonka'); ?>" alt="<?php the_sub_field('nazvanie'); ?>">
         <p><?php the_sub_field('nazvanie'); ?></p>
       </div>
       <?php endwhile; endif; ?>

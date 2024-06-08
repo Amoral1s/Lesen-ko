@@ -1,5 +1,5 @@
 
-<footer class="footer">
+<footer itemscope itemtype="https://schema.org/WPFooter" class="footer">
   <div class="container">
     <div class="footer-wrap">
       <div class="footer-wrap-item">
@@ -81,6 +81,8 @@
       <p>Не является публичной офертой</p>
     </div>
   </div>
+  <meta itemprop="copyrightYear" content="2024">
+  <meta itemprop="copyrightHolder" content="Лесенко">
 </footer>
 
 <div class="overlay"></div>
