@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 	function topScroll() {
 		var destination = $('#top').offset().top;
-		$("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 200);
+		$("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 100);
 		return false;
 	}
 	if (window.screen.width <= 992) {
