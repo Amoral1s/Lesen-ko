@@ -10,7 +10,7 @@ get_header();
   </div>
 </div>
 
-<section  itemscope itemtype="http://schema.org/BlogPosting" class="blog-page">
+<section  itemscope itemtype="http://schema.org/Blog" class="blog-page">
   <link itemprop="image" href="<?php echo get_template_directory_uri(); ?>/img/logo.svg">
 	<link itemprop="url" href="<?php echo get_permalink(); ?>">
 	<meta itemprop="description" content="<?php the_excerpt(); ?>">
@@ -73,7 +73,7 @@ get_header();
     </div>
     <div class="news-block-wrap">
       <?php if (have_posts()) : while ( have_posts() ) : the_post(); ?>
-      <a href="<?php the_permalink(); ?>" class="item">
+      <a itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting" itemprop="url"  href="<?php the_permalink(); ?>" class="item">
         <img  itemprop="image" src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>">
         <!-- <div class="date"><?php echo get_the_date('d.m.Y') ?></div> -->
         <b><?php the_title(); ?></b>
