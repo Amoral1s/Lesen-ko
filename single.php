@@ -156,73 +156,82 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 				<div class="news-block-wrap swiper-wrapper">
 					<?php
 						$current_post_id = get_the_ID();
-
 						// Получаем все записи
 						$args_all = array(
-								'post_type'      => 'post',
-								'posts_per_page' => -1, // Получаем все записи
-								'category__not_in' => array( 48 ),
-									'orderby' => 'date',
-									'order' => 'DESC'
-							);
-							$all_posts = new WP_Query( $args_all );
-
-							// Ищем индекс текущей записи
-							$current_index = -1;
-							if ( $all_posts->have_posts() ) {
-									$posts_array = $all_posts->posts;
-									foreach ( $posts_array as $index => $post ) {
-											if ( $post->ID == $current_post_id ) {
-													$current_index = $index;
-													break;
-											}
-									}
+							'post_type'      => 'post',
+							'posts_per_page' => -1, // Получаем все записи
+							'category__not_in' => array( 48 ),
+								'orderby' => 'date',
+								'order' => 'DESC'
+						);
+						$all_posts = new WP_Query( $args_all );
+						// Ищем индекс текущей записи
+						$current_index = -1;
+						if ( $all_posts->have_posts() ) {
+								$posts_array = $all_posts->posts;
+								foreach ( $posts_array as $index => $post ) {
+										if ( $post->ID == $current_post_id ) {
+												$current_index = $index;
+												break;
+										}
+								}
+						}
+						// Выводим 10 записей после текущей и если недостаточно, то добавляем записи до текущей
+						if ( $current_index != -1 ) {
+							$related_posts = array();
+							// Добавляем записи после текущей
+							for ( $i = $current_index + 1; $i < $current_index + 11 && $i < count( $posts_array ); $i++ ) {
+								if ($posts_array[$i]->ID != $current_post_id) {
+									$related_posts[] = $posts_array[$i];
+								}
 							}
-
-							// Выводим 10 записей после текущей и если недостаточно, то добавляем записи до текущей
-							if ( $current_index != -1 ) {
-									$related_posts = array();
-
-									// Добавляем записи после текущей
-									for ( $i = $current_index + 1; $i < $current_index + 11 && $i < count( $posts_array ); $i++ ) {
-											$related_posts[] = $posts_array[$i];
+							// Если недостаточно, добавляем записи до текущей в обратном порядке
+							if ( count( $related_posts ) < 10 ) {
+								for ( $i = $current_index - 1; $i >= 0 && count( $related_posts ) < 10; $i-- ) {
+									if ($posts_array[$i]->ID != $current_post_id) {
+										$related_posts[] = $posts_array[$i];
 									}
-							
-									// Если недостаточно, добавляем записи до текущей в обратном порядке
-									if ( count( $related_posts ) < 10 ) {
-											for ( $i = $current_index - 1; $i >= 0 && count( $related_posts ) < 10; $i-- ) {
-													$related_posts[] = $posts_array[$i];
-											}
-									}
-
-									// Выводим записи
-									if ( !empty( $related_posts ) ) {
-											foreach ( $related_posts as $post ) {
-													setup_postdata( $post );
-													?>
-													<a href="<?php the_permalink(); ?>" class="item swiper-slide">
-														<?php
-															$news_image_alt = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
-
-															if (empty($news_image_alt)) {
-																	$news_image_alt = get_the_title();
-															}
-
-															echo wp_get_attachment_image(get_post_thumbnail_id(), 'medium', false, array('alt' => $news_image_alt));
-														?>
-														<b><?php the_title(); ?></b>
-														<?php 
-														if ( has_category() ) {
-																$categories = get_the_category();
-																echo '<p>' . $categories[0]->name . '</p>'; // Выводим название основной рубрики
-														}
-														?>
-													</a>
-													<?php
-											}
-											wp_reset_postdata();
-									}
+								}
 							}
+							// Если записей все равно меньше 10, добавляем сколько есть
+							if ( count( $related_posts ) < 10 ) {
+								for ( $i = 0; $i < count( $posts_array ); $i++ ) {
+									if ($posts_array[$i]->ID != $current_post_id && !in_array($posts_array[$i], $related_posts)) {
+										$related_posts[] = $posts_array[$i];
+									}
+									if ( count( $related_posts ) >= 10 ) {
+										break;
+									}
+								}
+							}
+							// Выводим записи
+							if ( !empty( $related_posts ) ) {
+								foreach ( $related_posts as $post ) {
+										setup_postdata( $post );
+									?>
+									<a href="<?php the_permalink(); ?>" class="item swiper-slide">
+										<?php
+											$news_image_alt = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
+
+											if (empty($news_image_alt)) {
+													$news_image_alt = get_the_title();
+											}
+
+											echo wp_get_attachment_image(get_post_thumbnail_id(), 'medium', false, array('alt' => $news_image_alt));
+										?>
+										<b><?php the_title(); ?></b>
+										<?php 
+										if ( has_category() ) {
+												$categories = get_the_category();
+												echo '<p>' . $categories[0]->name . '</p>'; // Выводим название основной рубрики
+										}
+										?>
+									</a>
+									<?php
+								}
+								wp_reset_postdata();
+							}
+						}
 					?>
 				</div>
 			</div>

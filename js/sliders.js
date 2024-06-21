@@ -254,32 +254,45 @@ jQuery(document).ready(function ($) {
       const newsBlockSwiper = newsBlockSlider.querySelector('.swiper');
       const arrPrev = newsBlockSlider.querySelector('.arr-prev');
       const arrNext = newsBlockSlider.querySelector('.arr-next');
-      let newsSwiper = new Swiper(newsBlockSwiper, {
-        spaceBetween: 20,
-        slidesPerView: 4,
-        navigation: {
-          nextEl: arrNext,
-          prevEl: arrPrev
-        },
-        breakpoints: {
-          300: {
-            slidesPerView: 1,
-            spaceBetween: 10,
+      const items = newsBlockSlider.querySelectorAll('.swiper-slide');
+      function startSwiper() {
+        let newsSwiper = new Swiper(newsBlockSwiper, {
+          spaceBetween: 20,
+          slidesPerView: 4,
+          navigation: {
+            nextEl: arrNext,
+            prevEl: arrPrev
           },
-          578: {
-            slidesPerView: 2,
-            spaceBetween: 10,
+          breakpoints: {
+            300: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            578: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },  
+            992: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            } 
           },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },  
-          992: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          } 
-        },
-      });
+        });
+      }
+      if (window.screen.width < 768 && items.length < 2) {
+        startSwiper();
+      } else if (window.screen.width < 993 && items.length < 3) {
+        startSwiper();
+      } else if (window.screen.width > 992 && items.length < 4) {
+        startSwiper();
+      } else {
+        newsBlockSwiper.classList.add('slider-disabled');
+      }
+      
     }
 
    }

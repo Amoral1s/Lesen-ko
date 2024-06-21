@@ -6975,6 +6975,10 @@ a.zhitov_wdiv.button {
   margin-bottom: 0 !important;
 }
 
+.slider-disabled .arr {
+  display: none !important;
+}
+
 .news-block.news-slider .slider-wrap {
   position: relative;
 }
