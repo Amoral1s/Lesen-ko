@@ -34,7 +34,7 @@
         <?php else : ?>
         <div class="logo">
           <a href="/" class="">
-            <img  itemprop="image" src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" title="lesen-ko.ru" alt="lesen-ko.ru">
+            <img  itemprop="image" src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" title="Вернутся на главную" alt="lesen-ko.ru">
           </a>
           <p>Лестницы на заказ<br> из дерева в Москве и МО</p>
         </div>

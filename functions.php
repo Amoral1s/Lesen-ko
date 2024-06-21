@@ -14,15 +14,7 @@ function add_noindex_nofollow_to_pagination() {
 }
 add_action('wp_head', 'add_noindex_nofollow_to_pagination');
 
-function add_canonical_link_to_pagination() {
-  if (is_paged()) {
-    global $paged;
-    $page_number = ($paged > 1) ? $paged : 1;
-    $canonical_url = get_pagenum_link(1);
-    echo '<link rel="canonical" href="' . $canonical_url . '" />';
-  }
-}
-add_action('wp_head', 'add_canonical_link_to_pagination');
+
 
 
 

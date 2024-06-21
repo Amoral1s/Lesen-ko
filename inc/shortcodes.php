@@ -24,7 +24,7 @@ add_shortcode('table', 'table');
 
 function video() {
   ob_start();
-  get_template_part('shortcodes/features');
+  get_template_part('shortcodes/video');
   return ob_get_clean();
 }
 add_shortcode('video', 'video');

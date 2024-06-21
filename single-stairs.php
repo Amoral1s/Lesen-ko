@@ -224,7 +224,11 @@
 						<div class="meta-row">
 							<b class="key"><?php the_sub_field('imya'); ?></b>
 							<span class="line"></span>
-							<p class="value"><?php the_sub_field('znachenie'); ?></p>
+							<?php if (get_sub_field('ssylka')) : ?>
+								<a class="value" href="<?php the_sub_field('ssylka'); ?>"><?php the_sub_field('znachenie'); ?></a>
+							<?php else : ?>
+								<p class="value"><?php the_sub_field('znachenie'); ?></p>
+							<?php endif; ?>
 						</div>
 						<?php endwhile; endif; ?>
 					</div>

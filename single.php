@@ -161,8 +161,8 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 							'post_type'      => 'post',
 							'posts_per_page' => -1, // Получаем все записи
 							'category__not_in' => array( 48 ),
-								'orderby' => 'date',
-								'order' => 'DESC'
+							'orderby' => 'date',
+							'order' => 'DESC'
 						);
 						$all_posts = new WP_Query( $args_all );
 						// Ищем индекс текущей записи

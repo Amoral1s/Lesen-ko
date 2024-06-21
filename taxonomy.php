@@ -38,7 +38,18 @@ get_header();
             <p><?php the_field('offer_price_label', $term); ?></p>
           </div>
         </div>
-        <?php if (get_field('of_feat','options')) : ?>
+        <?php if (get_field('offer_feat', $term)) : ?>
+        <div class="offer-feat">
+          <?php if (have_rows('offer_feat', $term)) : while(have_rows('offer_feat', $term)) : the_row(); ?>
+          <div class="item">
+            <div class="icon">
+              <img  itemprop="image" src="<?php the_sub_field('icon'); ?>" alt="<?php the_sub_field('zagolovok'); ?>">
+            </div>
+            <p><?php the_sub_field('zagolovok'); ?></p>
+          </div>
+          <?php endwhile; endif; ?>
+        </div>
+        <?php else : ?>
         <div class="offer-feat">
           <?php if (have_rows('of_feat','options')) : while(have_rows('of_feat','options')) : the_row(); ?>
           <div class="item">
@@ -67,7 +78,35 @@ get_header();
   </div>
 </section>
 
-<?php if (get_field('price_title', 'options')) : ?>
+<?php if (get_field('true_priced', $term) == false) : ?>
+<?php if (get_field('price_title', $term)) : ?>
+<section class="cat-page-features">
+  <div class="container">
+    <div class="cat-page-features-wrap">
+      <div class="left">
+        <h2 class="title title-sub"><?php the_field('price_title', $term); ?></h2>
+        <p class="subtitle"><?php the_field('price_subtitle', $term); ?></p>
+        <div class="button callback">Оставить заявку</div>
+      </div>
+      <div class="right">
+        <?php if (have_rows('price_feat', $term)) : while(have_rows('price_feat', $term)) : the_row(); ?>
+          <div class="item">
+            <div class="icon">
+              <img  itemprop="image" src="<?php the_sub_field('ikonka'); ?>" alt="<?php the_sub_field('zagolovok'); ?>">
+            </div>
+            <p><?php the_sub_field('zagolovok'); ?></p>
+          </div>
+        <?php endwhile; endif; ?>
+
+      </div>
+      <div class="mob-btns" style="display: none">
+        <p class="subtitle"><?php the_field('price_subtitle', $term); ?></p>
+        <div class="button callback">Оставить заявку</div>
+      </div>
+    </div>
+  </div>
+</section>
+<?php else : ?>
 <section class="cat-page-features">
   <div class="container">
     <div class="cat-page-features-wrap">
@@ -95,6 +134,7 @@ get_header();
   </div>
 </section>
 <?php endif; ?>
+<?php endif; ?>
 
 <?php if (get_field('true_form', $term)) : ?>
 <div class="container" id="buy" >
@@ -108,136 +148,159 @@ get_header();
 </div>
 <?php endif; ?>
 
-<?php if (get_field('cat_title', $term)) : ?>
-<section itemscope itemtype="https://schema.org/ItemList" class="cards" id="cards">
-  <div class="container">
-    <h2 class="title title-sub"><?php the_field('cat_title', $term); ?></h2>
-    <p class="subtitle"><?php the_field('cat_subtitle', $term); ?></p>
-    <div class="cards-wrap">
-      <?php
-        $term = get_queried_object();
-        $taxonomy = $term->taxonomy;
-        $current_page = (get_query_var('paged')) ? get_query_var('paged') : 1; // определяем текущую страницу блога
-        
-        $args = array(
-            'posts_per_page' => get_option('posts_per_page'),
-            'paged' => $current_page,
-            'post_type' => 'stairs',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => $taxonomy,
-                    'field' => 'slug',
-                    'terms' => $term->slug
-                )
-            )
-        );
-        
-        $query = new WP_Query( $args );
-        
-        while ( $query->have_posts() ) {
-            $query->the_post();
-            // Выводите информацию о каждой записи здесь
-        $stair_gallery = get_field('gallery');
-      ?>
-      <a  itemscope itemtype="https://schema.org/Product" itemprop="url" itemprop="itemListElement" href="<?php the_permalink(); ?>" class="item">
-        <div class="item-gall">
-          <div class="swiper">
-            <div class="swiper-wrapper mag-toggle-cards">
-              <?php foreach( $stair_gallery as $image ): ?>
-                <div href="<?php echo $image['url']; ?>" class="swiper-slide">
-                  <img itemprop="image" src="<?php echo $image['sizes']['large']; ?>" alt="<?php the_title(); ?>">
+<?php
+$term = get_queried_object();
+$taxonomy = $term->taxonomy;
+$current_page = (get_query_var('paged')) ? get_query_var('paged') : 1; // определяем текущую страницу блога
+
+$args = array(
+    'posts_per_page' => get_option('posts_per_page'),
+    'paged' => $current_page,
+    'post_type' => 'stairs',
+    'tax_query' => array(
+        array(
+            'taxonomy' => $taxonomy,
+            'field' => 'slug',
+            'terms' => $term->slug
+        )
+    )
+);
+
+$query = new WP_Query( $args );
+
+if ( $query->have_posts() ) : ?>
+    <?php if (get_field('cat_title', $term)) : ?>
+    <section itemscope itemtype="https://schema.org/ItemList" class="cards" id="cards">
+      <div class="container">
+        <h2 class="title title-sub"><?php the_field('cat_title', $term); ?></h2>
+        <p class="subtitle"><?php the_field('cat_subtitle', $term); ?></p>
+        <div class="cards-wrap">
+          <?php
+          while ( $query->have_posts() ) {
+              $query->the_post();
+              // Выводите информацию о каждой записи здесь
+              $stair_gallery = get_field('gallery');
+          ?>
+          <a itemscope itemtype="https://schema.org/Product" itemprop="url" itemprop="itemListElement" href="<?php the_permalink(); ?>" class="item">
+            <div class="item-gall">
+              <div class="swiper">
+                <div class="swiper-wrapper mag-toggle-cards">
+                  <?php foreach( $stair_gallery as $image ): ?>
+                    <div href="<?php echo $image['url']; ?>" class="swiper-slide">
+                      <img itemprop="image" src="<?php echo $image['sizes']['large']; ?>" alt="<?php the_title(); ?>">
+                    </div>
+                  <?php endforeach; ?>
                 </div>
-              <?php endforeach; ?>
-            </div>
-            
-          </div>
-          <div class="swiper-pagination dots"></div>
-        </div>
-        <b itemprop="name"><?php the_title(); ?></b>
-        <div class="meta">
-          <?php if (get_field('type_house')) : ?>
-          <div class="meta-row">
-            <p class="key">Тип помещения</p>
-            <strong class="value"><?php the_field('type_house'); ?></strong>
-          </div>
-          <?php endif; ?>
-          <?php if (get_field('material')) : ?>
-          <div class="meta-row">
-            <p class="key">Материал</p>
-            <strong class="value"><?php the_field('material'); ?></strong>
-          </div>
-          <?php endif; ?>
-          <?php if (get_field('type')) : ?>
-          <div class="meta-row">
-            <p class="key">Вид лестницы</p>
-            <strong class="value"><?php the_field('type'); ?></strong>
-          </div>
-          <?php endif; ?>
-          <?php if (get_field('height')) : ?>
-          <div class="meta-row">
-            <p class="key">Высота от поло до потолка</p>
-            <strong class="value"><?php the_field('height'); ?></strong>
-          </div>
-          <?php endif; ?>
-          <?php if (get_field('stup')) : ?>
-          <div class="meta-row">
-            <p class="key">Количество ступеней</p>
-            <strong class="value"><?php the_field('stup'); ?></strong>
-          </div>
-          <?php endif; ?>
-          <?php if (get_field('barrier')) : ?>
-          <div class="meta-row">
-            <p class="key">Ограждения</p>
-            <strong class="value"><?php the_field('barrier'); ?></strong>
-          </div>
-          <?php endif; ?>
-        </div>
-        <div class="bottom">
-          <div class="price-wrapper <?php if (!get_field('price')) { echo 'empty'; } ?>">
-            <div class="price">
-              <?php if (get_field('price')) : 
-                $new_price = str_replace('руб', '₽', get_field('price'));
-              ?>
-                <strong itemprop="price"><?php echo $new_price; ?></strong>
-                <span itemprop="priceCurrency"><?php the_field('price_meta'); ?></span>
-              <?php else : ?>
-                <strong itemprop="price" class="empty">Стоимость по запросу</strong>
-              <?php endif; ?>
-            </div>
-            <div class="time">
-              <div class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5.25C12.4142 5.25 12.75 5.58579 12.75 6L12.75 11.25L18 11.25C18.4142 11.25 18.75 11.5858 18.75 12C18.75 12.4142 18.4142 12.75 18 12.75L12 12.75C11.5858 12.75 11.25 12.4142 11.25 12L11.25 6C11.25 5.58579 11.5858 5.25 12 5.25Z" fill="#C01025"/>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12Z" fill="#C01025"/>
-                </svg>
               </div>
-              <?php if (get_field('srok_izgotovleniya')) : ?>
-                <p><?php the_field('srok_izgotovleniya'); ?></p>
-              <?php else : ?>
-                <p>от 20 дней</p>
+              <div class="swiper-pagination dots"></div>
+            </div>
+            <b itemprop="name"><?php the_title(); ?></b>
+            <div class="meta">
+              <?php if (get_field('type_house')) : ?>
+              <div class="meta-row">
+                <p class="key">Тип помещения</p>
+                <strong class="value"><?php the_field('type_house'); ?></strong>
+              </div>
+              <?php endif; ?>
+              <?php if (get_field('material')) : ?>
+              <div class="meta-row">
+                <p class="key">Материал</p>
+                <strong class="value"><?php the_field('material'); ?></strong>
+              </div>
+              <?php endif; ?>
+              <?php if (get_field('type')) : ?>
+              <div class="meta-row">
+                <p class="key">Вид лестницы</p>
+                <strong class="value"><?php the_field('type'); ?></strong>
+              </div>
+              <?php endif; ?>
+              <?php if (get_field('height')) : ?>
+              <div class="meta-row">
+                <p class="key">Высота от поло до потолка</p>
+                <strong class="value"><?php the_field('height'); ?></strong>
+              </div>
+              <?php endif; ?>
+              <?php if (get_field('stup')) : ?>
+              <div class="meta-row">
+                <p class="key">Количество ступеней</p>
+                <strong class="value"><?php the_field('stup'); ?></strong>
+              </div>
+              <?php endif; ?>
+              <?php if (get_field('barrier')) : ?>
+              <div class="meta-row">
+                <p class="key">Ограждения</p>
+                <strong class="value"><?php the_field('barrier'); ?></strong>
+              </div>
               <?php endif; ?>
             </div>
-          </div>
-          <div class="button buy-stair" data-link="<?php the_permalink(); ?>" data-title="<?php the_title(); ?>">
-            Заказать лестницу
+            <div class="bottom">
+              <div class="price-wrapper <?php if (!get_field('price')) { echo 'empty'; } ?>">
+                <div class="price">
+                  <?php if (get_field('price')) : 
+                    $new_price = str_replace('руб', '₽', get_field('price'));
+                  ?>
+                    <strong itemprop="price"><?php echo $new_price; ?></strong>
+                    <span itemprop="priceCurrency"><?php the_field('price_meta'); ?></span>
+                  <?php else : ?>
+                    <strong itemprop="price" class="empty">Стоимость по запросу</strong>
+                  <?php endif; ?>
+                </div>
+                <div class="time">
+                  <div class="icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 5.25C12.4142 5.25 12.75 5.58579 12.75 6L12.75 11.25L18 11.25C18.4142 11.25 18.75 11.5858 18.75 12C18.75 12.4142 18.4142 12.75 18 12.75L12 12.75C11.5858 12.75 11.25 12.4142 11.25 12L11.25 6C11.25 5.58579 11.5858 5.25 12 5.25Z" fill="#C01025"/>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12Z" fill="#C01025"/>
+                    </svg>
+                  </div>
+                  <?php if (get_field('srok_izgotovleniya')) : ?>
+                    <p><?php the_field('srok_izgotovleniya'); ?></p>
+                  <?php else : ?>
+                    <p>от 20 дней</p>
+                  <?php endif; ?>
+                </div>
+              </div>
+              <div class="button buy-stair" data-link="<?php the_permalink(); ?>" data-title="<?php the_title(); ?>">
+                Заказать лестницу
+              </div>
+            </div>
+          </a>
+          <?php } ?>
+          <?php wp_reset_postdata(); ?>
+        </div>
+        <?php if( function_exists('wp_pagenavi') ) wp_pagenavi(); ?>
+      </div>
+    </section>
+    <script> 
+        const navLinks = document.querySelectorAll('.wp-pagenavi a');
+        if (navLinks.length > 0) {
+          navLinks.forEach(elem => {
+            elem.href = `${elem.href}#cards`;
+          });
+        }
+    </script>
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php if (get_field('links_title', $term)) : ?>
+<section class="catalog-page">
+  <div class="container">
+    <div class="catalog-page-wrap">
+        <div itemscope itemtype="https://schema.org/ItemList" class="item text">
+          <h2 class="title <?php if (get_field('links_subtitle', $term)) { echo 'title-sub'; } ?>"><?php echo get_field('links_title', $term); ?></h2>
+          <?php if (get_field('links_subtitle', $term)) : ?>
+            <p class="subtitle"><?php get_field('links_subtitle', $term); ?></p>
+          <?php endif; ?>
+          <div class="text-wrap">
+            <?php if (have_rows('linkss', $term)) : while(have_rows('linkss', $term)) : the_row(); ?>
+            <a itemprop="url" itemprop="itemListElement" href="<?php the_sub_field('ssylka'); ?>" class="text-wrap-item" >
+              <?php the_sub_field('naimenovanie_lestniczy'); ?>
+            </a>
+            <?php endwhile; endif; ?>
           </div>
         </div>
-      </a>
-      <?php } ?>
-      <?php  wp_reset_postdata(); ?>
     </div>
-    <?php if( function_exists('wp_pagenavi') ) wp_pagenavi(); ?>
-    
   </div>
 </section>
-<script> 
-  	const navLinks = document.querySelectorAll('.wp-pagenavi a');
-    if (navLinks.length > 0) {
-      navLinks.forEach(elem => {
-        elem.href = `${elem.href}#cards`;
-      })
-    }
-</script>
 <?php endif; ?>
 
 

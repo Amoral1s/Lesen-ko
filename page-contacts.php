@@ -19,7 +19,7 @@ get_header();
       <h1 class="page-title"><?php the_title(); ?></h1>
       <div class="row">
         <div class="row-left">
-          <a class="phone" href="mailto:<?php the_field('phone', 'options'); ?>" target="blank">
+          <a class="phone" href="tel:<?php the_field('phone', 'options'); ?>" target="blank">
             <?php the_field('phone', 'options'); ?>         
           </a> 
           <time>
@@ -36,16 +36,17 @@ get_header();
             <p>Whatsapp</p>      
           </a> 
         </div>
+        <a class="email" href="mailto:<?php the_field('email', 'options'); ?>" target="blank">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.38564 8.5699C6.62318 8.23057 7.09082 8.14804 7.43016 8.38557L12.0001 11.5845L16.57 8.38557C16.9093 8.14804 17.377 8.23056 17.6145 8.5699C17.852 8.90924 17.7695 9.37689 17.4302 9.61442L12.4302 13.1144C12.1719 13.2952 11.8282 13.2952 11.57 13.1144L6.56997 9.61442C6.23063 9.37689 6.1481 8.90924 6.38564 8.5699Z" fill="#C01025"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5.75C3.30964 5.75 2.75 6.30964 2.75 7L2.75 17C2.75 17.6904 3.30964 18.25 4 18.25L20 18.25C20.6904 18.25 21.25 17.6904 21.25 17L21.25 7C21.25 6.30964 20.6904 5.75 20 5.75L4 5.75ZM1.25 7C1.25 5.48122 2.48122 4.25 4 4.25L20 4.25C21.5188 4.25 22.75 5.48122 22.75 7L22.75 17C22.75 18.5188 21.5188 19.75 20 19.75L4 19.75C2.48122 19.75 1.25 18.5188 1.25 17L1.25 7Z" fill="#C01025"/>
+            </svg>
+          </div>
+          <span><?php the_field('email', 'options'); ?>     </span>    
+        </a>
       </div>
-      <a class="email" href="mailto:<?php the_field('email', 'options'); ?>" target="blank">
-        <div class="icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.38564 8.5699C6.62318 8.23057 7.09082 8.14804 7.43016 8.38557L12.0001 11.5845L16.57 8.38557C16.9093 8.14804 17.377 8.23056 17.6145 8.5699C17.852 8.90924 17.7695 9.37689 17.4302 9.61442L12.4302 13.1144C12.1719 13.2952 11.8282 13.2952 11.57 13.1144L6.56997 9.61442C6.23063 9.37689 6.1481 8.90924 6.38564 8.5699Z" fill="#C01025"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5.75C3.30964 5.75 2.75 6.30964 2.75 7L2.75 17C2.75 17.6904 3.30964 18.25 4 18.25L20 18.25C20.6904 18.25 21.25 17.6904 21.25 17L21.25 7C21.25 6.30964 20.6904 5.75 20 5.75L4 5.75ZM1.25 7C1.25 5.48122 2.48122 4.25 4 4.25L20 4.25C21.5188 4.25 22.75 5.48122 22.75 7L22.75 17C22.75 18.5188 21.5188 19.75 20 19.75L4 19.75C2.48122 19.75 1.25 18.5188 1.25 17L1.25 7Z" fill="#C01025"/>
-          </svg>
-        </div>
-        <span><?php the_field('email', 'options'); ?>     </span>    
-      </a>
+     
       <b>
         <div class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

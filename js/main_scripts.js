@@ -11,6 +11,8 @@ jQuery(document).ready(function ($) {
 		$('.burger').on('click', function() {
 			$('.mob-menu').slideToggle(200);
 			$(this).toggleClass('active');
+			$('html').toggleClass('fixed');	
+
 		});
 		$('li.menu-item-has-children > a').click(function(e) {
 			e.preventDefault();
@@ -81,6 +83,7 @@ jQuery(document).ready(function ($) {
 			$('.cat-btn').addClass('active')
 			$('.catalog-menu').addClass('active');
 			$('.header').addClass('open-cat');
+			$('html').addClass('fixed');	
 			
 			/* $('html').addClass('fixed');	 */
 		}, function() {
@@ -432,4 +435,23 @@ if (links) {
 		$("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 500);
 		return false;
 	});
+	const props = document.querySelectorAll('.req-wrap .left .item p');
+	if (props.length > 0) {
+		function copytext(el) {
+			var $tmp = $("<textarea>");
+			$("body").append($tmp);
+			$tmp.val($(el).text()).select();
+			document.execCommand("copy");
+			$tmp.remove();
+		}
+		props.forEach(e => {
+			e.addEventListener('click', () => {
+				copytext(e);
+				e.classList.add('active');
+				setTimeout(() => {
+					e.classList.remove('active');
+				}, 1500);
+			})
+		})
+	}
 }); //end

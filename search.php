@@ -14,7 +14,7 @@
 		<div class="search">
       <?php echo do_shortcode('[wpdreams_ajaxsearchlite]'); ?>
     </div>
-		<div class="news-cats">
+		<!-- <div class="news-cats">
       <?php
         $args = array(
           'show_option_all'    => '',
@@ -49,9 +49,8 @@
           wp_list_categories( $args );
         echo '</ul>';
       ?>
-    </div>
-		
-		<div class="news-block-wrap">
+    </div> -->
+		<div class="news-block-wrap" style="padding-top: 40px">
 			<?php if (have_posts()) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 			<a href="<?php the_permalink(); ?>" class="item">

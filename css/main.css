@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .alignleft {
   float: left;
 }
@@ -1812,12 +1814,19 @@ div.asl_r {
 }
 
 .content .wp-block-quote p,
-.seo .wp-block-quote p {
+.content .wp-block-quote pre,
+.content blockquote p,
+.content blockquote pre,
+.seo .wp-block-quote p,
+.seo .wp-block-quote pre,
+.seo blockquote p,
+.seo blockquote pre {
   display: block;
   border-radius: 20px;
   margin-bottom: 40px;
   margin-top: 40px;
   color: #403730;
+  font-style: normal;
   font-size: 22px;
   font-weight: 600;
   padding: 30px;
@@ -1827,7 +1836,13 @@ div.asl_r {
 }
 
 .content .wp-block-quote p::after,
-.seo .wp-block-quote p::after {
+.content .wp-block-quote pre::after,
+.content blockquote p::after,
+.content blockquote pre::after,
+.seo .wp-block-quote p::after,
+.seo .wp-block-quote pre::after,
+.seo blockquote p::after,
+.seo blockquote pre::after {
   position: absolute;
   content: "";
   height: 32px;
@@ -2131,12 +2146,12 @@ div.asl_r {
 .content p a,
 .seo p a {
   font-size: 18px;
-  color: #403730;
+  color: #C01025;
 }
 
 .content p a:hover,
 .seo p a:hover {
-  color: #C01025;
+  opacity: 0.7;
 }
 
 .content p strong,
@@ -2465,8 +2480,15 @@ div.asl_r {
   display: block;
   font-size: 20px;
   font-weight: 400;
+  font-family: "TildaSans", sans-serif;
   margin-bottom: 6px;
+  color: #C01025;
   line-height: 1.5;
+  position: relative;
+}
+
+.only-single-page .single-nav-wrap a:hover {
+  opacity: 0.7;
 }
 
 .calc {
@@ -3856,7 +3878,20 @@ div.asl_r {
 }
 
 .fixed {
-  overflow: hidden;
+  overflow-y: hidden;
+  display: block;
+  position: relative;
+  max-width: calc(100vw - 10px);
+}
+
+.fixed .header::after {
+  height: 100%;
+  width: 10px;
+  right: -10px;
+  top: 0;
+  position: absolute;
+  background-color: #F7F7F7;
+  content: "";
 }
 
 .features-wrap {
@@ -3931,6 +3966,21 @@ div.asl_r {
   line-height: 1.2;
 }
 
+.swiper {
+  overflow: hidden;
+}
+
+.banner-slider {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.banner-slider .slider-banner {
+  margin-bottom: 30px;
+}
+
 .banner-slider .dots {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3942,7 +3992,12 @@ div.asl_r {
       -ms-flex-pack: center;
           justify-content: center;
   margin-top: 22px;
-  position: static;
+  position: absolute;
+  bottom: -27px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .banner-slider .dots .swiper-pagination-bullet {
@@ -5664,6 +5719,7 @@ div.asl_r {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 40px;
+  width: 100%;
 }
 
 .contacts-wrap .email .icon,
@@ -5675,6 +5731,11 @@ div.asl_r {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.contacts-wrap .email {
+  margin-top: 40px;
+  margin-bottom: 0;
 }
 
 .contacts-wrap b {
@@ -5736,13 +5797,15 @@ div.asl_r {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 40px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .contacts-wrap .row .button {
@@ -5753,7 +5816,7 @@ div.asl_r {
 
 .contacts-wrap .row-left {
   display: block;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 .contacts-wrap .row-left .phone {
@@ -6975,6 +7038,10 @@ a.zhitov_wdiv.button {
   margin-bottom: 0 !important;
 }
 
+.slider-banner {
+  position: relative;
+}
+
 .slider-disabled .arr {
   display: none !important;
 }
@@ -6986,6 +7053,98 @@ a.zhitov_wdiv.button {
 .news-block.news-slider .slider-wrap .swiper-wrapper {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+}
+
+.footer .link-ao {
+  padding-top: 30px;
+  text-align: center;
+  display: block;
+}
+
+.footer .link-ao a {
+  font-size: 14px;
+}
+
+.search #ajaxsearchlite1 .probox .promagnifier,
+.search #ajaxsearchlite1 form .promagnifier {
+  background-size: 22px 22px;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: transparent;
+  background-position: center;
+}
+
+.req-wrap .left .item p {
+  position: relative;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.req-wrap .left .item p.active::before {
+  opacity: 1;
+}
+
+.req-wrap .left .item p:hover {
+  color: #C01025;
+}
+
+.req-wrap .left .item p:hover::after {
+  opacity: 1;
+}
+
+.req-wrap .left .item p:after {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../img/icons/copy.svg);
+  right: -26px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  opacity: 0;
+}
+
+.req-wrap .left .item p::before {
+  position: absolute;
+  content: "Скопировано в буфер";
+  color: #fff;
+  background-color: #ff4848;
+  font-size: 12px;
+  height: 16px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 1px 8px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  right: 0px;
+  top: -18px;
+  opacity: 0;
+}
+
+html {
+  margin-top: 0 !important;
 }
 
 .news-block-wrap .item p {
@@ -7618,12 +7777,6 @@ a.zhitov_wdiv.button {
 
   .footer-wrap .form {
     max-width: 440px;
-  }
-
-  .footer-wrap .form small {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
   }
 
   .footer-wrap .form small a {
@@ -8455,14 +8608,18 @@ a.zhitov_wdiv.button {
   }
 
   .only-single-page .content .wp-block-quote,
-  .only-single-page .seo .wp-block-quote {
+  .only-single-page .content blockquote,
+  .only-single-page .seo .wp-block-quote,
+  .only-single-page .seo blockquote {
     margin-bottom: 30px;
     margin-top: 10px;
     display: block;
   }
 
   .only-single-page .content .wp-block-quote p,
-  .only-single-page .seo .wp-block-quote p {
+  .only-single-page .content blockquote p,
+  .only-single-page .seo .wp-block-quote p,
+  .only-single-page .seo blockquote p {
     font-size: 18px;
     padding: 20px;
     padding-top: 60px;
@@ -8470,7 +8627,9 @@ a.zhitov_wdiv.button {
   }
 
   .only-single-page .content .wp-block-quote p::after,
-  .only-single-page .seo .wp-block-quote p::after {
+  .only-single-page .content blockquote p::after,
+  .only-single-page .seo .wp-block-quote p::after,
+  .only-single-page .seo blockquote p::after {
     left: 20px;
     top: 30px;
   }
@@ -9099,6 +9258,10 @@ a.zhitov_wdiv.button {
     width: 100%;
     max-width: 100%;
     min-width: 0;
+  }
+
+  .banner-slider .slider-banner {
+    margin-bottom: 70px;
   }
 
   .catalog-page .title {
@@ -10179,6 +10342,10 @@ a.zhitov_wdiv.button {
     font-size: 16px;
   }
 
+  .banner-slider .arr {
+    display: none;
+  }
+
   .popular-wrap .item {
     padding: 15px;
   }
@@ -10476,6 +10643,7 @@ a.zhitov_wdiv.button {
 
   .cat-page-offer-wrap .left .offer-feat .item .icon {
     margin-right: 0;
+    max-width: 24px;
     margin-bottom: 6px;
   }
 
@@ -10895,8 +11063,118 @@ a.zhitov_wdiv.button {
     min-width: 0;
   }
 
+  .popular-wrap .item:hover b {
+    color: #fff;
+  }
+
+  .catalog-page .round-wrap-item:hover img {
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
+
+  .catalog-page .round-wrap-item:hover b {
+    color: #403730;
+  }
+
+  .catalog-page .text-wrap-item:hover {
+    color: #403730;
+    border-color: rgba(47, 43, 67, 0.15);
+  }
+
   .news-block.news-slider .arr {
     display: none;
+  }
+
+  .form .input p {
+    font-size: 14px !important;
+    top: 5px !important;
+    margin: 0 !important;
+    line-height: 1 !important;
+  }
+
+  .offer-form .form .row .input.file {
+    padding-left: 0;
+  }
+
+  .stair-offer-wrap .right .price-row .price-wrapper .price {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+
+  .cat-page-features-wrap .right .item {
+    min-height: 92px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .stair-offer .right .meta-row,
+  .stair-info-top .item-wrapper .meta-row {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-bottom: 1px solid rgba(47, 43, 67, 0.15);
+    padding-bottom: 10px;
+  }
+
+  .stair-offer .right .meta-row .key,
+  .stair-info-top .item-wrapper .meta-row .key {
+    width: 50%;
+    min-width: calc(50% - 3px);
+    max-width: calc(50% - 3px);
+    white-space: normal;
+  }
+
+  .stair-offer .right .meta-row .line,
+  .stair-info-top .item-wrapper .meta-row .line {
+    display: none;
+  }
+
+  .stair-offer .right .meta-row .value,
+  .stair-info-top .item-wrapper .meta-row .value {
+    width: 50%;
+    min-width: calc(50% - 3px);
+    max-width: calc(50% - 3px);
+    white-space: normal;
+    text-align: right;
+  }
+
+  .contacts-wrap .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  .contacts-wrap .row .email {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .contacts-wrap .row-right {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    margin-top: 0;
+    margin-bottom: 30px;
   }
 }
 

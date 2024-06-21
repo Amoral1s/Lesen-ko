@@ -223,13 +223,18 @@ jQuery(document).ready(function ($) {
         spaceBetween: 0,
         slidesPerView: 1,
         loop: true,
-        autoplay: {
+       /*  autoplay: {
           delay: 5000,
           disableOnInteraction: true,
+        }, */
+        autoHeight: false,
+        navigation: {
+          nextEl: '.banner-slider .arr.arr-next',
+          prevEl: '.banner-slider .arr.arr-prev'
         },
-        autoHeight: true,
         pagination: {
           el: ".banner-slider .swiper-pagination",
+          clickable: true,
         },
       });
      
@@ -239,8 +244,6 @@ jQuery(document).ready(function ($) {
     const newsBlockSlider = document.querySelector('.news-block .swiper');
 
 		if (newsBlockSlider) {
-
-
       let newsBlockSwiper = new Swiper(newsBlockSlider, {
         spaceBetween: 10,
         slidesPerView: 1
@@ -256,7 +259,7 @@ jQuery(document).ready(function ($) {
       const arrNext = newsBlockSlider.querySelector('.arr-next');
       const items = newsBlockSlider.querySelectorAll('.swiper-slide');
       function startSwiper() {
-        let newsSwiper = new Swiper(newsBlockSwiper, {
+        new Swiper(newsBlockSwiper, {
           spaceBetween: 20,
           slidesPerView: 4,
           navigation: {
@@ -283,11 +286,11 @@ jQuery(document).ready(function ($) {
           },
         });
       }
-      if (window.screen.width < 768 && items.length < 2) {
+      if (window.screen.width < 768 && items.length > 2) {
         startSwiper();
-      } else if (window.screen.width < 993 && items.length < 3) {
+      } else if (window.screen.width < 993 && items.length > 3) {
         startSwiper();
-      } else if (window.screen.width > 992 && items.length < 4) {
+      } else if (window.screen.width > 992 && items.length > 4) {
         startSwiper();
       } else {
         newsBlockSwiper.classList.add('slider-disabled');

@@ -17,7 +17,7 @@ get_header();
   <div class="container">
     <h1 class="page-title"><?php the_title(); ?></h1>
     <div class="content"><?php the_content(); ?></div>
-
+    <?php if (get_field('video_tap', 'options') == false) : ?>
     <div class="feedback">
         <div class="feedback-wrap">
           <?php if (have_rows('otzyvy', 'options')) : while(have_rows('otzyvy', 'options')) : the_row(); ?>
@@ -46,10 +46,11 @@ get_header();
         <?php endwhile; endif; ?>
       </div>
     </div>
+    <?php endif; ?>
   </div>
 </section>
 
-<?php if (get_field('actions', 'options')) : ?>
+<?php if (get_field('text_tap', 'options') == false) : ?>
 <section class="text-feed">
   <div class="container">
     <h2 class="title"><?php the_field('textfeed_title', 'options'); ?></h2>

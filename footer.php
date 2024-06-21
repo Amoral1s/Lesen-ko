@@ -9,7 +9,7 @@
           </div>
           <?php else : ?>
           <a href="/" class="logo">
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo-white.svg" title="lesen-ko.ru" alt="lesen-ko.ru">
+            <img src="<?php echo get_template_directory_uri(); ?>/img/logo-white.svg" title="Вернутся на главную" alt="lesen-ko.ru">
           </a>
         <?php endif; ?>
         <div class="block">
@@ -80,9 +80,13 @@
       <a href="/sitemap/">Карта сайта</a>
       <p>Не является публичной офертой</p>
     </div>
+    <div class="container link-ao">
+      <a href="https://ozhgibesov.agency/" target="blank">Разработка с Ozhgibesov Agency</a>
+    </div>
   </div>
   <meta itemprop="copyrightYear" content="2024">
   <meta itemprop="copyrightHolder" content="Лесенко">
+  
 </footer>
 
 <div class="overlay"></div>

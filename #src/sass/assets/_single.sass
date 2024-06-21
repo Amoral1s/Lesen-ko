@@ -77,13 +77,14 @@
       margin-bottom: 0!important
   .cards
     margin-bottom: 40px
-  .wp-block-quote
-    p
+  .wp-block-quote, blockquote
+    p, pre
       display: block
       border-radius: 20px
       margin-bottom: 40px
       margin-top: 40px
       color: $text
+      font-style: normal
       font-size: 22px
       font-weight: 600
       padding: 30px
@@ -241,9 +242,9 @@
     font-size: $fsz
     a
       font-size: $fsz
-      color: $link
+      color: $main
       &:hover
-        color: $link_hover
+        opacity: .7
     strong
       color: $text
   ul
@@ -425,8 +426,13 @@
         display: block
         font-size: 20px
         font-weight: 400
+        font-family: $font
         margin-bottom: 6px
+        color: $main
         line-height: 1.5
+        position: relative
+        &:hover
+          opacity: .7
 
 @media (max-width: 992px)
   .share.act-share
@@ -514,7 +520,7 @@
             font-size: 16px
       
 
-      .wp-block-quote 
+      .wp-block-quote, blockquote
         margin-bottom: 30px
         margin-top: 10px
         display: block

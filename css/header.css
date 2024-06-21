@@ -763,6 +763,7 @@ svg:hover path {
   .header-top .logo p {
     font-size: 16px;
     line-height: 1.2;
+    white-space: nowrap;
     margin-left: 10px;
     width: 190px;
   }
@@ -790,7 +791,7 @@ svg:hover path {
     width: 100%;
     top: 99%;
     z-index: 4;
-    left: -40px;
+    left: 0;
   }
 
   .header-bottom .menu {
@@ -1279,6 +1280,7 @@ svg:hover path {
     line-height: 1.2;
     font-weight: 400;
     color: #403730;
+    white-space: nowrap;
     padding-left: 8px;
   }
 
