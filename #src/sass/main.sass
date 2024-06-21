@@ -4294,9 +4294,34 @@ html
 
 
 
+.lg-container
+  .lg-next,
+  .lg-prev,
+  .lg-close
+    height: 24px
+    width: 24px
+    background-repeat: no-repeat
+    background-size: contain
+    display: block!important
+    &:after, &:before
+      display: none
+  .lg-prev
+    background-image: url(../img/lightgallery/prev.svg)
+  .lg-next
+    background-image: url(../img/lightgallery/next.svg)
+  .lg-close
+    background-image: url(../img/lightgallery/close.svg)
+    margin-top: 10px
+    margin-right: 10px
+  .lg-sub-html
+    display: none
 
-
-
+@media (max-width: 992px)
+  .lg-container
+    .lg-content
+      margin-bottom: 30px
+    .lg-components
+      display: none
 
 
 

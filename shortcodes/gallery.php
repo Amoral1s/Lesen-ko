@@ -1,4 +1,4 @@
-<div class="gallery mag-toggle">
+<div class="gallery">
   <?php 
     $gallery_img = get_field('gallery');
     if( $gallery_img ): 

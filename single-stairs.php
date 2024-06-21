@@ -27,7 +27,7 @@
 	<div class="container">
 		<div class="stair-offer-wrap">
 			<div class="left">
-				<div class="big-images">
+				<div class="big-images mag-toggle">
 					<div class="swiper">
 						<div class="swiper-wrapper">
 							<?php 
@@ -359,7 +359,7 @@
 				<a itemscope itemtype="https://schema.org/Product" itemprop="url" itemprop="itemListElement" href="<?php the_permalink(); ?>" class="item swiper-slide">
 					<div class="item-gall">
 						<div class="swiper">
-							<div class="swiper-wrapper mag-toggle-cards">
+							<div class="swiper-wrapper mag-toggle">
 								<?php foreach( $stair_gallery as $image ): ?>
 									<div href="<?php echo $image['url']; ?>" class="swiper-slide">
 										<img  itemprop="image" src="<?php echo $image['sizes']['large']; ?>" alt="<?php the_title(); ?>">

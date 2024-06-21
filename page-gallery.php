@@ -63,7 +63,7 @@ get_header();
         </div>
         <div class="item-gall">
           <div class="swiper">
-            <div class="swiper-wrapper mag-toggle-cards">
+            <div class="swiper-wrapper mag-toggle">
               <?php foreach( $stair_gallery as $image ): ?>
                 <div href="<?php echo $image['url']; ?>" class="swiper-slide">
                   <img  itemprop="image" src="<?php echo $image['sizes']['large']; ?>" alt="<?php the_title(); ?>">

@@ -1,0 +1,35 @@
+.lg-prev {
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../img/lightgallery/prev.svg);
+}
+
+.lg-prev:after {
+  display: none;
+}
+
+.lg-next {
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../img/lightgallery/next.svg);
+}
+
+.lg-next:after {
+  display: none;
+}
+
+.lg-close {
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../img/lightgallery/close.svg);
+}
+
+.lg-close:after {
+  display: none;
+}

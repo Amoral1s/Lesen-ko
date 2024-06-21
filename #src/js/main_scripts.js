@@ -96,23 +96,16 @@ jQuery(document).ready(function ($) {
 		
 	} 
 
-	
+
+
 	
 
 	const products = document.querySelectorAll('.cards-wrap a.item');
 
 	if (products.length > 0) {
 		products.forEach(elem => {
-			const elemGallery = elem.querySelector('.mag-toggle-cards');
-			if (window.screen.width > 0) {
-				$(elemGallery).magnificPopup({
-					delegate: 'div',
-					type: 'image',
-					gallery: {
-						enabled: true
-					}
-				});
-			}
+				
+			
 			elem.addEventListener('click', (e) => {
 				e.preventDefault();
 				let target = e.target;
@@ -125,71 +118,9 @@ jQuery(document).ready(function ($) {
 			})
 		})
 	}
-	const magToggle = document.querySelectorAll('.mag-toggle');
-	
-	if (magToggle.length > 0) {
-		magToggle.forEach(elem => {
-			$(elem).magnificPopup({
-				delegate: 'a',
-				type: 'image',
-				gallery: {
-					enabled: true
-				}
-			});
-		})
-	}
-	const gallery = document.querySelectorAll('.gallery');
-	const galleryWP = document.querySelectorAll('.wp-block-gallery');
-	
-	
-	if (gallery.length > 0) {
-		gallery.forEach(elem => {
-			const setType = elem.querySelector('figure');
 
-			if (setType) {
-				$(elem).magnificPopup({
-					delegate: 'figure a',
-					type: 'image',
-					gallery: {
-						enabled: true
-					}
-				});
-			} else {
-				$(elem).magnificPopup({
-					delegate: 'a',
-					type: 'image',
-					gallery: {
-						enabled: true
-					}
-				});
-			}
-			
-		})
-	}
-	if (galleryWP.length > 0) {
-		galleryWP.forEach(elem => {
-			const setType = elem.querySelector('figure');
-
-			if (setType) {
-				$(elem).magnificPopup({
-					delegate: 'figure a',
-					type: 'image',
-					gallery: {
-						enabled: true
-					}
-				});
-			} else {
-				$(elem).magnificPopup({
-					delegate: 'a',
-					type: 'image',
-					gallery: {
-						enabled: true
-					}
-				});
-			}
-			
-		})
-	}
+	
+	
 	
 
 	$('.faq .item-title').on('click', function() {
@@ -453,5 +384,75 @@ if (links) {
 				}, 1500);
 			})
 		})
+	}
+
+	
+	const elemGallery = document.querySelectorAll('.mag-toggle');
+	if (elemGallery.length > 0) {
+		elemGallery.forEach(elem => {
+			// Добавление атрибута data-src для каждого элемента галереи
+			const links = elem.querySelectorAll('a');
+			if (links.length > 0) {
+				links.forEach(link => {
+					const imgSrc = link.getAttribute('href');
+					link.setAttribute('data-src', imgSrc);
+				});
+			}
+			
+			const div = elem.querySelectorAll('div');
+			if (div.length > 0) {
+				div.forEach(link => {
+					const imgSrc = link.getAttribute('href');
+					link.setAttribute('data-src', imgSrc);
+				});
+				
+			}
+			const gallery = lightGallery(elem, {
+				thumbnail: true,
+				animateThumb: false,
+				showThumbByDefault: false,
+				plugins: [lgThumbnail],
+				swipeThreshold: 50,
+				mode: 'lg-fade',
+				download: false,
+				mobileSettings: {
+						controls: true,
+						showCloseIcon: true
+				}
+		});
+			
+
+			console.log('Initializing LightGallery');
+			// Инициализация LightGallery
+			
+		});
+	}
+	const contentGallery = document.querySelectorAll('.content .gallery');
+	if (contentGallery.length > 0) {
+		contentGallery.forEach(elem => {
+			// Добавление атрибута data-src для каждого элемента галереи
+			const links = elem.querySelectorAll('a');
+			links.forEach(link => {
+					const imgSrc = link.getAttribute('href');
+					link.setAttribute('data-src', imgSrc);
+			});
+			
+			console.log('Initializing LightGallery');
+			// Инициализация LightGallery
+			const gallery = lightGallery(elem, {
+					thumbnail: true,
+					animateThumb: false,
+					showThumbByDefault: false,
+					plugins: [lgThumbnail],
+					selector: 'a',
+					swipeThreshold: 50,
+					mode: 'lg-fade',
+					download: false,
+					mobileSettings: {
+							controls: true,
+							showCloseIcon: true
+					}
+			});
+		});
 	}
 }); //end
