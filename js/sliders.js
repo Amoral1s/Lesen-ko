@@ -247,6 +247,41 @@ jQuery(document).ready(function ($) {
       });
      
     }
+   } else {
+    const newsBlockSlider = document.querySelector('.news-block.news-slider');
+
+    if (newsBlockSlider) {
+      const newsBlockSwiper = newsBlockSlider.querySelector('.swiper');
+      const arrPrev = newsBlockSlider.querySelector('.arr-prev');
+      const arrNext = newsBlockSlider.querySelector('.arr-next');
+      let newsSwiper = new Swiper(newsBlockSwiper, {
+        spaceBetween: 20,
+        slidesPerView: 4,
+        navigation: {
+          nextEl: arrNext,
+          prevEl: arrPrev
+        },
+        breakpoints: {
+          300: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          578: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },  
+          992: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          } 
+        },
+      });
+    }
+
    }
 	
 

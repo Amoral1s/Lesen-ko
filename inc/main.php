@@ -59,24 +59,28 @@ add_filter('wpcf7_form_elements', function($content) {
 	return $content;
 });
 
-//маска телефона cf7
+// Маска телефона для Contact Form 7
 add_filter('wpcf7_validate_tel*', 'dco_wpcf7_validate', 10, 2);
+
 function dco_wpcf7_validate($result, $tag) {
-    //Получаем объект тега
-    $tag = new WPCF7_Shortcode($tag);
-    //Получаем значение поля
+    // Получаем объект тега
+    $tag = new WPCF7_FormTag($tag);
+
+    // Получаем значение поля
     $value = isset($_POST[$tag->name]) ? trim(wp_unslash(strtr((string) $_POST[$tag->name], "\n", " "))) : '';
-    //Указываем правила для тега с типом "tel"
+
+    // Указываем правила для тега с типом "tel"
     if ('tel' == $tag->basetype) {
-        //Если тег обязателен и имеет пустое значение — выводим сообщение об ошибке
+        // Если тег обязателен и имеет пустое значение — выводим сообщение об ошибке
         if ($tag->is_required() && 18 != strlen($value)) {
             $result->invalidate($tag, 'Укажите верный телефон');
-            //Если значение не пустое и не является корректным телефонным номером — выводим сообщение об ошибке
+        // Если значение не пустое и не является корректным телефонным номером — выводим сообщение об ошибке
         } elseif ('' != $value && !wpcf7_is_tel($value)) {
-            //Функция "wpcf7_get_message" выводит сообщения с вкладки "Уведомления при отправке формы" настроек формы
+            // Функция "wpcf7_get_message" выводит сообщения с вкладки "Уведомления при отправке формы" настроек формы
             $result->invalidate($tag, wpcf7_get_message('invalid_tel'));
         }
     }
+
     return $result;
 }
 

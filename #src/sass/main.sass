@@ -1971,6 +1971,8 @@
     .item
       display: none
       width: 100%
+      &.meta
+        padding-top: 20px
       .flex
         display: flex
         justify-content: space-between
@@ -2139,6 +2141,7 @@
     &-bot
       .meta
         margin-bottom: 15px
+        padding-top: 10px
         &-row
           margin-bottom: 10px
           width: 100%
@@ -4091,10 +4094,24 @@ a.zhitov_wdiv.button
 
 
 
+.breadcrumbs
+  .breadcrumbs
+    margin-bottom: 0!important
 
 
 
 
+
+.news-block.news-slider
+  .slider-wrap
+    position: relative
+    .swiper-wrapper
+      flex-wrap: nowrap
+
+@media (max-width: 578px)
+  .news-block.news-slider
+    .arr
+      display: none
 
 
 

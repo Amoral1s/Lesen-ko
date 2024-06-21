@@ -141,47 +141,98 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 </section>
 
 
-<section class="news-block">
+<section class="news-block news-slider">
   <div class="container">
     <div class="title-block">
       <h2 class="title">Читайте также</h2>
     </div>
-    <div class="swiper">
-      <div class="news-block-wrap swiper-wrapper">
-        <?php
-					$args = array(
-						'post_type'      => 'post',
-						'posts_per_page'    => 4,
-						'category__not_in' => array( 48 ),
-						'post__not_in'      => array(get_the_id())
-					);
-          $query = new WP_Query( $args );
+		<div class="slider-wrap">
+			<div class="arr arr-prev">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M15.5303 5.46967C15.8232 5.76256 15.8232 6.23744 15.5303 6.53033L10.0607 12L15.5303 17.4697C15.8232 17.7626 15.8232 18.2374 15.5303 18.5303C15.2374 18.8232 14.7626 18.8232 14.4697 18.5303L8.46967 12.5303C8.17678 12.2374 8.17678 11.7626 8.46967 11.4697L14.4697 5.46967C14.7626 5.17678 15.2374 5.17678 15.5303 5.46967Z" fill="#C01025"/>
+				</svg>
+			</div>
+			<div class="swiper">
+				<div class="news-block-wrap swiper-wrapper">
+					<?php
+						$current_post_id = get_the_ID();
 
-          if ( $query->have_posts() ) {
-            while ( $query->have_posts() ) {
-              $query->the_post();
-        ?>
-        <a href="<?php the_permalink(); ?>" class="item swiper-slide">
-          <?php
-            $news_image_alt = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
+						// Получаем все записи
+						$args_all = array(
+								'post_type'      => 'post',
+								'posts_per_page' => -1, // Получаем все записи
+								'category__not_in' => array( 48 ),
+									'orderby' => 'date',
+									'order' => 'DESC'
+							);
+							$all_posts = new WP_Query( $args_all );
 
-            if (empty($news_image_alt)) {
-                $news_image_alt = get_the_title();
-            }
+							// Ищем индекс текущей записи
+							$current_index = -1;
+							if ( $all_posts->have_posts() ) {
+									$posts_array = $all_posts->posts;
+									foreach ( $posts_array as $index => $post ) {
+											if ( $post->ID == $current_post_id ) {
+													$current_index = $index;
+													break;
+											}
+									}
+							}
 
-            echo wp_get_attachment_image(get_post_thumbnail_id(), 'medium', false, array('alt' => $news_image_alt));
-          ?>
-          <b><?php the_title(); ?></b>
-          <?php 
-          if ( has_category() ) {
-              $categories = get_the_category();
-              echo '<p>' . $categories[0]->name . '</p>'; // Выводим название основной рубрики
-          }
-          ?>
-        </a>
-        <?php } }  wp_reset_postdata(); ?>
-      </div>
-    </div>
+							// Выводим 10 записей после текущей и если недостаточно, то добавляем записи до текущей
+							if ( $current_index != -1 ) {
+									$related_posts = array();
+
+									// Добавляем записи после текущей
+									for ( $i = $current_index + 1; $i < $current_index + 11 && $i < count( $posts_array ); $i++ ) {
+											$related_posts[] = $posts_array[$i];
+									}
+							
+									// Если недостаточно, добавляем записи до текущей в обратном порядке
+									if ( count( $related_posts ) < 10 ) {
+											for ( $i = $current_index - 1; $i >= 0 && count( $related_posts ) < 10; $i-- ) {
+													$related_posts[] = $posts_array[$i];
+											}
+									}
+
+									// Выводим записи
+									if ( !empty( $related_posts ) ) {
+											foreach ( $related_posts as $post ) {
+													setup_postdata( $post );
+													?>
+													<a href="<?php the_permalink(); ?>" class="item swiper-slide">
+														<?php
+															$news_image_alt = get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true);
+
+															if (empty($news_image_alt)) {
+																	$news_image_alt = get_the_title();
+															}
+
+															echo wp_get_attachment_image(get_post_thumbnail_id(), 'medium', false, array('alt' => $news_image_alt));
+														?>
+														<b><?php the_title(); ?></b>
+														<?php 
+														if ( has_category() ) {
+																$categories = get_the_category();
+																echo '<p>' . $categories[0]->name . '</p>'; // Выводим название основной рубрики
+														}
+														?>
+													</a>
+													<?php
+											}
+											wp_reset_postdata();
+									}
+							}
+					?>
+				</div>
+			</div>
+			<div class="arr arr-next">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M8.46967 18.5303C8.17678 18.2374 8.17678 17.7626 8.46967 17.4697L13.9393 12L8.46967 6.53033C8.17678 6.23744 8.17678 5.76256 8.46967 5.46967C8.76256 5.17678 9.23744 5.17678 9.53033 5.46967L15.5303 11.4697C15.8232 11.7626 15.8232 12.2374 15.5303 12.5303L9.53033 18.5303C9.23744 18.8232 8.76256 18.8232 8.46967 18.5303Z" fill="#C01025"/>
+				</svg>
+			</div>
+		</div>
+    
   </div>
 </section>
 
