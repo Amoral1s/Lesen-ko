@@ -8342,6 +8342,17 @@ html {
   .lg-container .lg-components {
     display: none;
   }
+
+  .banner-slider .dots {
+    position: static;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
+
+  .banner-slider .slider-banner {
+    margin-bottom: 40px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -9685,6 +9696,10 @@ html {
   .feed-form .form .sec-row small {
     width: 100%;
     margin-top: 15px;
+  }
+
+  .banner-slider .slider-banner {
+    margin-bottom: 0;
   }
 }
 

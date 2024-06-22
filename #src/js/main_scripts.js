@@ -104,16 +104,11 @@ jQuery(document).ready(function ($) {
 
 	if (products.length > 0) {
 		products.forEach(elem => {
-				
-			
 			elem.addEventListener('click', (e) => {
 				e.preventDefault();
 				let target = e.target;
 				if (!target.closest('.item .button.buy-stair') && !target.closest('.item-gall')) {
 					window.location.href = elem.href;
-				}
-				if (target.closest('.item-gall')) {
-					
 				}
 			})
 		})
