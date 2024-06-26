@@ -1,8 +1,8 @@
 <?php if (get_field('serv_title')) : ?>
 
 <section class="cards">
-  <h2 class="title title-sub"><?php the_field('serv_title'); ?></h2>
-  <p class="subtitle"><?php the_field('serv_subtitle'); ?></p>
+  <h2 class="title title-sub"><?php echo get_field('serv_title'); ?></h2>
+  <p class="subtitle"><?php echo get_field('serv_subtitle'); ?></p>
   <div class="cards-slider-wrapper">
     <div class="arr arr-prev">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -46,37 +46,37 @@
           <?php if (get_field('type_house')) : ?>
           <div class="meta-row">
             <p class="key">Тип помещения</p>
-            <strong class="value"><?php the_field('type_house'); ?></strong>
+            <strong class="value"><?php echo get_field('type_house'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('material')) : ?>
           <div class="meta-row">
             <p class="key">Материал</p>
-            <strong class="value"><?php the_field('material'); ?></strong>
+            <strong class="value"><?php echo get_field('material'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('type')) : ?>
           <div class="meta-row">
             <p class="key">Вид лестницы</p>
-            <strong class="value"><?php the_field('type'); ?></strong>
+            <strong class="value"><?php echo get_field('type'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('height')) : ?>
           <div class="meta-row">
             <p class="key">Высота от поло до потолка</p>
-            <strong class="value"><?php the_field('height'); ?></strong>
+            <strong class="value"><?php echo get_field('height'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('stup')) : ?>
           <div class="meta-row">
             <p class="key">Количество ступеней</p>
-            <strong class="value"><?php the_field('stup'); ?></strong>
+            <strong class="value"><?php echo get_field('stup'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('barrier')) : ?>
           <div class="meta-row">
             <p class="key">Ограждения</p>
-            <strong class="value"><?php the_field('barrier'); ?></strong>
+            <strong class="value"><?php echo get_field('barrier'); ?></strong>
           </div>
           <?php endif; ?>
         </div>
@@ -87,7 +87,7 @@
                 $new_price = str_replace('руб', '₽', get_field('price'));
               ?>
                 <strong><?php echo $new_price; ?></strong>
-                <span><?php the_field('price_meta'); ?></span>
+                <span><?php echo get_field('price_meta'); ?></span>
               <?php else : ?>
                 <strong class="empty">Стоимость по запросу</strong>
               <?php endif; ?>
@@ -100,7 +100,7 @@
                 </svg>
               </div>
               <?php if (get_field('srok_izgotovleniya')) : ?>
-                <p><?php the_field('srok_izgotovleniya'); ?></p>
+                <p><?php echo get_field('srok_izgotovleniya'); ?></p>
               <?php else : ?>
                 <p>от 20 дней</p>
               <?php endif; ?>

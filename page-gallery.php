@@ -79,37 +79,37 @@ get_header();
           <?php if (get_field('type_house')) : ?>
           <div class="meta-row">
             <p class="key">Тип помещения</p>
-            <strong class="value"><?php the_field('type_house'); ?></strong>
+            <strong class="value"><?php echo get_field('type_house'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('material')) : ?>
           <div class="meta-row">
             <p class="key">Материал</p>
-            <strong class="value"><?php the_field('material'); ?></strong>
+            <strong class="value"><?php echo get_field('material'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('type')) : ?>
           <div class="meta-row">
             <p class="key">Вид лестницы</p>
-            <strong class="value"><?php the_field('type'); ?></strong>
+            <strong class="value"><?php echo get_field('type'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('height')) : ?>
           <div class="meta-row">
             <p class="key">Высота от поло до потолка</p>
-            <strong class="value"><?php the_field('height'); ?></strong>
+            <strong class="value"><?php echo get_field('height'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('stup')) : ?>
           <div class="meta-row">
             <p class="key">Количество ступеней</p>
-            <strong class="value"><?php the_field('stup'); ?></strong>
+            <strong class="value"><?php echo get_field('stup'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('barrier')) : ?>
           <div class="meta-row">
             <p class="key">Ограждения</p>
-            <strong class="value"><?php the_field('barrier'); ?></strong>
+            <strong class="value"><?php echo get_field('barrier'); ?></strong>
           </div>
           <?php endif; ?>
         </div>
@@ -120,7 +120,7 @@ get_header();
                 $new_price = str_replace('руб', '₽', get_field('price'));
               ?>
                 <strong itemprop="price"><?php echo $new_price; ?></strong>
-                <span itemprop="priceCurrency"><?php the_field('price_meta'); ?></span>
+                <span itemprop="priceCurrency"><?php echo get_field('price_meta'); ?></span>
               <?php else : ?>
                 <strong class="empty">Стоимость по запросу</strong>
               <?php endif; ?>
@@ -133,7 +133,7 @@ get_header();
                 </svg>
               </div>
               <?php if (get_field('srok_izgotovleniya')) : ?>
-                <p><?php the_field('srok_izgotovleniya'); ?></p>
+                <p><?php echo get_field('srok_izgotovleniya'); ?></p>
               <?php else : ?>
                 <p>от 20 дней</p>
               <?php endif; ?>

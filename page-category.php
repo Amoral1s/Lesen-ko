@@ -22,15 +22,15 @@ get_header();
   <div class="container">
     <div class="cat-page-offer-wrap">
       <div class="left">
-        <h1 class="page-title page-title-sub"><?php the_field('offer_title'); ?></h1>
-        <p class="subtitle"><?php the_field('offer_subtitle'); ?></p>
+        <h1 class="page-title page-title-sub"><?php echo get_field('offer_title'); ?></h1>
+        <p class="subtitle"><?php echo get_field('offer_subtitle'); ?></p>
         <div class="btns">
-          <a href="#buy" class="button anchor"  data-link="Это страница категории" data-title="<?php the_field('offer_title'); ?>">
+          <a href="#buy" class="button anchor"  data-link="Это страница категории" data-title="<?php echo get_field('offer_title'); ?>">
             Бесплатный расчёт
           </a>
           <div class="price">
-            <b><?php the_field('offer_price'); ?></b>
-            <p><?php the_field('offer_price_label'); ?></p>
+            <b><?php echo get_field('offer_price'); ?></b>
+            <p><?php echo get_field('offer_price_label'); ?></p>
           </div>
         </div>
         <?php if (get_field('of_feat','options')) : ?>
@@ -67,8 +67,8 @@ get_header();
   <div class="container">
     <div class="cat-page-features-wrap">
       <div class="left">
-        <h2 class="title title-sub"><?php the_field('price_title', 'options'); ?></h2>
-        <p class="subtitle"><?php the_field('price_subtitle', 'options'); ?></p>
+        <h2 class="title title-sub"><?php echo get_field('price_title', 'options'); ?></h2>
+        <p class="subtitle"><?php echo get_field('price_subtitle', 'options'); ?></p>
         <div class="button callback">Оставить заявку</div>
       </div>
       <div class="right">
@@ -82,7 +82,7 @@ get_header();
         <?php endwhile; endif; ?>
       </div>
       <div class="mob-btns" style="display: none">
-        <p class="subtitle"><?php the_field('price_subtitle', 'options'); ?></p>
+        <p class="subtitle"><?php echo get_field('price_subtitle', 'options'); ?></p>
         <div class="button callback">Оставить заявку</div>
       </div>
     </div>
@@ -105,8 +105,8 @@ get_header();
 <?php if (get_field('cat_title')) : ?>
 <section itemscope itemtype="https://schema.org/ItemList" class="cards">
   <div class="container">
-    <h2 class="title title-sub"><?php the_field('cat_title'); ?></h2>
-    <p class="subtitle"><?php the_field('cat_subtitle'); ?></p>
+    <h2 class="title title-sub"><?php echo get_field('cat_title'); ?></h2>
+    <p class="subtitle"><?php echo get_field('cat_subtitle'); ?></p>
     <?php if (get_field('true_category_tab')) : ?>  
     <div class="cards-wrap">
       <?php
@@ -144,37 +144,37 @@ get_header();
           <?php if (get_field('type_house')) : ?>
           <div class="meta-row">
             <p class="key">Тип помещения</p>
-            <strong class="value"><?php the_field('type_house'); ?></strong>
+            <strong class="value"><?php echo get_field('type_house'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('material')) : ?>
           <div class="meta-row">
             <p class="key">Материал</p>
-            <strong class="value"><?php the_field('material'); ?></strong>
+            <strong class="value"><?php echo get_field('material'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('type')) : ?>
           <div class="meta-row">
             <p class="key">Вид лестницы</p>
-            <strong class="value"><?php the_field('type'); ?></strong>
+            <strong class="value"><?php echo get_field('type'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('height')) : ?>
           <div class="meta-row">
             <p class="key">Высота от поло до потолка</p>
-            <strong class="value"><?php the_field('height'); ?></strong>
+            <strong class="value"><?php echo get_field('height'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('stup')) : ?>
           <div class="meta-row">
             <p class="key">Количество ступеней</p>
-            <strong class="value"><?php the_field('stup'); ?></strong>
+            <strong class="value"><?php echo get_field('stup'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('barrier')) : ?>
           <div class="meta-row">
             <p class="key">Ограждения</p>
-            <strong class="value"><?php the_field('barrier'); ?></strong>
+            <strong class="value"><?php echo get_field('barrier'); ?></strong>
           </div>
           <?php endif; ?>
         </div>
@@ -185,7 +185,7 @@ get_header();
                 $new_price = str_replace('руб', '₽', get_field('price'));
               ?>
                 <strong><?php echo $new_price; ?></strong>
-                <span><?php the_field('price_meta'); ?></span>
+                <span><?php echo get_field('price_meta'); ?></span>
               <?php else : ?>
                 <strong class="empty">Стоимость по запросу</strong>
               <?php endif; ?>
@@ -198,7 +198,7 @@ get_header();
                 </svg>
               </div>
               <?php if (get_field('srok_izgotovleniya')) : ?>
-                <p><?php the_field('srok_izgotovleniya'); ?></p>
+                <p><?php echo get_field('srok_izgotovleniya'); ?></p>
               <?php else : ?>
                 <p>от 20 дней</p>
               <?php endif; ?>
@@ -213,7 +213,6 @@ get_header();
       <?php if( function_exists('wp_pagenavi') ) wp_pagenavi(); ?>
       <?php  wp_reset_query(); ?>
     </div>
-    
     <?php else : ?>
     <div class="cards-wrap">
       <?php
@@ -257,37 +256,37 @@ get_header();
           <?php if (get_field('type_house')) : ?>
           <div class="meta-row">
             <p class="key">Тип помещения</p>
-            <strong class="value"><?php the_field('type_house'); ?></strong>
+            <strong class="value"><?php echo get_field('type_house'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('material')) : ?>
           <div class="meta-row">
             <p class="key">Материал</p>
-            <strong class="value"><?php the_field('material'); ?></strong>
+            <strong class="value"><?php echo get_field('material'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('type')) : ?>
           <div class="meta-row">
             <p class="key">Вид лестницы</p>
-            <strong class="value"><?php the_field('type'); ?></strong>
+            <strong class="value"><?php echo get_field('type'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('height')) : ?>
           <div class="meta-row">
             <p class="key">Высота от поло до потолка</p>
-            <strong class="value"><?php the_field('height'); ?></strong>
+            <strong class="value"><?php echo get_field('height'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('stup')) : ?>
           <div class="meta-row">
             <p class="key">Количество ступеней</p>
-            <strong class="value"><?php the_field('stup'); ?></strong>
+            <strong class="value"><?php echo get_field('stup'); ?></strong>
           </div>
           <?php endif; ?>
           <?php if (get_field('barrier')) : ?>
           <div class="meta-row">
             <p class="key">Ограждения</p>
-            <strong class="value"><?php the_field('barrier'); ?></strong>
+            <strong class="value"><?php echo get_field('barrier'); ?></strong>
           </div>
           <?php endif; ?>
         </div>
@@ -298,7 +297,7 @@ get_header();
                 $new_price = str_replace('руб', '₽', get_field('price'));
               ?>
                 <strong itemprop="price"><?php echo $new_price; ?></strong>
-                <span itemprop="priceCurrency"><?php the_field('price_meta'); ?></span>
+                <span itemprop="priceCurrency"><?php echo get_field('price_meta'); ?></span>
               <?php else : ?>
                 <strong class="empty">Стоимость по запросу</strong>
               <?php endif; ?>
@@ -311,7 +310,7 @@ get_header();
                 </svg>
               </div>
               <?php if (get_field('srok_izgotovleniya')) : ?>
-                <p><?php the_field('srok_izgotovleniya'); ?></p>
+                <p><?php echo get_field('srok_izgotovleniya'); ?></p>
               <?php else : ?>
                 <p>от 20 дней</p>
               <?php endif; ?>
@@ -343,9 +342,9 @@ get_header();
 <?php if (get_field('seo_title')) : ?>
 <section class="seo">
   <div class="container">
-    <h2 class="title"><?php the_field('seo_title'); ?></h2>
+    <h2 class="title"><?php echo get_field('seo_title'); ?></h2>
     <div class="content">
-      <?php the_field('seo_text'); ?>
+      <?php echo get_field('seo_text'); ?>
     </div>
   </div>
 </section>

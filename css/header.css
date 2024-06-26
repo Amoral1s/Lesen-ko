@@ -965,7 +965,7 @@ svg:hover path {
     z-index: 10;
     background-color: #fff;
     width: 100%;
-    height: auto;
+    height: calc(100% - 149px);
     max-height: 100dvh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -1632,6 +1632,16 @@ svg:hover path {
 
   .mob-menu .container .btns {
     margin-bottom: 40px;
+  }
+
+  .mob-menu-catalog .item-header.all-cats {
+    color: #403730 !important;
+  }
+
+  .mob-menu-catalog .item-header.all-cats::after {
+    -webkit-transform: translateY(-50%) rotate(0);
+        -ms-transform: translateY(-50%) rotate(0);
+            transform: translateY(-50%) rotate(0);
   }
 }
 

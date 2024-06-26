@@ -17,9 +17,9 @@ get_header();
   <div class="container">
     <h1 class="page-title"><?php the_title(); ?></h1>
     <div class="subtitle">
-      <p><?php the_field('subtitle'); ?></p>
+      <p><?php echo get_field('subtitle'); ?></p>
       <?php if (get_field('garantijnyj_talon')) : ?>
-      <a href="<?php the_field('garantijnyj_talon'); ?>" target="blank" download class="file">
+      <a href="<?php echo get_field('garantijnyj_talon'); ?>" target="blank" download class="file">
         <div class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
             <path d="M9 10.5L9 0.5M9 10.5L6 7.49979M9 10.5L12 7.49979" stroke="#C01025" stroke-width="1.5"/>
@@ -31,7 +31,7 @@ get_header();
       <?php endif; ?>
     </div>
     <div class="garanty-time">
-      <h2 class="title"><?php the_field('time_title'); ?></h2>
+      <h2 class="title"><?php echo get_field('time_title'); ?></h2>
       <div class="wrap">
         <?php if(have_rows('time')) : while(have_rows('time')) : the_row(); ?>
         <div class="item">
@@ -49,7 +49,7 @@ get_header();
       </div>
     </div>
     <div class="garanty-items">
-      <h2 class="title"><?php the_field('prod_title'); ?></h2>
+      <h2 class="title"><?php echo get_field('prod_title'); ?></h2>
       <ul>
         <?php if(have_rows('produkcziya')) : while(have_rows('produkcziya')) : the_row(); ?>
         <li><?php the_sub_field('naimenovanie'); ?></li>
@@ -57,7 +57,7 @@ get_header();
       </ul>
     </div>
     <div class="content">
-      <?php the_field('tekst'); ?>
+      <?php echo get_field('tekst'); ?>
     </div>
   </div>
 </section>

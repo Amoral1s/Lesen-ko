@@ -532,7 +532,7 @@
     z-index: 10
     background-color: #fff
     width: 100%
-    height: auto
+    height: calc(100% - 149px)
     max-height: calc(100dvh)
     overflow-y: auto
     overflow-x: hidden
@@ -841,7 +841,10 @@
       display: block
       .btns
         margin-bottom: 40px
-
+  .mob-menu-catalog .item-header.all-cats
+    color: $text!important
+    &::after
+      transform: translateY(-50%) rotate(0)
 
 
 

@@ -2,8 +2,8 @@
 <section class="features">
   <div class="features-wrap">
     <div class="left">
-      <h2 class="title"><?php the_field('features_title', 'options'); ?></h2>
-      <p><?php the_field('features_subtitle', 'options'); ?></p>
+      <h2 class="title"><?php echo get_field('features_title', 'options'); ?></h2>
+      <p><?php echo get_field('features_subtitle', 'options'); ?></p>
       <div class="button callback">
         Оставить заявку
       </div>

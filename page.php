@@ -14,7 +14,7 @@
 	<div class="container">
 		<h1 class="page-title"><?php the_title(); ?></h1>
 		<?php if (get_field('post_subtitle')) { ?>
-		<p class="subtitle"><?php the_field('post_subtitle'); ?></p>
+		<p class="subtitle"><?php echo get_field('post_subtitle'); ?></p>
 		<?php } ?>
 		<?php if (get_the_post_thumbnail_url()) : ?>
 		<div class="thumb" style="margin-bottom: 40px;">

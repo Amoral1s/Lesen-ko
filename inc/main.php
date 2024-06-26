@@ -127,14 +127,13 @@ function my_scripts() {
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'lightgallery', get_template_directory_uri() . '/js/lightgallery.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'thumbnail', get_template_directory_uri() . '/js/lg-thumbnail.min.js', array('jquery'), null, true );
-	wp_enqueue_script( 'hammer', get_template_directory_uri() . '/js/hammer.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'phone_mask', get_template_directory_uri() . '/js/phone_mask.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'forms', get_template_directory_uri() . '/js/form.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'sliders', get_template_directory_uri() . '/js/sliders.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'single', get_template_directory_uri() . '/js/single.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'range', get_template_directory_uri() . '/js/range.min.js', array('jquery'), null, true );
-	wp_enqueue_script( 'main_scripts', get_template_directory_uri() . '/js/main_scripts.min.js', array('jquery'), null, true );
+	wp_enqueue_script( 'main_scripts', get_template_directory_uri() . '/js/main_scripts.js', array('jquery'), null, true );
 	wp_enqueue_script( 'calc', get_template_directory_uri() . '/js/calc.min.js', array('jquery'), null, true );
 }
 

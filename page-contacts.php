@@ -19,15 +19,15 @@ get_header();
       <h1 class="page-title"><?php the_title(); ?></h1>
       <div class="row">
         <div class="row-left">
-          <a class="phone" href="tel:<?php the_field('phone', 'options'); ?>" target="blank">
-            <?php the_field('phone', 'options'); ?>         
+          <a class="phone" href="tel:<?php echo get_field('phone', 'options'); ?>" target="blank">
+            <?php echo get_field('phone', 'options'); ?>         
           </a> 
           <time>
-            <?php the_field('work_time', 'options'); ?>  
+            <?php echo get_field('work_time', 'options'); ?>  
           </time>
         </div>
         <div class="row-right">
-          <a class="button button-transparent" href="<?php the_field('whatsapp', 'options'); ?>" target="blank">
+          <a class="button button-transparent" href="<?php echo get_field('whatsapp', 'options'); ?>" target="blank">
             <div class="icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.3991 13.9056C16.1595 13.7864 14.9851 13.212 14.7665 13.132C14.5478 13.0528 14.3886 13.0136 14.2287 13.252C14.0695 13.4888 13.6121 14.0248 13.4731 14.1832C13.3332 14.3424 13.1941 14.3616 12.9554 14.2432C12.7166 14.1232 11.9465 13.8728 11.0342 13.0632C10.3244 12.4328 9.84448 11.6544 9.70541 11.416C9.56635 11.1784 9.69014 11.0496 9.80991 10.9312C9.91763 10.8248 10.0487 10.6536 10.1684 10.5152C10.2882 10.376 10.3276 10.2768 10.4072 10.1176C10.4876 9.95922 10.4474 9.82082 10.3871 9.70162C10.3276 9.58242 9.85011 8.41202 9.65075 7.93603C9.45702 7.47283 9.26008 7.53603 9.11378 7.52803C8.97391 7.52163 8.81475 7.52003 8.65558 7.52003C8.49642 7.52003 8.23758 7.57923 8.01893 7.81763C7.79948 8.05522 7.18293 8.63042 7.18293 9.80082C7.18293 10.9704 8.03823 12.1008 8.158 12.26C8.27777 12.4184 9.84207 14.82 12.2383 15.8496C12.8091 16.0944 13.2536 16.2408 13.6001 16.3496C14.1724 16.5312 14.6933 16.5056 15.1049 16.444C15.5631 16.376 16.518 15.8688 16.7174 15.3136C16.9159 14.7584 16.9159 14.2824 16.8565 14.1832C16.797 14.084 16.6378 14.0248 16.3983 13.9056H16.3991ZM12.0406 19.828H12.0374C10.6141 19.8283 9.21697 19.4475 7.99241 18.7256L7.70302 18.5544L4.69502 19.34L5.49806 16.4216L5.30916 16.1224C4.51346 14.8619 4.09237 13.403 4.09454 11.9144C4.09615 7.55443 7.66042 4.00723 12.0438 4.00723C14.166 4.00723 16.1611 4.83123 17.6611 6.32563C18.401 7.05889 18.9874 7.93088 19.3864 8.89114C19.7854 9.85141 19.9892 10.8809 19.9858 11.92C19.9842 16.28 16.42 19.828 12.0406 19.828ZM18.8026 5.19043C17.9169 4.30317 16.8631 3.59966 15.7022 3.12067C14.5413 2.64168 13.2965 2.39674 12.0398 2.40003C6.77136 2.40003 2.48202 6.66803 2.48041 11.9136C2.47961 13.5904 2.91931 15.2272 3.75612 16.6696L2.40002 21.6L7.46749 20.2768C8.86931 21.0369 10.4402 21.4352 12.0366 21.4352H12.0406C17.309 21.4352 21.5984 17.1672 21.6 11.9208C21.6039 10.6706 21.3586 9.4321 20.8785 8.27685C20.3983 7.1216 19.6927 6.07256 18.8026 5.19043Z" fill="#03AE00"/>
@@ -36,14 +36,14 @@ get_header();
             <p>Whatsapp</p>      
           </a> 
         </div>
-        <a class="email" href="mailto:<?php the_field('email', 'options'); ?>" target="blank">
+        <a class="email" href="mailto:<?php echo get_field('email', 'options'); ?>" target="blank">
           <div class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M6.38564 8.5699C6.62318 8.23057 7.09082 8.14804 7.43016 8.38557L12.0001 11.5845L16.57 8.38557C16.9093 8.14804 17.377 8.23056 17.6145 8.5699C17.852 8.90924 17.7695 9.37689 17.4302 9.61442L12.4302 13.1144C12.1719 13.2952 11.8282 13.2952 11.57 13.1144L6.56997 9.61442C6.23063 9.37689 6.1481 8.90924 6.38564 8.5699Z" fill="#C01025"/>
               <path fill-rule="evenodd" clip-rule="evenodd" d="M4 5.75C3.30964 5.75 2.75 6.30964 2.75 7L2.75 17C2.75 17.6904 3.30964 18.25 4 18.25L20 18.25C20.6904 18.25 21.25 17.6904 21.25 17L21.25 7C21.25 6.30964 20.6904 5.75 20 5.75L4 5.75ZM1.25 7C1.25 5.48122 2.48122 4.25 4 4.25L20 4.25C21.5188 4.25 22.75 5.48122 22.75 7L22.75 17C22.75 18.5188 21.5188 19.75 20 19.75L4 19.75C2.48122 19.75 1.25 18.5188 1.25 17L1.25 7Z" fill="#C01025"/>
             </svg>
           </div>
-          <span><?php the_field('email', 'options'); ?>     </span>    
+          <span><?php echo get_field('email', 'options'); ?>     </span>    
         </a>
       </div>
      
@@ -56,12 +56,12 @@ get_header();
         </div>
         <span>Производство и офис</span>
       </b>
-      <address><?php the_field('adres_proizvodstva', 'options'); ?></address>
-      <a target="blank" rel="nofollow noindex" href="<?php the_field('addres_yandex', 'options'); ?>" class="how mob">Как проехать?</a>
+      <address><?php echo get_field('adres_proizvodstva', 'options'); ?></address>
+      <a target="blank" rel="nofollow noindex" href="<?php echo get_field('addres_yandex', 'options'); ?>" class="how mob">Как проехать?</a>
       <div class="how-pc">
         <div class="toggle">Как проехать?</div>
         <div class="content">
-          <?php the_field('how_content', 'options'); ?>
+          <?php echo get_field('how_content', 'options'); ?>
         </div>
       </div>
       <b>
@@ -73,10 +73,10 @@ get_header();
         </div>
         <span>Дополнительный офис</span>
       </b>
-      <address><?php the_field('adres_ofisa', 'options'); ?></address>
+      <address><?php echo get_field('adres_ofisa', 'options'); ?></address>
     </div>
     <div class="right">
-     <iframe src="<?php the_field('map','options'); ?>" width="765" height="450" frameborder="0"></iframe>
+     <iframe src="<?php echo get_field('map','options'); ?>" width="765" height="450" frameborder="0"></iframe>
     </div>
     
 

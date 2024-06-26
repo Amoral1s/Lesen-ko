@@ -46,7 +46,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name): ge
 		<?php } ?>
 		<h1 itemprop="headline" class="page-title"><?php the_title(); ?></h1>
 		<?php if (get_field('post_subtitle')) { ?>
-		<p class="subtitle"><?php the_field('post_subtitle'); ?></p>
+		<p class="subtitle"><?php echo get_field('post_subtitle'); ?></p>
 		<?php } ?>
 		<div class="author">
 			<!-- <a class="row" href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">

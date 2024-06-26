@@ -4,10 +4,10 @@
   <div class="container">
     <div class="left">
       <h1 class="page-title">
-        <?php the_field('offer_title', 'options'); ?>
+        <?php echo get_field('offer_title', 'options'); ?>
       </h1>
       <p class="subtitle">
-        <?php the_field('offer_subtitle', 'options'); ?>
+        <?php echo get_field('offer_subtitle', 'options'); ?>
       </p>
      <div class="row">
       <a href="<?php the_permalink(1272); ?>" class="button">
@@ -30,8 +30,8 @@
       </div>
     </div>
     <div class="right">
-      <img  itemprop="image" class="pc" style="display: none" src="<?php the_field('offer_bg', 'options'); ?>" title="<?php the_field('offer_title', 'options'); ?>" alt="<?php the_field('offer_title', 'options'); ?>" />
-      <img  itemprop="image" class="mob" src="<?php the_field('offer_bg_mob', 'options'); ?>" title="<?php the_field('offer_title', 'options'); ?>" alt="<?php the_field('offer_title', 'options'); ?>" />
+      <img  itemprop="image" class="pc" style="display: none" src="<?php echo get_field('offer_bg', 'options'); ?>" title="<?php echo get_field('offer_title', 'options'); ?>" alt="<?php echo get_field('offer_title', 'options'); ?>" />
+      <img  itemprop="image" class="mob" src="<?php echo get_field('offer_bg_mob', 'options'); ?>" title="<?php echo get_field('offer_title', 'options'); ?>" alt="<?php echo get_field('offer_title', 'options'); ?>" />
     </div>
     
   </div>
@@ -49,8 +49,8 @@
 
 <section class="case-slider">
   <div class="container">
-    <h2 class="title title-sub"><?php the_field('slider_title', 'options'); ?></h2>
-    <p class="subtitle"><?php the_field('slider_subtitle', 'options'); ?></p>
+    <h2 class="title title-sub"><?php echo get_field('slider_title', 'options'); ?></h2>
+    <p class="subtitle"><?php echo get_field('slider_subtitle', 'options'); ?></p>
     <div class="case-slider-wrap">
       <div class="arr arr-prev">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -85,37 +85,37 @@
                 <?php if (get_field('type_house')) : ?>
                 <div class="meta-row">
                   <p class="key">Тип помещения</p>
-                  <strong class="value"><?php the_field('type_house'); ?></strong>
+                  <strong class="value"><?php echo get_field('type_house'); ?></strong>
                 </div>
                 <?php endif; ?>
                 <?php if (get_field('material')) : ?>
                 <div class="meta-row">
                   <p class="key">Материал</p>
-                  <strong class="value"><?php the_field('material'); ?></strong>
+                  <strong class="value"><?php echo get_field('material'); ?></strong>
                 </div>
                 <?php endif; ?>
                 <?php if (get_field('type')) : ?>
                 <div class="meta-row">
                   <p class="key">Вид лестницы</p>
-                  <strong class="value"><?php the_field('type'); ?></strong>
+                  <strong class="value"><?php echo get_field('type'); ?></strong>
                 </div>
                 <?php endif; ?>
                 <?php if (get_field('height')) : ?>
                 <div class="meta-row">
                   <p class="key">Высота от поло до потолка</p>
-                  <strong class="value"><?php the_field('height'); ?></strong>
+                  <strong class="value"><?php echo get_field('height'); ?></strong>
                 </div>
                 <?php endif; ?>
                 <?php if (get_field('stup')) : ?>
                 <div class="meta-row">
                   <p class="key">Количество ступеней</p>
-                  <strong class="value"><?php the_field('stup'); ?></strong>
+                  <strong class="value"><?php echo get_field('stup'); ?></strong>
                 </div>
                 <?php endif; ?>
                 <?php if (get_field('barrier')) : ?>
                 <div class="meta-row">
                   <p class="key">Ограждения</p>
-                  <strong class="value"><?php the_field('barrier'); ?></strong>
+                  <strong class="value"><?php echo get_field('barrier'); ?></strong>
                 </div>
                 <?php endif; ?>
               </div>
@@ -123,7 +123,7 @@
                 <div class="price-wrapper <?php if (!get_field('price')) { echo 'empty'; } ?>">
                   <div class="price">
                     <?php if (get_field('price')) : ?>
-                      <strong><?php the_field('price'); ?></strong>
+                      <strong><?php echo get_field('price'); ?></strong>
                     <?php else : ?>
                       <strong class="empty">Стоимость по запросу</strong>
                     <?php endif; ?>
@@ -136,7 +136,7 @@
                       </svg>
                     </div>
                     <?php if (get_field('srok_izgotovleniya')) : ?>
-                      <p><?php the_field('srok_izgotovleniya'); ?></p>
+                      <p><?php echo get_field('srok_izgotovleniya'); ?></p>
                     <?php else : ?>
                       <p>от 20 дней</p>
                     <?php endif; ?>
@@ -181,7 +181,7 @@
           <b><?php the_title(); ?></b>
           <div class="price">
             <?php if (get_field('price')) : ?>
-              <strong><?php the_field('price'); ?></strong>
+              <strong><?php echo get_field('price'); ?></strong>
             <?php else : ?>
               <strong class="empty">Стоимость по запросу</strong>
             <?php endif; ?>
@@ -197,9 +197,9 @@
 <section class="banner-youtube container">
   <div class="wrap">
     <div class="left">
-      <h2 class="left-title"><?php the_field('yt_title', 'options'); ?></h2>
-      <p><?php the_field('yt_subtitle', 'options'); ?></p>
-      <a class="button button-white" href="<?php the_field('yt_link', 'options'); ?>" target="blank" rel="nofollow">
+      <h2 class="left-title"><?php echo get_field('yt_title', 'options'); ?></h2>
+      <p><?php echo get_field('yt_subtitle', 'options'); ?></p>
+      <a class="button button-white" href="<?php echo get_field('yt_link', 'options'); ?>" target="blank" rel="nofollow">
         <div class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M22.3329 6.8158C22.0843 5.89257 21.3564 5.16464 20.4332 4.91608C18.7465 4.45447 11.9999 4.45447 11.9999 4.45447C11.9999 4.45447 5.25319 4.45447 3.56652 4.89833C2.66105 5.14689 1.91537 5.89257 1.66681 6.8158C1.22295 8.50247 1.22295 12.0001 1.22295 12.0001C1.22295 12.0001 1.22295 15.5154 1.66681 17.1844C1.91537 18.1076 2.6433 18.8355 3.56652 19.0841C5.27094 19.5457 11.9999 19.5457 11.9999 19.5457C11.9999 19.5457 18.7465 19.5457 20.4332 19.1018C21.3564 18.8533 22.0843 18.1253 22.3329 17.2021C22.7768 15.5154 22.7768 12.0178 22.7768 12.0178C22.7768 12.0178 22.7945 8.50247 22.3329 6.8158Z" fill="#FF0000"/>
@@ -210,8 +210,8 @@
       </a>
     </div>
     <div class="right">
-      <img  itemprop="image" class="pc" src="<?php the_field('yt_img', 'options'); ?>" alt="<?php the_field('yt_title', 'options'); ?>">
-      <img  itemprop="image" class="mob" style="display: none" src="<?php the_field('yt_img_mob', 'options'); ?>" alt="<?php the_field('yt_title', 'options'); ?>">
+      <img  itemprop="image" class="pc" src="<?php echo get_field('yt_img', 'options'); ?>" alt="<?php echo get_field('yt_title', 'options'); ?>">
+      <img  itemprop="image" class="mob" style="display: none" src="<?php echo get_field('yt_img_mob', 'options'); ?>" alt="<?php echo get_field('yt_title', 'options'); ?>">
     </div>
   </div>
 </section>
@@ -220,8 +220,8 @@
 <?php if (get_field('popular_title', 'options')) : ?>
 <section class="popular">
   <div class="container">
-    <h2 class="title title-sub"><?php the_field('popular_title', 'options'); ?></h2>
-    <p class="subtitle"><?php the_field('popular_subtitle', 'options'); ?></p>
+    <h2 class="title title-sub"><?php echo get_field('popular_title', 'options'); ?></h2>
+    <p class="subtitle"><?php echo get_field('popular_subtitle', 'options'); ?></p>
     <div itemscope itemtype="https://schema.org/ItemList" class="popular-wrap">
       <?php if (have_rows('popular', 'options')) : while(have_rows('popular', 'options')) : the_row(); ?>
       <a itemprop="url" itemprop="itemListElement" href="<?php the_sub_field('ssylka'); ?>" class="item" style="background-image: url(
@@ -242,8 +242,8 @@
 <section class="know container">
   <div class="know-wrap">
     <div class="left">
-      <h2 class="title title-sub"><?php the_field('know_title', 'options'); ?></h2>
-      <p class="subtitle"><?php the_field('know_subtitle', 'options'); ?></p>
+      <h2 class="title title-sub"><?php echo get_field('know_title', 'options'); ?></h2>
+      <p class="subtitle"><?php echo get_field('know_subtitle', 'options'); ?></p>
       <div class="button callback">
         Получить консультацию
       </div>
@@ -283,7 +283,7 @@
     </div>
     <div class="calc-wrapper">
       <div class="images quiz-step active calc-item-wrap">
-        <b class="title calc-item-title"><?php the_field('1_title', 'options'); ?></b>
+        <b class="title calc-item-title"><?php echo get_field('1_title', 'options'); ?></b>
         <div class="images-row">
           <?php $index = 1; if (have_rows('1_row', 'options')) : while(have_rows('1_row', 'options')) : the_row(); ?>
             <input value="<?php the_sub_field('znachenie'); ?>" style="display: none" type="radio" name="type" id="type_<?php echo $index; ?>" <?php if ($index == 1) { echo 'checked'; } ?>>
@@ -304,7 +304,7 @@
         </div>
       </div>
       <div class="images quiz-step calc-item-wrap">
-        <b class="title calc-item-title"><?php the_field('2_title', 'options'); ?></b>
+        <b class="title calc-item-title"><?php echo get_field('2_title', 'options'); ?></b>
         <div class="images-row">
           <?php $index = 1; if (have_rows('2_row', 'options')) : while(have_rows('2_row', 'options')) : the_row(); ?>
             <input value="<?php the_sub_field('znachenie'); ?>" style="display: none" type="radio" name="material" id="material_<?php echo $index; ?>" <?php if ($index == 1) { echo 'checked'; } ?>>
@@ -325,7 +325,7 @@
         </div>
       </div>
       <div class="textes quiz-step calc-item-wrap">
-        <b class="title calc-item-title"><?php the_field('3_title', 'options'); ?></b>
+        <b class="title calc-item-title"><?php echo get_field('3_title', 'options'); ?></b>
         <div class="textes-row">
           <?php $index = 1; if (have_rows('3_row', 'options')) : while(have_rows('3_row', 'options')) : the_row(); ?>
             <input value="<?php the_sub_field('znachenie'); ?>" style="display: none" type="radio" name="pokritie" id="pokritie_<?php echo $index; ?>" <?php if ($index == 1) { echo 'checked'; } ?>>
@@ -336,7 +336,7 @@
         </div>
       </div>
       <div class="images quiz-step calc-item-wrap big">
-        <b class="title calc-item-title"><?php the_field('4_title', 'options'); ?></b>
+        <b class="title calc-item-title"><?php echo get_field('4_title', 'options'); ?></b>
         <div class="images-row">
           <?php $index = 1; if (have_rows('4_row', 'options')) : while(have_rows('4_row', 'options')) : the_row(); ?>
             <input value="<?php the_sub_field('znachenie'); ?>" style="display: none" type="radio" name="podstup" id="podstup_<?php echo $index; ?>" <?php if ($index == 1) { echo 'checked'; } ?>>
@@ -357,7 +357,7 @@
         </div>
       </div>
       <div class="ranges quiz-step calc-item-wrap">
-        <b class="title calc-item-title"><?php the_field('5_title', 'options'); ?></b>
+        <b class="title calc-item-title"><?php echo get_field('5_title', 'options'); ?></b>
         <div class="ranges-block">
           <?php $index = 1; if (have_rows('5_row', 'options')) : while(have_rows('5_row', 'options')) : the_row(); ?>
             <div class="item">
@@ -381,13 +381,13 @@
       </div>
       <div class="calc-form quiz-step">
         <div class="left">
-          <b><?php the_field('buy_title','options'); ?></b>
-          <p><?php the_field('buy_subtitle','options'); ?></p>
+          <b><?php echo get_field('buy_title','options'); ?></b>
+          <p><?php echo get_field('buy_subtitle','options'); ?></p>
         </div>
         <div class="right">
           <div class="meta">
             <strong><span class="summ">0</span> ₽</strong>
-            <small><?php the_field('oboznachenie_czeny','options'); ?></small>
+            <small><?php echo get_field('oboznachenie_czeny','options'); ?></small>
           </div>
           <div class="button calculate-call">
             Заказать лестницу
@@ -409,8 +409,8 @@
 <?php if (get_field('dop_title', 'options')) : ?>
 <section class="popular">
   <div class="container">
-    <h2 class="title title-sub"><?php the_field('dop_title', 'options'); ?></h2>
-    <p class="subtitle"><?php the_field('dop_subtitle', 'options'); ?></p>
+    <h2 class="title title-sub"><?php echo get_field('dop_title', 'options'); ?></h2>
+    <p class="subtitle"><?php echo get_field('dop_subtitle', 'options'); ?></p>
     <div itemscope itemtype="https://schema.org/ItemList" class="popular-wrap">
       <?php if (have_rows('dop_cards', 'options')) : while(have_rows('dop_cards', 'options')) : the_row(); ?>
       <a itemprop="url" itemprop="itemListElement" href="<?php the_sub_field('ssylka'); ?>" class="item" style="background-image: url(
@@ -432,8 +432,8 @@
   <div class="container">
     <div class="features-wrap">
       <div class="left">
-        <h2 class="title"><?php the_field('features_title', 'options'); ?></h2>
-        <p><?php the_field('features_subtitle', 'options'); ?></p>
+        <h2 class="title"><?php echo get_field('features_title', 'options'); ?></h2>
+        <p><?php echo get_field('features_subtitle', 'options'); ?></p>
         <div class="button callback">
           Оставить заявку
         </div>
@@ -518,8 +518,8 @@
 <section class="feedback">
   <div class="container">
     <div class="title-block">
-      <h2 class="title title-sub"><?php the_field('feedback_title', 'options'); ?></h2>
-      <p class="subtitle"><?php the_field('feedback_subtitle', 'options'); ?></p>
+      <h2 class="title title-sub"><?php echo get_field('feedback_title', 'options'); ?></h2>
+      <p class="subtitle"><?php echo get_field('feedback_subtitle', 'options'); ?></p>
       <a href="<?php the_permalink(1201); ?>" class="link">
         <span>Все отзывы</span>
         <div class="icon">
@@ -630,8 +630,8 @@
   <div class="container">
     <div class="professionals-wrap">
       <div class="left">
-        <h2 class="title title-sub"><?php the_field('profi_title', 'options'); ?></h2>
-        <p class="subtitle"><?php the_field('profi_subtitle', 'options'); ?></p>
+        <h2 class="title title-sub"><?php echo get_field('profi_title', 'options'); ?></h2>
+        <p class="subtitle"><?php echo get_field('profi_subtitle', 'options'); ?></p>
         <div class="row">
           <?php $profi_i = 1; if (have_rows('profi', 'options')) : while(have_rows('profi', 'options')) : the_row(); ?>
           <div class="item">
@@ -667,8 +667,8 @@
 <?php if (get_field('team_title', 'options')) : ?>
 <section class="team">
   <div class="container">
-    <h2 class="title title-sub"><?php the_field('team_title', 'options'); ?></h2>
-    <p class="subtitle"><?php the_field('team_subtitle', 'options'); ?></p>
+    <h2 class="title title-sub"><?php echo get_field('team_title', 'options'); ?></h2>
+    <p class="subtitle"><?php echo get_field('team_subtitle', 'options'); ?></p>
     <div class="team-wrap">
       <div class="arr arr-prev">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -713,10 +713,10 @@
 <?php if (get_field('production_title', 'options')) : ?>
 <section class="production">
   <div class="container">
-    <h2 class="title title-sub"><?php the_field('production_title', 'options'); ?></h2>
-    <p class="subtitle"><?php the_field('production_subtitle', 'options'); ?></p>
+    <h2 class="title title-sub"><?php echo get_field('production_title', 'options'); ?></h2>
+    <p class="subtitle"><?php echo get_field('production_subtitle', 'options'); ?></p>
   </div>
-  <div class="production-wrap video-data" data-src="<?php the_field('production_link', 'options'); ?>">
+  <div class="production-wrap video-data" data-src="<?php echo get_field('production_link', 'options'); ?>">
     <?php
       $team_img = get_field('production_img','options'); // Получаем массив данных из поля ACF
       if ($team_img) {
@@ -739,9 +739,9 @@
 <?php if (get_field('seo_title', 'options')) : ?>
 <section class="seo">
   <div class="container">
-    <h2 class="title"><?php the_field('seo_title', 'options'); ?></h2>
+    <h2 class="title"><?php echo get_field('seo_title', 'options'); ?></h2>
     <div class="content">
-      <?php the_field('seo_text', 'options'); ?>
+      <?php echo get_field('seo_text', 'options'); ?>
     </div>
   </div>
 </section>
@@ -754,7 +754,7 @@
     <span itemprop="addressLocality">г. Москва</span>,
     <span itemprop="postalCode">109651</span>
   </div>
-  Телефон: <span itemprop="telephone"><?php the_field('phone','options'); ?></span>
+  Телефон: <span itemprop="telephone"><?php echo get_field('phone','options'); ?></span>
 </div>
 <div itemscope itemtype="http://schema.org/LocalBusiness" style="display: none;">
   <span itemprop="name">ООО "Лесен-Ко"</span>
@@ -763,7 +763,7 @@
     <span itemprop="addressLocality">г. Москва</span>,
     <span itemprop="postalCode">109651</span>
   </div>
-  Телефон: <span itemprop="telephone"><?php the_field('phone','options'); ?></span><br>
+  Телефон: <span itemprop="telephone"><?php echo get_field('phone','options'); ?></span><br>
   Часы работы: <span itemprop="openingHours">пн-сб 10:00 - 19:00</span><br>
   <span itemprop="description">Изготовление и монтаж металлоконструкций любой сложности</span>
 </div>

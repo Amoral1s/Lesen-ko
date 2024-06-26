@@ -53,7 +53,7 @@ get_header();
 <?php if (get_field('text_tap', 'options') == false) : ?>
 <section class="text-feed">
   <div class="container">
-    <h2 class="title"><?php the_field('textfeed_title', 'options'); ?></h2>
+    <h2 class="title"><?php echo get_field('textfeed_title', 'options'); ?></h2>
     <div class="wrap">
       <?php if (have_rows('textfeed', 'options')) : while(have_rows('textfeed', 'options')) : the_row(); ?>
       <div  itemprop="review" itemscope itemtype="https://schema.org/Review" class="item">

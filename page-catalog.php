@@ -139,8 +139,8 @@ get_header();
   <div class="container">
     <div class="features-wrap">
       <div class="left">
-        <h2 class="title"><?php the_field('features_title', 'options'); ?></h2>
-        <p><?php the_field('features_subtitle', 'options'); ?></p>
+        <h2 class="title"><?php echo get_field('features_title', 'options'); ?></h2>
+        <p><?php echo get_field('features_subtitle', 'options'); ?></p>
         <div class="button callback">
           Оставить заявку
         </div>
@@ -166,8 +166,8 @@ get_header();
   <div class="container">
     <div class="professionals-wrap">
       <div class="left">
-        <h2 class="title title-sub"><?php the_field('profi_title', 'options'); ?></h2>
-        <p class="subtitle"><?php the_field('profi_subtitle', 'options'); ?></p>
+        <h2 class="title title-sub"><?php echo get_field('profi_title', 'options'); ?></h2>
+        <p class="subtitle"><?php echo get_field('profi_subtitle', 'options'); ?></p>
         <div class="row">
           <?php $profi_i = 1; if (have_rows('profi', 'options')) : while(have_rows('profi', 'options')) : the_row(); ?>
           <div class="item">

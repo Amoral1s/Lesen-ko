@@ -1,5 +1,5 @@
 <div class="production content-production">
-  <div class="production-wrap video-data" data-src="<?php the_field('ssylka_na_youtube_video'); ?>">
+  <div class="production-wrap video-data" data-src="<?php echo get_field('ssylka_na_youtube_video'); ?>">
     <?php
       $team_img = get_field('prevyu_video'); // Получаем массив данных из поля ACF
       if ($team_img) {

@@ -19,7 +19,7 @@ get_header();
     <p class="subtitle">Пройдите опрос и получите бесплатный расчёт стоимости</p>
     <div class="calc-wrapper">
       <div class="images calc-item-wrap">
-        <b class="title calc-item-title"><?php the_field('1_title', 'options'); ?></b>
+        <b class="title calc-item-title"><?php echo get_field('1_title', 'options'); ?></b>
         <div class="images-row">
           <?php $index = 1; if (have_rows('1_row', 'options')) : while(have_rows('1_row', 'options')) : the_row(); ?>
             <input value="<?php the_sub_field('znachenie'); ?>" style="display: none" type="radio" name="type" id="type_<?php echo $index; ?>" <?php if ($index == 1) { echo 'checked'; } ?>>
@@ -41,7 +41,7 @@ get_header();
       </div>
 
       <div class="images calc-item-wrap">
-        <b class="title calc-item-title"><?php the_field('2_title', 'options'); ?></b>
+        <b class="title calc-item-title"><?php echo get_field('2_title', 'options'); ?></b>
         <div class="images-row">
           <?php $index = 1; if (have_rows('2_row', 'options')) : while(have_rows('2_row', 'options')) : the_row(); ?>
             <input value="<?php the_sub_field('znachenie'); ?>" style="display: none" type="radio" name="material" id="material_<?php echo $index; ?>" <?php if ($index == 1) { echo 'checked'; } ?>>
@@ -63,7 +63,7 @@ get_header();
       </div>
 
       <div class="textes calc-item-wrap">
-        <b class="title calc-item-title"><?php the_field('3_title', 'options'); ?></b>
+        <b class="title calc-item-title"><?php echo get_field('3_title', 'options'); ?></b>
         <div class="textes-row">
           <?php $index = 1; if (have_rows('3_row', 'options')) : while(have_rows('3_row', 'options')) : the_row(); ?>
             <input value="<?php the_sub_field('znachenie'); ?>" style="display: none" type="radio" name="pokritie" id="pokritie_<?php echo $index; ?>" <?php if ($index == 1) { echo 'checked'; } ?>>
@@ -75,7 +75,7 @@ get_header();
       </div>
 
       <div class="images calc-item-wrap big">
-        <b class="title calc-item-title"><?php the_field('4_title', 'options'); ?></b>
+        <b class="title calc-item-title"><?php echo get_field('4_title', 'options'); ?></b>
         <div class="images-row">
           <?php $index = 1; if (have_rows('4_row', 'options')) : while(have_rows('4_row', 'options')) : the_row(); ?>
             <input value="<?php the_sub_field('znachenie'); ?>" style="display: none" type="radio" name="podstup" id="podstup_<?php echo $index; ?>" <?php if ($index == 1) { echo 'checked'; } ?>>
@@ -97,7 +97,7 @@ get_header();
       </div>
 
       <div class="ranges calc-item-wrap">
-        <b class="title calc-item-title"><?php the_field('5_title', 'options'); ?></b>
+        <b class="title calc-item-title"><?php echo get_field('5_title', 'options'); ?></b>
         <div class="ranges-block">
           <?php $index = 1; if (have_rows('5_row', 'options')) : while(have_rows('5_row', 'options')) : the_row(); ?>
             <div class="item">
@@ -123,13 +123,13 @@ get_header();
     </div>
     <div class="calc-form">
       <div class="left">
-        <b><?php the_field('buy_title','options'); ?></b>
-        <p><?php the_field('buy_subtitle','options'); ?></p>
+        <b><?php echo get_field('buy_title','options'); ?></b>
+        <p><?php echo get_field('buy_subtitle','options'); ?></p>
       </div>
       <div class="right">
         <div class="meta">
           <strong><span class="summ">0</span> ₽</strong>
-          <small><?php the_field('oboznachenie_czeny','options'); ?></small>
+          <small><?php echo get_field('oboznachenie_czeny','options'); ?></small>
         </div>
         <div class="button calculate-call">
           Заказать лестницу

@@ -18,7 +18,7 @@ get_header();
   <div class="container wrap">
     <div class="left">
       <h1 class="page-title"><?php the_title(); ?></h1>
-      <p class="subtitle"><?php the_field('offer_subtitle'); ?></p>
+      <p class="subtitle"><?php echo get_field('offer_subtitle'); ?></p>
       <div class="row">
         <a href="<?php the_permalink(1272); ?>" class="button">
           Бесплатный расчёт
@@ -46,7 +46,7 @@ get_header();
 <?php if (get_field('history_title')) : ?>
 <section class="about-history">
   <div class="container">
-    <h2 class="title"><?php the_field('history_title'); ?></h2>
+    <h2 class="title"><?php echo get_field('history_title'); ?></h2>
     <div class="wrapper-scroll">
       <div class="wrap">
         <?php if (have_rows('history')) : while(have_rows('history')) : the_row(); ?>
@@ -73,11 +73,11 @@ get_header();
   <div class="container">
     <div class="wrap">
       <div class="left">
-        <h2 class="title title-sub"><?php the_field('our_title'); ?></h2>
-        <p class="subtitle"><?php the_field('our_subtitle'); ?></p>
+        <h2 class="title title-sub"><?php echo get_field('our_title'); ?></h2>
+        <p class="subtitle"><?php echo get_field('our_subtitle'); ?></p>
         <div class="gena">
           <div class="gena-name">
-            <b><?php the_field('imya_gen_dira'); ?></b>
+            <b><?php echo get_field('imya_gen_dira'); ?></b>
             <p>Генеральный директор</p>
           </div>
           <div class="gena-line">
@@ -118,8 +118,8 @@ get_header();
 <?php if (get_field('pokazyvat_komandu')) : ?>
 <section class="team">
   <div class="container">
-    <h2 class="title title-sub"><?php the_field('team_title', 'options'); ?></h2>
-    <p class="subtitle"><?php the_field('team_subtitle', 'options'); ?></p>
+    <h2 class="title title-sub"><?php echo get_field('team_title', 'options'); ?></h2>
+    <p class="subtitle"><?php echo get_field('team_subtitle', 'options'); ?></p>
     <div class="team-wrap">
       <div class="arr arr-prev">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -165,9 +165,9 @@ get_header();
 <section class="banner-youtube container">
   <div class="wrap">
     <div class="left">
-      <h2 class="left-title"><?php the_field('yt_title', 'options'); ?></h2>
-      <p><?php the_field('yt_subtitle', 'options'); ?></p>
-      <a class="button button-white" href="<?php the_field('yt_link', 'options'); ?>" target="blank" rel="nofollow">
+      <h2 class="left-title"><?php echo get_field('yt_title', 'options'); ?></h2>
+      <p><?php echo get_field('yt_subtitle', 'options'); ?></p>
+      <a class="button button-white" href="<?php echo get_field('yt_link', 'options'); ?>" target="blank" rel="nofollow">
         <div class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M22.3329 6.8158C22.0843 5.89257 21.3564 5.16464 20.4332 4.91608C18.7465 4.45447 11.9999 4.45447 11.9999 4.45447C11.9999 4.45447 5.25319 4.45447 3.56652 4.89833C2.66105 5.14689 1.91537 5.89257 1.66681 6.8158C1.22295 8.50247 1.22295 12.0001 1.22295 12.0001C1.22295 12.0001 1.22295 15.5154 1.66681 17.1844C1.91537 18.1076 2.6433 18.8355 3.56652 19.0841C5.27094 19.5457 11.9999 19.5457 11.9999 19.5457C11.9999 19.5457 18.7465 19.5457 20.4332 19.1018C21.3564 18.8533 22.0843 18.1253 22.3329 17.2021C22.7768 15.5154 22.7768 12.0178 22.7768 12.0178C22.7768 12.0178 22.7945 8.50247 22.3329 6.8158Z" fill="#FF0000"/>
@@ -178,8 +178,8 @@ get_header();
       </a>
     </div>
     <div class="right">
-      <img class="pc" src="<?php the_field('yt_img', 'options'); ?>" alt="<?php the_field('yt_title', 'options'); ?>">
-      <img class="mob" style="display: none" src="<?php the_field('yt_img_mob', 'options'); ?>" alt="<?php the_field('yt_title', 'options'); ?>">
+      <img class="pc" src="<?php echo get_field('yt_img', 'options'); ?>" alt="<?php echo get_field('yt_title', 'options'); ?>">
+      <img class="mob" style="display: none" src="<?php echo get_field('yt_img_mob', 'options'); ?>" alt="<?php echo get_field('yt_title', 'options'); ?>">
     </div>
   </div>
 </section>
@@ -188,10 +188,10 @@ get_header();
 <?php if (get_field('pro_title')) : ?>
 <section class="production">
   <div class="container">
-    <h2 class="title title-sub"><?php the_field('pro_title'); ?></h2>
-    <p class="subtitle"><?php the_field('pro_subtitle'); ?></p>
+    <h2 class="title title-sub"><?php echo get_field('pro_title'); ?></h2>
+    <p class="subtitle"><?php echo get_field('pro_subtitle'); ?></p>
   </div>
-  <div class="production-wrap video-data" data-src="<?php the_field('pro_link'); ?>">
+  <div class="production-wrap video-data" data-src="<?php echo get_field('pro_link'); ?>">
     <?php
       $prod_img = get_field('pro_img'); // Получаем массив данных из поля ACF
       if ($prod_img) {
@@ -214,9 +214,9 @@ get_header();
 <?php if (get_field('seo_title')) : ?>
 <section class="seo no-hidden">
   <div class="container">
-    <h2 class="title"><?php the_field('seo_title'); ?></h2>
+    <h2 class="title"><?php echo get_field('seo_title'); ?></h2>
     <div class="content">
-      <?php the_field('seo_text'); ?>
+      <?php echo get_field('seo_text'); ?>
     </div>
   </div>
 </section>
@@ -225,7 +225,7 @@ get_header();
 <?php if (get_field('sert_title')) : ?>
 <section class="sert">
   <div class="container">
-    <h2 class="title"><?php the_field('sert_title'); ?></h2>
+    <h2 class="title"><?php echo get_field('sert_title'); ?></h2>
     <div class="swiper">
       <div class="wrap mag-toggle swiper-wrapper">
         <?php 
@@ -267,7 +267,7 @@ get_header();
     <span itemprop="addressLocality">г. Москва</span>,
     <span itemprop="postalCode">109651</span>
   </div>
-  Телефон: <span itemprop="telephone"><?php the_field('phone','options'); ?></span>
+  Телефон: <span itemprop="telephone"><?php echo get_field('phone','options'); ?></span>
 </div>
 <div itemscope itemtype="http://schema.org/LocalBusiness" style="display: none;">
   <span itemprop="name">ООО "Лесен-Ко"</span>
@@ -276,7 +276,7 @@ get_header();
     <span itemprop="addressLocality">г. Москва</span>,
     <span itemprop="postalCode">109651</span>
   </div>
-  Телефон: <span itemprop="telephone"><?php the_field('phone','options'); ?></span><br>
+  Телефон: <span itemprop="telephone"><?php echo get_field('phone','options'); ?></span><br>
   Часы работы: <span itemprop="openingHours">пн-сб 10:00 - 19:00</span><br>
   <span itemprop="description">Изготовление и монтаж металлоконструкций любой сложности</span>
 </div>

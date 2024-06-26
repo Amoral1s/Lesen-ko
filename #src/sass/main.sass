@@ -563,8 +563,9 @@
   overflow-y: hidden
   display: block
   position: relative
-  max-width: calc(100vw - 10px)
+  padding-right: 10px
   .header
+    padding-right: 10px
     &::after
       height: 100%
       width: 10px
@@ -4165,15 +4166,25 @@ a.zhitov_wdiv.button
   .offer-form .form .row .input.file
     padding-left: 0
     
-
+.content-table .item, .seo-table .item
+  &.first
+    .key, .value
+      font-weight: 800
 
 .footer
   .link-ao
     padding-top: 30px
     text-align: center
     display: block
+    padding-bottom: 30px
+    display: flex
+    justify-content: center
+    align-items: center
     a
       font-size: 14px
+      color: rgba(255,255,255,.5)
+      &:hover
+        color: rgba(255,255,255,.9)
 
 
 @media (max-width: 578px)
@@ -4338,7 +4349,28 @@ html
 
 
 
+@media (max-width: 578px)
+  .req-wrap .left .item p
+    padding-right: 30px
+    &:before
+      display: none!important
+    &::after
+      right: 0
+  .stair-offer-wrap .right .price-row 
+    .empty
+      font-size: 16px!important
+    .button
+      margin-right: 15px
+      white-space: nowrap
 
+@media (max-width: 370px)
+  .stair-offer-wrap .right .price-row 
+    .empty
+      font-size: 14px!important
+    .button
+      margin-right: 10px
+      white-space: nowrap
+      font-size: 12px
 
 
 

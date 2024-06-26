@@ -17,9 +17,9 @@ get_header();
 <section class="pay-terms">
   <div class="container">
     <h1 class="page-title title-sub"><?php the_title(); ?></h1>
-    <p class="subtitle"><?php the_field('subtitle'); ?></p>
-    <h2 class="title title-sub"><?php the_field('pay_title'); ?></h2>
-    <p class="subtitle"><?php the_field('pay_subtitle'); ?></p>
+    <p class="subtitle"><?php echo get_field('subtitle'); ?></p>
+    <h2 class="title title-sub"><?php echo get_field('pay_title'); ?></h2>
+    <p class="subtitle"><?php echo get_field('pay_subtitle'); ?></p>
     <div class="wrap">
       <?php if(have_rows('pay_terms')) : while(have_rows('pay_terms')) : the_row(); ?>
       <div class="wrap-item">
@@ -28,8 +28,8 @@ get_header();
       </div>
       <?php endwhile; endif; ?>
     </div>
-    <h2 class="title title-sub"><?php the_field('deliv_title'); ?></h2>
-    <p class="subtitle"><?php the_field('deliv_subtitle'); ?></p>
+    <h2 class="title title-sub"><?php echo get_field('deliv_title'); ?></h2>
+    <p class="subtitle"><?php echo get_field('deliv_subtitle'); ?></p>
     <div class="wrap">
       <?php if(have_rows('deliv')) : while(have_rows('deliv')) : the_row(); ?>
       <div class="wrap-item half">
@@ -39,7 +39,7 @@ get_header();
       <?php endwhile; endif; ?>
     </div>
     <div class="content">
-      <?php the_field('deliv_content'); ?>
+      <?php echo get_field('deliv_content'); ?>
     </div>
   </div>
 </section>
